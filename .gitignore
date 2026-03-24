@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+.build/
+dist/
+build/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# IDE/editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment & secrets
+.env
+.env.*
+
+# Data/artifacts (local)
+/results/*.json
+/figures/*.png
+/checkpoints/
+/logs/
+*.log
+
+# Model weights
+*.pt
+*.pth
+*.onnx
+
+# ML experiment trackers
+wandb/
+mlruns/
+
+# Archives
+*.tar.gz
+*.zip

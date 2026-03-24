@@ -1,0 +1,28 @@
+{
+    "dataset": {
+        "n_symbols": 16384,
+        "n_bins": 100,
+        "n_realisations": 5,
+        "seed": 42,
+        "train_ratio": 0.70,
+        "val_ratio": 0.15
+    },
+    "model": {
+        "n_classes": 5,
+        "use_caam": true
+    },
+    "training": {
+        "batch_size": 128,
+        "max_epochs": 200,
+        "patience": 20,
+        "lr": 1e-3,
+        "lr_min": 1e-5,
+        "focal_gamma": 2.0,
+        "use_uncertainty_weighting": true
+    },
+    "fast": {
+        "max_epochs": 30,
+        "patience": 8,
+        "n_realisations": 2
+    }
+}

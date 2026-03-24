@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+title: "MT-OPMNet: Attention-Enhanced Multi-Task Deep Learning for Joint OSNR Estimation and Modulation Format Recognition"
+type: software
+version: 1.0.0
+date-released: "2025-01-01"
+message: If you use this software, please cite both the software and the accompanying paper.
+authors:
+  - family-names: Al-Karawi
+    given-names: Yassir Ameen Ahmed
+    affiliation: University of Diyala, Iraq
+  - family-names: Alhumaima
+    given-names: Raad S.
+    affiliation: University of Diyala / Al-Imam Al-Sadiq University, Iraq
+  - family-names: Al-Raweshidy
+    given-names: Hamed
+    affiliation: Brunel University London, United Kingdom
+license: MIT
+repository-code: https://github.com/YassirALKarawi/MT-OPMNet
+keywords:
+  - optical performance monitoring
+  - OSNR estimation
+  - modulation format identification
+  - multi-task learning
+  - deep learning
+  - elastic optical networks
+  - channel-aware attention
+preferred-citation:
+  type: article
+  title: "MT-OPMNet: Attention-Enhanced Multi-Task Deep Learning for Joint OSNR Estimation and Modulation Format Recognition in Elastic Optical Networks"
+  authors:
+    - family-names: Al-Karawi
+      given-names: Yassir Ameen Ahmed
+    - family-names: Alhumaima
+      given-names: Raad S.
+    - family-names: Al-Raweshidy
+      given-names: Hamed
+  journal: IEEE Access
+  year: 2025
