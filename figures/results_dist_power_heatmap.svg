@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 420" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="dp_bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc"/><stop offset="100%" style="stop-color:#f1f5f9"/>
+    </linearGradient>
+  </defs>
+  <rect width="700" height="420" rx="14" fill="url(#dp_bg)"/>
+  <text x="350" y="28" text-anchor="middle" font-size="15" font-weight="700" fill="#1e293b">OSNR RMSE: Distance × Launch Power (16-QAM)</text>
+  <text x="350" y="44" text-anchor="middle" font-size="10" fill="#64748b">28 GBd — interplay of linear and nonlinear impairments (paper Fig. 19)</text>
+
+  <!-- Heatmap: 6 rows (distances) × 5 cols (powers) -->
+  <!-- Cell: 85×48, start at (130, 65) -->
+
+  <!-- Column headers (Launch Power) -->
+  <text x="172" y="60" text-anchor="middle" font-size="9" font-weight="600" fill="#475569">−2 dBm</text>
+  <text x="257" y="60" text-anchor="middle" font-size="9" font-weight="600" fill="#475569">0 dBm</text>
+  <text x="342" y="60" text-anchor="middle" font-size="9" font-weight="600" fill="#475569">2 dBm</text>
+  <text x="427" y="60" text-anchor="middle" font-size="9" font-weight="600" fill="#475569">3 dBm</text>
+  <text x="512" y="60" text-anchor="middle" font-size="9" font-weight="600" fill="#475569">4 dBm</text>
+
+  <!-- Row headers (Distance) -->
+  <text x="122" y="94" text-anchor="end" font-size="9" font-weight="600" fill="#475569">500 km</text>
+  <text x="122" y="142" text-anchor="end" font-size="9" font-weight="600" fill="#475569">1000 km</text>
+  <text x="122" y="190" text-anchor="end" font-size="9" font-weight="600" fill="#475569">1500 km</text>
+  <text x="122" y="238" text-anchor="end" font-size="9" font-weight="600" fill="#475569">2000 km</text>
+  <text x="122" y="286" text-anchor="end" font-size="9" font-weight="600" fill="#475569">2500 km</text>
+  <text x="122" y="334" text-anchor="end" font-size="9" font-weight="600" fill="#475569">3000 km</text>
+
+  <!-- Row 1: 500km — 0.28, 0.30, 0.35, 0.38, 0.42 -->
+  <rect x="130" y="70" width="85" height="48" fill="#22c55e" rx="4"/><text x="172" y="100" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">0.28</text>
+  <rect x="215" y="70" width="85" height="48" fill="#22c55e" rx="4"/><text x="257" y="100" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">0.30</text>
+  <rect x="300" y="70" width="85" height="48" fill="#4ade80" rx="4"/><text x="342" y="100" text-anchor="middle" font-size="14" font-weight="700" fill="#14532d">0.35</text>
+  <rect x="385" y="70" width="85" height="48" fill="#4ade80" rx="4"/><text x="427" y="100" text-anchor="middle" font-size="14" font-weight="700" fill="#14532d">0.38</text>
+  <rect x="470" y="70" width="85" height="48" fill="#86efac" rx="4"/><text x="512" y="100" text-anchor="middle" font-size="14" font-weight="700" fill="#14532d">0.42</text>
+
+  <!-- Row 2: 1000km — 0.32, 0.34, 0.38, 0.42, 0.48 -->
+  <rect x="130" y="118" width="85" height="48" fill="#22c55e" rx="4"/><text x="172" y="148" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">0.32</text>
+  <rect x="215" y="118" width="85" height="48" fill="#4ade80" rx="4"/><text x="257" y="148" text-anchor="middle" font-size="14" font-weight="700" fill="#14532d">0.34</text>
+  <rect x="300" y="118" width="85" height="48" fill="#4ade80" rx="4"/><text x="342" y="148" text-anchor="middle" font-size="14" font-weight="700" fill="#14532d">0.38</text>
+  <rect x="385" y="118" width="85" height="48" fill="#86efac" rx="4"/><text x="427" y="148" text-anchor="middle" font-size="14" font-weight="700" fill="#14532d">0.42</text>
+  <rect x="470" y="118" width="85" height="48" fill="#86efac" rx="4"/><text x="512" y="148" text-anchor="middle" font-size="14" font-weight="700" fill="#14532d">0.48</text>
+
+  <!-- Row 3: 1500km — 0.36, 0.38, 0.44, 0.50, 0.55 -->
+  <rect x="130" y="166" width="85" height="48" fill="#4ade80" rx="4"/><text x="172" y="196" text-anchor="middle" font-size="14" font-weight="700" fill="#14532d">0.36</text>
+  <rect x="215" y="166" width="85" height="48" fill="#4ade80" rx="4"/><text x="257" y="196" text-anchor="middle" font-size="14" font-weight="700" fill="#14532d">0.38</text>
+  <rect x="300" y="166" width="85" height="48" fill="#86efac" rx="4"/><text x="342" y="196" text-anchor="middle" font-size="14" font-weight="700" fill="#14532d">0.44</text>
+  <rect x="385" y="166" width="85" height="48" fill="#fbbf24" rx="4"/><text x="427" y="196" text-anchor="middle" font-size="14" font-weight="700" fill="#78350f">0.50</text>
+  <rect x="470" y="166" width="85" height="48" fill="#fbbf24" rx="4"/><text x="512" y="196" text-anchor="middle" font-size="14" font-weight="700" fill="#78350f">0.55</text>
+
+  <!-- Row 4: 2000km — 0.38, 0.40, 0.48, 0.54, 0.58 -->
+  <rect x="130" y="214" width="85" height="48" fill="#4ade80" rx="4"/><text x="172" y="244" text-anchor="middle" font-size="14" font-weight="700" fill="#14532d">0.38</text>
+  <rect x="215" y="214" width="85" height="48" fill="#86efac" rx="4"/><text x="257" y="244" text-anchor="middle" font-size="14" font-weight="700" fill="#14532d">0.40</text>
+  <rect x="300" y="214" width="85" height="48" fill="#86efac" rx="4"/><text x="342" y="244" text-anchor="middle" font-size="14" font-weight="700" fill="#14532d">0.48</text>
+  <rect x="385" y="214" width="85" height="48" fill="#fbbf24" rx="4"/><text x="427" y="244" text-anchor="middle" font-size="14" font-weight="700" fill="#78350f">0.54</text>
+  <rect x="470" y="214" width="85" height="48" fill="#fbbf24" rx="4"/><text x="512" y="244" text-anchor="middle" font-size="14" font-weight="700" fill="#78350f">0.58</text>
+
+  <!-- Row 5: 2500km — 0.40, 0.42, 0.50, 0.56, 0.60 -->
+  <rect x="130" y="262" width="85" height="48" fill="#86efac" rx="4"/><text x="172" y="292" text-anchor="middle" font-size="14" font-weight="700" fill="#14532d">0.40</text>
+  <rect x="215" y="262" width="85" height="48" fill="#86efac" rx="4"/><text x="257" y="292" text-anchor="middle" font-size="14" font-weight="700" fill="#14532d">0.42</text>
+  <rect x="300" y="262" width="85" height="48" fill="#fbbf24" rx="4"/><text x="342" y="292" text-anchor="middle" font-size="14" font-weight="700" fill="#78350f">0.50</text>
+  <rect x="385" y="262" width="85" height="48" fill="#fbbf24" rx="4"/><text x="427" y="292" text-anchor="middle" font-size="14" font-weight="700" fill="#78350f">0.56</text>
+  <rect x="470" y="262" width="85" height="48" fill="#fb923c" rx="4"/><text x="512" y="292" text-anchor="middle" font-size="14" font-weight="700" fill="#7c2d12">0.60</text>
+
+  <!-- Row 6: 3000km — 0.42, 0.45, 0.52, 0.58, 0.62 -->
+  <rect x="130" y="310" width="85" height="48" fill="#86efac" rx="4"/><text x="172" y="340" text-anchor="middle" font-size="14" font-weight="700" fill="#14532d">0.42</text>
+  <rect x="215" y="310" width="85" height="48" fill="#86efac" rx="4"/><text x="257" y="340" text-anchor="middle" font-size="14" font-weight="700" fill="#14532d">0.45</text>
+  <rect x="300" y="310" width="85" height="48" fill="#fbbf24" rx="4"/><text x="342" y="340" text-anchor="middle" font-size="14" font-weight="700" fill="#78350f">0.52</text>
+  <rect x="385" y="310" width="85" height="48" fill="#fbbf24" rx="4"/><text x="427" y="340" text-anchor="middle" font-size="14" font-weight="700" fill="#78350f">0.58</text>
+  <rect x="470" y="310" width="85" height="48" fill="#fb923c" rx="4"/><text x="512" y="340" text-anchor="middle" font-size="14" font-weight="700" fill="#7c2d12">0.62</text>
+
+  <!-- Grid -->
+  <rect x="130" y="70" width="425" height="288" fill="none" stroke="#fff" stroke-width="2.5" rx="4"/>
+  <g stroke="#fff" stroke-width="2">
+    <line x1="215" y1="70" x2="215" y2="358"/><line x1="300" y1="70" x2="300" y2="358"/>
+    <line x1="385" y1="70" x2="385" y2="358"/><line x1="470" y1="70" x2="470" y2="358"/>
+    <line x1="130" y1="118" x2="555" y2="118"/><line x1="130" y1="166" x2="555" y2="166"/>
+    <line x1="130" y1="214" x2="555" y2="214"/><line x1="130" y1="262" x2="555" y2="262"/>
+    <line x1="130" y1="310" x2="555" y2="310"/>
+  </g>
+
+  <!-- Color scale -->
+  <rect x="580" y="80" width="22" height="32" rx="3" fill="#22c55e"/><text x="610" y="101" font-size="8" fill="#475569">&lt; 0.35</text>
+  <rect x="580" y="118" width="22" height="32" rx="3" fill="#4ade80"/><text x="610" y="139" font-size="8" fill="#475569">0.35-0.42</text>
+  <rect x="580" y="156" width="22" height="32" rx="3" fill="#86efac"/><text x="610" y="177" font-size="8" fill="#475569">0.42-0.50</text>
+  <rect x="580" y="194" width="22" height="32" rx="3" fill="#fbbf24"/><text x="610" y="215" font-size="8" fill="#475569">0.50-0.58</text>
+  <rect x="580" y="232" width="22" height="32" rx="3" fill="#fb923c"/><text x="610" y="253" font-size="8" fill="#475569">&gt; 0.58</text>
+  <text x="591" y="283" text-anchor="middle" font-size="8" fill="#64748b">RMSE (dB)</text>
+
+  <!-- Axis labels -->
+  <text x="342" y="382" text-anchor="middle" font-size="11" fill="#475569">Per-Channel Launch Power (dBm)</text>
+  <text x="30" y="210" text-anchor="middle" font-size="11" fill="#475569" transform="rotate(-90,30,210)">Transmission Distance (km)</text>
+
+  <text x="350" y="410" text-anchor="middle" font-size="9" fill="#64748b">Sub-0.5 dB accuracy across majority of operating space; degradation at high power + long distance (nonlinear regime)</text>
+</svg>

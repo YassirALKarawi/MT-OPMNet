@@ -271,6 +271,36 @@ Performance summary at 28 GBd (paper Tables III–VI):
   <img src="figures/results_latency.svg" alt="Latency vs Batch Size" width="48%">
 </p>
 
+### Distance × Launch Power Heatmap (16-QAM)
+
+<p align="center">
+  <img src="figures/results_dist_power_heatmap.svg" alt="Distance Power Heatmap" width="100%">
+</p>
+
+### OSNR Residual vs. Distance
+
+<p align="center">
+  <img src="figures/results_residual_distance.svg" alt="Residual vs Distance" width="100%">
+</p>
+
+### Cross-Symbol-Rate Generalisation
+
+<p align="center">
+  <img src="figures/results_cross_rate.svg" alt="Cross-Rate Study" width="100%">
+</p>
+
+### Learned Task Weights
+
+<p align="center">
+  <img src="figures/results_task_weights.svg" alt="Task Weight Evolution" width="100%">
+</p>
+
+### Multi-Metric Model Comparison
+
+<p align="center">
+  <img src="figures/results_radar_comparison.svg" alt="Radar Comparison" width="550">
+</p>
+
 ### Computational Profile
 
 <p align="center">

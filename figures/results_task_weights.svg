@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 380" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="tw_bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc"/><stop offset="100%" style="stop-color:#f1f5f9"/>
+    </linearGradient>
+    <clipPath id="tw_cp"><rect x="85" y="50" width="510" height="260"/></clipPath>
+  </defs>
+  <rect width="650" height="380" rx="14" fill="url(#tw_bg)"/>
+  <text x="340" y="28" text-anchor="middle" font-size="15" font-weight="700" fill="#1e293b">Learned Task Weights During Training</text>
+  <text x="340" y="44" text-anchor="middle" font-size="10" fill="#64748b">Uncertainty-based adaptive weighting shifts emphasis to OSNR as MFI saturates (paper Fig. 20b)</text>
+
+  <rect x="85" y="50" width="510" height="260" fill="#fff" stroke="#e2e8f0" stroke-width="1" rx="4"/>
+  <g stroke="#f1f5f9" stroke-width="0.8">
+    <line x1="85" y1="102" x2="595" y2="102"/><line x1="85" y1="154" x2="595" y2="154"/>
+    <line x1="85" y1="206" x2="595" y2="206"/><line x1="85" y1="258" x2="595" y2="258"/>
+  </g>
+
+  <!-- Y-axis (normalised weight 0-1) -->
+  <text x="77" y="54" text-anchor="end" font-size="9" fill="#94a3b8">1.0</text>
+  <text x="77" y="102" text-anchor="end" font-size="9" fill="#94a3b8">0.8</text>
+  <text x="77" y="154" text-anchor="end" font-size="9" fill="#94a3b8">0.6</text>
+  <text x="77" y="206" text-anchor="end" font-size="9" fill="#94a3b8">0.4</text>
+  <text x="77" y="258" text-anchor="end" font-size="9" fill="#94a3b8">0.2</text>
+  <text x="77" y="314" text-anchor="end" font-size="9" fill="#94a3b8">0.0</text>
+  <text x="24" y="180" text-anchor="middle" font-size="11" fill="#475569" transform="rotate(-90,24,180)">Normalised Weight</text>
+
+  <!-- X-axis -->
+  <text x="85" y="330" text-anchor="middle" font-size="9" fill="#94a3b8">0</text>
+  <text x="187" y="330" text-anchor="middle" font-size="9" fill="#94a3b8">40</text>
+  <text x="289" y="330" text-anchor="middle" font-size="9" fill="#94a3b8">80</text>
+  <text x="391" y="330" text-anchor="middle" font-size="9" fill="#94a3b8">120</text>
+  <text x="493" y="330" text-anchor="middle" font-size="9" fill="#94a3b8">160</text>
+  <text x="595" y="330" text-anchor="middle" font-size="9" fill="#94a3b8">200</text>
+  <text x="340" y="352" text-anchor="middle" font-size="11" fill="#475569">Epoch</text>
+
+  <!-- Fill areas -->
+  <polygon points="85,154 136,152 187,148 238,142 289,134 340,125 391,118 442,112 493,108 544,105 595,102 595,310 544,310 493,310 442,310 391,310 340,310 289,310 238,310 187,310 136,310 85,310" fill="#2563eb" opacity="0.1" clip-path="url(#tw_cp)"/>
+  <polygon points="85,154 136,158 187,162 238,168 289,176 340,185 391,192 442,198 493,202 544,205 595,208 595,310 544,310 493,310 442,310 391,310 340,310 289,310 238,310 187,310 136,310 85,310" fill="#dc2626" opacity="0.1" clip-path="url(#tw_cp)"/>
+
+  <!-- OSNR weight (blue, increases) -->
+  <polyline points="85,154 136,152 187,148 238,142 289,134 340,125 391,118 442,112 493,108 544,105 595,102" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" clip-path="url(#tw_cp)"/>
+
+  <!-- MFI weight (red, decreases) -->
+  <polyline points="85,154 136,158 187,162 238,168 289,176 340,185 391,192 442,198 493,202 544,205 595,208" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round" clip-path="url(#tw_cp)"/>
+
+  <!-- 50% line -->
+  <line x1="85" y1="154" x2="595" y2="154" stroke="#94a3b8" stroke-width="0.8" stroke-dasharray="4,4" opacity="0.4"/>
+  <text x="597" y="150" font-size="7" fill="#94a3b8">50%</text>
+
+  <!-- Annotation arrows -->
+  <text x="500" y="92" font-size="10" font-weight="600" fill="#2563eb">w<tspan font-size="7" dy="2">OSNR</tspan><tspan dy="-2"> → 0.78</tspan></text>
+  <text x="500" y="222" font-size="10" font-weight="600" fill="#dc2626">w<tspan font-size="7" dy="2">MFI</tspan><tspan dy="-2"> → 0.22</tspan></text>
+
+  <!-- Phase annotation -->
+  <rect x="130" y="260" width="120" height="24" rx="5" fill="#eff6ff" stroke="#3b82f6" stroke-width="1"/>
+  <text x="190" y="276" text-anchor="middle" font-size="8" fill="#1e40af">Equal weighting</text>
+  <rect x="420" y="260" width="140" height="24" rx="5" fill="#eff6ff" stroke="#3b82f6" stroke-width="1"/>
+  <text x="490" y="276" text-anchor="middle" font-size="8" fill="#1e40af">OSNR-focused phase</text>
+
+  <text x="340" y="374" text-anchor="middle" font-size="9" fill="#64748b">Adaptive weighting shifts emphasis to OSNR regression as MFI accuracy saturates early (~15 epochs)</text>
+</svg>
