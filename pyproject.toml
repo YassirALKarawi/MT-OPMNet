@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "mt-opmnet"
+version = "1.0.0"
+description = "Attention-Enhanced Multi-Task Deep Learning for Joint OSNR Estimation and Modulation Format Recognition in Elastic Optical Networks"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+authors = [
+    {name = "Yassir Ameen Ahmed Al-Karawi"},
+    {name = "Raad S. Alhumaima"},
+    {name = "Hamed Al-Raweshidy"},
+]
+keywords = [
+    "optical-performance-monitoring",
+    "OSNR",
+    "modulation-format-identification",
+    "multi-task-learning",
+    "deep-learning",
+    "elastic-optical-networks",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "torch>=2.0.0",
+    "numpy>=1.24.0",
+    "scikit-learn>=1.3.0",
+    "matplotlib>=3.7.0",
+]
+
+[project.urls]
+Repository = "https://github.com/YassirALKarawi/MT-OPMNet"
+
+[tool.setuptools.packages.find]
+include = ["src*"]
