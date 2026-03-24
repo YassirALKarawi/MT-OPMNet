@@ -52,10 +52,10 @@
   <text x="500" y="222" font-size="10" font-weight="600" fill="#dc2626">w<tspan font-size="7" dy="2">MFI</tspan><tspan dy="-2"> → 0.22</tspan></text>
 
   <!-- Phase annotation -->
-  <rect x="130" y="260" width="120" height="24" rx="5" fill="#eff6ff" stroke="#3b82f6" stroke-width="1"/>
-  <text x="190" y="276" text-anchor="middle" font-size="8" fill="#1e40af">Equal weighting</text>
-  <rect x="420" y="260" width="140" height="24" rx="5" fill="#eff6ff" stroke="#3b82f6" stroke-width="1"/>
-  <text x="490" y="276" text-anchor="middle" font-size="8" fill="#1e40af">OSNR-focused phase</text>
+  <rect x="130" y="260" width="120" height="24" rx="5" fill="#eff6ff" stroke="#2563eb" stroke-width="1"/>
+  <text x="190" y="276" text-anchor="middle" font-size="8" fill="#1e3a8a">Equal weighting</text>
+  <rect x="420" y="260" width="140" height="24" rx="5" fill="#eff6ff" stroke="#2563eb" stroke-width="1"/>
+  <text x="490" y="276" text-anchor="middle" font-size="8" fill="#1e3a8a">OSNR-focused phase</text>
 
   <text x="340" y="374" text-anchor="middle" font-size="9" fill="#64748b">Adaptive weighting shifts emphasis to OSNR regression as MFI accuracy saturates early (~15 epochs)</text>
 </svg>

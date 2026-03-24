@@ -34,8 +34,8 @@
   <text x="355" y="380" text-anchor="middle" font-size="11" fill="#475569">OSNR (dB)</text>
 
   <!-- QPSK (indigo) — highest accuracy -->
-  <polyline points="85,126 139,95 193,72 247,60 301,54 355,52 409,51 463,51 517,50 571,50 625,50" fill="none" stroke="#6366f1" stroke-width="2.5" stroke-linecap="round" clip-path="url(#mo_cp)"/>
-  <g fill="#6366f1" clip-path="url(#mo_cp)">
+  <polyline points="85,126 139,95 193,72 247,60 301,54 355,52 409,51 463,51 517,50 571,50 625,50" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" clip-path="url(#mo_cp)"/>
+  <g fill="#2563eb" clip-path="url(#mo_cp)">
     <circle cx="85" cy="126" r="3.5"/><circle cx="193" cy="72" r="3.5"/><circle cx="301" cy="54" r="3.5"/>
     <circle cx="409" cy="51" r="3.5"/><circle cx="517" cy="50" r="3.5"/><circle cx="625" cy="50" r="3.5"/>
   </g>
@@ -63,7 +63,7 @@
 
   <!-- Legend -->
   <rect x="440" y="260" width="175" height="72" rx="8" fill="#fff" stroke="#e2e8f0" stroke-width="1" opacity="0.95"/>
-  <circle cx="455" cy="276" r="4" fill="#6366f1"/><text x="466" y="280" font-size="9" fill="#475569" font-weight="600">QPSK</text>
+  <circle cx="455" cy="276" r="4" fill="#2563eb"/><text x="466" y="280" font-size="9" fill="#475569" font-weight="600">QPSK</text>
   <circle cx="455" cy="294" r="4" fill="#0891b2"/><text x="466" y="298" font-size="9" fill="#475569" font-weight="600">16-QAM</text>
   <circle cx="455" cy="312" r="4" fill="#059669"/><text x="466" y="316" font-size="9" fill="#475569" font-weight="600">32-QAM</text>
   <circle cx="540" cy="276" r="4" fill="#dc2626"/><text x="551" y="280" font-size="9" fill="#475569" font-weight="600">64-QAM</text>

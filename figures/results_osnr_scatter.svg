@@ -52,7 +52,7 @@
   <text x="22" y="240" text-anchor="middle" font-size="12" fill="#475569" transform="rotate(-90,22,240)">Predicted OSNR (dB)</text>
 
   <!-- Scatter points — OOK (indigo) -->
-  <g fill="#6366f1" opacity="0.55" clip-path="url(#rs_clip)">
+  <g fill="#2563eb" opacity="0.55" clip-path="url(#rs_clip)">
     <circle cx="82" cy="428" r="3.2"/><circle cx="92" cy="417" r="3.2"/><circle cx="101" cy="407" r="3.2"/>
     <circle cx="110" cy="399" r="3.2"/><circle cx="120" cy="388" r="3.2"/><circle cx="129" cy="379" r="3.2"/>
     <circle cx="138" cy="370" r="3.2"/><circle cx="148" cy="357" r="3.2"/><circle cx="157" cy="350" r="3.2"/>
@@ -138,7 +138,7 @@
 
   <!-- Legend -->
   <rect x="390" y="385" width="145" height="90" rx="6" fill="#fff" stroke="#e2e8f0" stroke-width="1" opacity="0.95"/>
-  <circle cx="405" cy="400" r="4" fill="#6366f1"/><text x="415" y="404" font-size="9" fill="#475569">OOK</text>
+  <circle cx="405" cy="400" r="4" fill="#2563eb"/><text x="415" y="404" font-size="9" fill="#475569">OOK</text>
   <circle cx="405" cy="416" r="4" fill="#2563eb"/><text x="415" y="420" font-size="9" fill="#475569">DPSK</text>
   <circle cx="405" cy="432" r="4" fill="#0891b2"/><text x="415" y="436" font-size="9" fill="#475569">DQPSK</text>
   <circle cx="405" cy="448" r="4" fill="#059669"/><text x="415" y="452" font-size="9" fill="#475569">8QAM</text>
@@ -147,8 +147,8 @@
   <text x="496" y="399" font-size="9" fill="#475569">Ideal</text>
 
   <!-- Metric box -->
-  <rect x="90" y="55" width="130" height="52" rx="6" fill="#eff6ff" stroke="#3b82f6" stroke-width="1" opacity="0.9"/>
-  <text x="100" y="72" font-size="10" font-weight="600" fill="#1e40af">MAE  = 0.38 dB</text>
-  <text x="100" y="86" font-size="10" font-weight="600" fill="#1e40af">RMSE = 0.52 dB</text>
-  <text x="100" y="100" font-size="10" font-weight="600" fill="#1e40af">R²   = 0.9971</text>
+  <rect x="90" y="55" width="130" height="52" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1" opacity="0.9"/>
+  <text x="100" y="72" font-size="10" font-weight="600" fill="#1e3a8a">MAE  = 0.38 dB</text>
+  <text x="100" y="86" font-size="10" font-weight="600" fill="#1e3a8a">RMSE = 0.52 dB</text>
+  <text x="100" y="100" font-size="10" font-weight="600" fill="#1e3a8a">R²   = 0.9971</text>
 </svg>

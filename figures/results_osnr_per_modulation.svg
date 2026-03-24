@@ -28,12 +28,12 @@
 
   <!-- Box plots: each box at x center, width 60 -->
   <!-- OOK: median=0.28, Q1=0.12, Q3=0.52, whisker_lo=0.02, whisker_hi=0.95 -->
-  <line x1="164" y1="95" x2="164" y2="130" stroke="#6366f1" stroke-width="1.5"/>
-  <line x1="164" y1="282" x2="164" y2="328" stroke="#6366f1" stroke-width="1.5"/>
-  <rect x="134" y="130" width="60" height="152" rx="4" fill="#6366f1" opacity="0.25" stroke="#6366f1" stroke-width="1.5"/>
-  <line x1="134" y1="298" x2="194" y2="298" stroke="#6366f1" stroke-width="2.5"/>
-  <line x1="144" y1="95" x2="184" y2="95" stroke="#6366f1" stroke-width="1.5"/>
-  <line x1="144" y1="328" x2="184" y2="328" stroke="#6366f1" stroke-width="1.5"/>
+  <line x1="164" y1="95" x2="164" y2="130" stroke="#2563eb" stroke-width="1.5"/>
+  <line x1="164" y1="282" x2="164" y2="328" stroke="#2563eb" stroke-width="1.5"/>
+  <rect x="134" y="130" width="60" height="152" rx="4" fill="#2563eb" opacity="0.25" stroke="#2563eb" stroke-width="1.5"/>
+  <line x1="134" y1="298" x2="194" y2="298" stroke="#2563eb" stroke-width="2.5"/>
+  <line x1="144" y1="95" x2="184" y2="95" stroke="#2563eb" stroke-width="1.5"/>
+  <line x1="144" y1="328" x2="184" y2="328" stroke="#2563eb" stroke-width="1.5"/>
 
   <!-- DPSK: median=0.32, Q1=0.15, Q3=0.55 -->
   <line x1="268" y1="88" x2="268" y2="124" stroke="#2563eb" stroke-width="1.5"/>
@@ -68,7 +68,7 @@
   <line x1="560" y1="302" x2="600" y2="302" stroke="#dc2626" stroke-width="1.5"/>
 
   <!-- X-axis labels -->
-  <text x="164" y="350" text-anchor="middle" font-size="11" font-weight="600" fill="#6366f1">OOK</text>
+  <text x="164" y="350" text-anchor="middle" font-size="11" font-weight="600" fill="#2563eb">OOK</text>
   <text x="268" y="350" text-anchor="middle" font-size="11" font-weight="600" fill="#2563eb">DPSK</text>
   <text x="372" y="350" text-anchor="middle" font-size="11" font-weight="600" fill="#0891b2">DQPSK</text>
   <text x="476" y="350" text-anchor="middle" font-size="11" font-weight="600" fill="#059669">8QAM</text>

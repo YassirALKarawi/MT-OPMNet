@@ -47,7 +47,7 @@
   <text x="525" y="337" text-anchor="start" font-size="8" fill="#64748b">(cross-distance)</text>
 
   <!-- MT-OPMNet (blue, filled) — scores: 95,98,85,92,90 % of max -->
-  <polygon points="340,103.5 185.8,314.8 250.3,418.5 435.7,423.4 492.2,322.4" fill="#3b82f6" fill-opacity="0.2" stroke="#2563eb" stroke-width="2.5"/>
+  <polygon points="340,103.5 185.8,314.8 250.3,418.5 435.7,423.4 492.2,322.4" fill="#2563eb" fill-opacity="0.2" stroke="#2563eb" stroke-width="2.5"/>
   <g fill="#2563eb">
     <circle cx="340" cy="103.5" r="5"/><circle cx="185.8" cy="314.8" r="5"/>
     <circle cx="250.3" cy="418.5" r="5"/><circle cx="435.7" cy="423.4" r="5"/>

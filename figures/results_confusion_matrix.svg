@@ -13,7 +13,7 @@
   <!-- Cell size: 80x80, starting at (110,80) -->
 
   <!-- Row 0: OOK -->
-  <rect x="110" y="80" width="80" height="80" fill="#1e40af"/><text x="150" y="126" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">153</text>
+  <rect x="110" y="80" width="80" height="80" fill="#1e3a8a"/><text x="150" y="126" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">153</text>
   <rect x="190" y="80" width="80" height="80" fill="#eff6ff"/><text x="230" y="126" text-anchor="middle" font-size="16" fill="#94a3b8">0</text>
   <rect x="270" y="80" width="80" height="80" fill="#eff6ff"/><text x="310" y="126" text-anchor="middle" font-size="16" fill="#94a3b8">0</text>
   <rect x="350" y="80" width="80" height="80" fill="#eff6ff"/><text x="390" y="126" text-anchor="middle" font-size="16" fill="#94a3b8">0</text>
@@ -21,7 +21,7 @@
 
   <!-- Row 1: DPSK -->
   <rect x="110" y="160" width="80" height="80" fill="#eff6ff"/><text x="150" y="206" text-anchor="middle" font-size="16" fill="#94a3b8">0</text>
-  <rect x="190" y="160" width="80" height="80" fill="#1e40af"/><text x="230" y="206" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">152</text>
+  <rect x="190" y="160" width="80" height="80" fill="#1e3a8a"/><text x="230" y="206" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">152</text>
   <rect x="270" y="160" width="80" height="80" fill="#dbeafe"/><text x="310" y="206" text-anchor="middle" font-size="16" fill="#64748b">1</text>
   <rect x="350" y="160" width="80" height="80" fill="#eff6ff"/><text x="390" y="206" text-anchor="middle" font-size="16" fill="#94a3b8">0</text>
   <rect x="430" y="160" width="80" height="80" fill="#eff6ff"/><text x="470" y="206" text-anchor="middle" font-size="16" fill="#94a3b8">0</text>
@@ -29,7 +29,7 @@
   <!-- Row 2: DQPSK -->
   <rect x="110" y="240" width="80" height="80" fill="#eff6ff"/><text x="150" y="286" text-anchor="middle" font-size="16" fill="#94a3b8">0</text>
   <rect x="190" y="240" width="80" height="80" fill="#dbeafe"/><text x="230" y="286" text-anchor="middle" font-size="16" fill="#64748b">1</text>
-  <rect x="270" y="240" width="80" height="80" fill="#1e40af"/><text x="310" y="286" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">152</text>
+  <rect x="270" y="240" width="80" height="80" fill="#1e3a8a"/><text x="310" y="286" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">152</text>
   <rect x="350" y="240" width="80" height="80" fill="#eff6ff"/><text x="390" y="286" text-anchor="middle" font-size="16" fill="#94a3b8">0</text>
   <rect x="430" y="240" width="80" height="80" fill="#eff6ff"/><text x="470" y="286" text-anchor="middle" font-size="16" fill="#94a3b8">0</text>
 
@@ -37,7 +37,7 @@
   <rect x="110" y="320" width="80" height="80" fill="#eff6ff"/><text x="150" y="366" text-anchor="middle" font-size="16" fill="#94a3b8">0</text>
   <rect x="190" y="320" width="80" height="80" fill="#eff6ff"/><text x="230" y="366" text-anchor="middle" font-size="16" fill="#94a3b8">0</text>
   <rect x="270" y="320" width="80" height="80" fill="#eff6ff"/><text x="310" y="366" text-anchor="middle" font-size="16" fill="#94a3b8">0</text>
-  <rect x="350" y="320" width="80" height="80" fill="#1e40af"/><text x="390" y="366" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">154</text>
+  <rect x="350" y="320" width="80" height="80" fill="#1e3a8a"/><text x="390" y="366" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">154</text>
   <rect x="430" y="320" width="80" height="80" fill="#dbeafe"/><text x="470" y="366" text-anchor="middle" font-size="16" fill="#64748b">1</text>
 
   <!-- Row 4: 16QAM -->
@@ -45,7 +45,7 @@
   <rect x="190" y="400" width="80" height="80" fill="#eff6ff"/><text x="230" y="446" text-anchor="middle" font-size="16" fill="#94a3b8">0</text>
   <rect x="270" y="400" width="80" height="80" fill="#eff6ff"/><text x="310" y="446" text-anchor="middle" font-size="16" fill="#94a3b8">0</text>
   <rect x="350" y="400" width="80" height="80" fill="#eff6ff"/><text x="390" y="446" text-anchor="middle" font-size="16" fill="#94a3b8">0</text>
-  <rect x="430" y="400" width="80" height="80" fill="#1e40af"/><text x="470" y="446" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">151</text>
+  <rect x="430" y="400" width="80" height="80" fill="#1e3a8a"/><text x="470" y="446" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">151</text>
 
   <!-- Grid borders -->
   <rect x="110" y="80" width="400" height="400" fill="none" stroke="#cbd5e1" stroke-width="1.5" rx="2"/>

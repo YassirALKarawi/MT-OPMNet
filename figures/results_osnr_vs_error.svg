@@ -42,7 +42,7 @@
   <text x="595" y="179" font-size="8" fill="#f59e0b">0.5 dB</text>
 
   <!-- Fill area under curve -->
-  <polygon points="100,138 121,152 142,168 162,185 182,200 202,208 222,215 243,222 263,228 284,232 304,236 324,240 345,244 365,248 386,252 406,256 427,258 447,260 467,262 488,264 508,266 529,268 549,270 570,272 590,272 590,300 100,300" fill="#3b82f6" opacity="0.08" clip-path="url(#ov_clip)"/>
+  <polygon points="100,138 121,152 142,168 162,185 182,200 202,208 222,215 243,222 263,228 284,232 304,236 324,240 345,244 365,248 386,252 406,256 427,258 447,260 467,262 488,264 508,266 529,268 549,270 570,272 590,272 590,300 100,300" fill="#2563eb" opacity="0.08" clip-path="url(#ov_clip)"/>
 
   <!-- Line curve -->
   <polyline points="100,138 121,152 142,168 162,185 182,200 202,208 222,215 243,222 263,228 284,232 304,236 324,240 345,244 365,248 386,252 406,256 427,258 447,260 467,262 488,264 508,266 529,268 549,270 570,272" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" clip-path="url(#ov_clip)"/>
@@ -60,9 +60,9 @@
   </g>
 
   <!-- Annotation -->
-  <rect x="110" y="58" width="185" height="35" rx="6" fill="#eff6ff" stroke="#3b82f6" stroke-width="1" opacity="0.9"/>
-  <text x="202" y="73" text-anchor="middle" font-size="9" fill="#1e40af">Low OSNR (5-10 dB): MAE 0.6-0.8 dB</text>
-  <text x="202" y="86" text-anchor="middle" font-size="9" fill="#1e40af">High OSNR (20-30 dB): MAE 0.2-0.3 dB</text>
+  <rect x="110" y="58" width="185" height="35" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1" opacity="0.9"/>
+  <text x="202" y="73" text-anchor="middle" font-size="9" fill="#1e3a8a">Low OSNR (5-10 dB): MAE 0.6-0.8 dB</text>
+  <text x="202" y="86" text-anchor="middle" font-size="9" fill="#1e3a8a">High OSNR (20-30 dB): MAE 0.2-0.3 dB</text>
 
   <text x="335" y="370" text-anchor="middle" font-size="9" fill="#64748b">Performance improves at higher OSNR values where signal-to-noise separation is clearer</text>
 </svg>

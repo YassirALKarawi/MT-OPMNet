@@ -17,11 +17,11 @@
   <!-- Pie: Backbone 60%, CAAM 5%, OSNR Head 17%, MFI Head 18% -->
   <!-- Using pre-computed arc paths for a 120-radius pie centered at (175, 215) -->
   <!-- Backbone: 60% = 216° (from 0°) -->
-  <path d="M175,215 L175,95 A120,120 0 1,1 71.4,283.9 Z" fill="#3b82f6" filter="url(#pb_sh)"/>
+  <path d="M175,215 L175,95 A120,120 0 1,1 71.4,283.9 Z" fill="#2563eb" filter="url(#pb_sh)"/>
   <!-- CAAM: 5% = 18° -->
   <path d="M175,215 L71.4,283.9 A120,120 0 0,1 60.5,258 Z" fill="#8b5cf6" filter="url(#pb_sh)"/>
   <!-- OSNR Head: 17% = 61.2° -->
-  <path d="M175,215 L60.5,258 A120,120 0 0,1 105.8,108.5 Z" fill="#10b981" filter="url(#pb_sh)"/>
+  <path d="M175,215 L60.5,258 A120,120 0 0,1 105.8,108.5 Z" fill="#059669" filter="url(#pb_sh)"/>
   <!-- MFI Head: 18% = 64.8° -->
   <path d="M175,215 L105.8,108.5 A120,120 0 0,1 175,95 Z" fill="#f59e0b" filter="url(#pb_sh)"/>
 
@@ -31,11 +31,11 @@
   <text x="175" y="228" text-anchor="middle" font-size="9" fill="#64748b">Total Params</text>
 
   <!-- Labels -->
-  <text x="250" y="142" font-size="10" font-weight="600" fill="#3b82f6">Backbone</text>
+  <text x="250" y="142" font-size="10" font-weight="600" fill="#2563eb">Backbone</text>
   <text x="250" y="156" font-size="9" fill="#64748b">60% (0.38M)</text>
   <text x="42" y="298" font-size="10" font-weight="600" fill="#8b5cf6">CAAM</text>
   <text x="42" y="312" font-size="9" fill="#64748b">5% (0.03M)</text>
-  <text x="42" y="175" font-size="10" font-weight="600" fill="#10b981">OSNR Head</text>
+  <text x="42" y="175" font-size="10" font-weight="600" fill="#059669">OSNR Head</text>
   <text x="42" y="189" font-size="9" fill="#64748b">17% (0.11M)</text>
   <text x="100" y="100" font-size="10" font-weight="600" fill="#f59e0b">MFI Head</text>
   <text x="100" y="114" font-size="9" fill="#64748b">18% (0.12M)</text>
@@ -72,7 +72,7 @@
   <text x="375" y="235" text-anchor="end" font-size="9" fill="#475569">Combined</text>
 
   <!-- Bar: MT-OPMNet (2.6M) — highlighted -->
-  <rect x="380" y="270" width="182" height="48" rx="5" fill="#3b82f6" filter="url(#pb_sh)"/>
+  <rect x="380" y="270" width="182" height="48" rx="5" fill="#2563eb" filter="url(#pb_sh)"/>
   <text x="570" y="300" font-size="12" font-weight="700" fill="#2563eb">2.6M</text>
   <text x="375" y="300" text-anchor="end" font-size="10" font-weight="600" fill="#1e293b">MT-OPMNet</text>
 

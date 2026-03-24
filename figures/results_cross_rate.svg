@@ -27,9 +27,9 @@
   <!-- Bars -->
   <g filter="url(#cr_sh)">
     <!-- 28→28: 0.85 -->
-    <rect x="65" y="183" width="55" height="152" rx="5" fill="#3b82f6"/>
+    <rect x="65" y="183" width="55" height="152" rx="5" fill="#2563eb"/>
     <!-- 64→64: 0.92 -->
-    <rect x="132" y="176" width="55" height="159" rx="5" fill="#6366f1"/>
+    <rect x="132" y="176" width="55" height="159" rx="5" fill="#7c3aed"/>
     <!-- 28→64: 1.45 -->
     <rect x="199" y="121" width="55" height="214" rx="5" fill="#f97316"/>
     <!-- 64→28: 1.35 -->
@@ -55,7 +55,7 @@
 
   <g filter="url(#cr_sh)">
     <!-- 28→28: 98.1% -->
-    <rect x="425" y="99" width="55" height="236" rx="5" fill="#10b981"/>
+    <rect x="425" y="99" width="55" height="236" rx="5" fill="#059669"/>
     <!-- 64→64: 97.5% -->
     <rect x="492" y="105" width="55" height="230" rx="5" fill="#34d399"/>
     <!-- 28→64: 88.2% -->

@@ -37,7 +37,7 @@
   <line x1="85" y1="160" x2="605" y2="160" stroke="#dc2626" stroke-width="1" stroke-dasharray="6,4" opacity="0.4"/>
 
   <!-- ±1σ shaded band -->
-  <polygon points="128,108 232,112 336,105 440,110 544,114 605,112 605,208 544,206 440,210 336,215 232,208 128,212" fill="#3b82f6" opacity="0.12" clip-path="url(#re_cp)"/>
+  <polygon points="128,108 232,112 336,105 440,110 544,114 605,112 605,208 544,206 440,210 336,215 232,208 128,212" fill="#2563eb" opacity="0.12" clip-path="url(#re_cp)"/>
 
   <!-- Mean line -->
   <polyline points="128,160 232,158 336,162 440,159 544,161 605,160" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" clip-path="url(#re_cp)"/>
@@ -57,7 +57,7 @@
   <!-- Legend -->
   <rect x="420" y="56" width="175" height="42" rx="6" fill="#fff" stroke="#e2e8f0" stroke-width="1" opacity="0.95"/>
   <line x1="432" y1="70" x2="455" y2="70" stroke="#2563eb" stroke-width="2.5"/><circle cx="443" cy="70" r="3.5" fill="#fff" stroke="#2563eb" stroke-width="2"/><text x="462" y="74" font-size="9" fill="#1e293b" font-weight="600">Mean residual</text>
-  <rect x="432" y="83" width="23" height="8" rx="2" fill="#3b82f6" opacity="0.3"/><text x="462" y="92" font-size="9" fill="#475569">±1σ band</text>
+  <rect x="432" y="83" width="23" height="8" rx="2" fill="#2563eb" opacity="0.3"/><text x="462" y="92" font-size="9" fill="#475569">±1σ band</text>
 
   <text x="345" y="390" text-anchor="middle" font-size="9" fill="#64748b">Mean residual stays close to zero (±0.04 dB) across all distances — unbiased estimator confirmed</text>
 </svg>

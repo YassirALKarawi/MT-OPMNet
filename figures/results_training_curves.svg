@@ -37,13 +37,13 @@
   <text x="180" y="302" text-anchor="middle" font-size="9" fill="#64748b">Epoch</text>
 
   <!-- Train loss curve (blue) -->
-  <polyline points="55,72 68,105 80,140 93,162 105,178 117,190 130,200 142,208 155,215 167,222 180,228 192,232 205,236 217,240 230,243 242,245 255,247 267,249 280,250 293,252 305,253" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" clip-path="url(#tc_c1)"/>
+  <polyline points="55,72 68,105 80,140 93,162 105,178 117,190 130,200 142,208 155,215 167,222 180,228 192,232 205,236 217,240 230,243 242,245 255,247 267,249 280,250 293,252 305,253" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" clip-path="url(#tc_c1)"/>
 
   <!-- Val loss curve (red) -->
   <polyline points="55,80 68,112 80,148 93,168 105,182 117,193 130,203 142,210 155,218 167,224 180,230 192,234 205,237 217,241 230,244 242,246 255,248 267,250 280,251 293,253 305,254" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-dasharray="6,3" clip-path="url(#tc_c1)"/>
 
   <!-- Legend -->
-  <line x1="210" y1="60" x2="230" y2="60" stroke="#3b82f6" stroke-width="2"/><text x="234" y="64" font-size="8" fill="#475569">Train</text>
+  <line x1="210" y1="60" x2="230" y2="60" stroke="#2563eb" stroke-width="2"/><text x="234" y="64" font-size="8" fill="#475569">Train</text>
   <line x1="260" y1="60" x2="280" y2="60" stroke="#dc2626" stroke-width="2" stroke-dasharray="4,2"/><text x="284" y="64" font-size="8" fill="#475569">Val</text>
 
   <!-- ===== PLOT 2: MFI Accuracy ===== -->
@@ -69,7 +69,7 @@
   <text x="500" y="302" text-anchor="middle" font-size="9" fill="#64748b">Epoch</text>
 
   <!-- Train accuracy (blue, rises fast) -->
-  <polyline points="375,272 388,220 400,175 412,140 425,110 437,88 450,74 462,66 475,61 487,58 500,56 512,55 525,54 537,54 550,53 562,53 575,53 587,53 600,52 612,52 625,52" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" clip-path="url(#tc_c2)"/>
+  <polyline points="375,272 388,220 400,175 412,140 425,110 437,88 450,74 462,66 475,61 487,58 500,56 512,55 525,54 537,54 550,53 562,53 575,53 587,53 600,52 612,52 625,52" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" clip-path="url(#tc_c2)"/>
 
   <!-- Val accuracy (red dashed) -->
   <polyline points="375,272 388,225 400,180 412,148 425,118 437,95 450,80 462,71 475,65 487,61 500,58 512,56 525,55 537,55 550,54 562,54 575,54 587,53 600,53 612,53 625,53" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-dasharray="6,3" clip-path="url(#tc_c2)"/>
@@ -78,7 +78,7 @@
   <line x1="375" y1="54.2" x2="625" y2="54.2" stroke="#059669" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
   <text x="628" y="58" font-size="7" fill="#059669">99%</text>
 
-  <line x1="530" y1="60" x2="550" y2="60" stroke="#3b82f6" stroke-width="2"/><text x="554" y="64" font-size="8" fill="#475569">Train</text>
+  <line x1="530" y1="60" x2="550" y2="60" stroke="#2563eb" stroke-width="2"/><text x="554" y="64" font-size="8" fill="#475569">Train</text>
   <line x1="580" y1="60" x2="600" y2="60" stroke="#dc2626" stroke-width="2" stroke-dasharray="4,2"/><text x="604" y="64" font-size="8" fill="#475569">Val</text>
 
   <!-- ===== PLOT 3: OSNR MAE ===== -->

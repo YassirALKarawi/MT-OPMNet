@@ -41,7 +41,7 @@
   <text x="354" y="68" font-size="8" fill="#dc2626">0</text>
 
   <!-- Histogram bars (symmetric, bell-shaped centered near 0) -->
-  <g fill="#3b82f6" opacity="0.7">
+  <g fill="#2563eb" opacity="0.7">
     <rect x="78" y="308" width="16" height="7" rx="1"/>
     <rect x="98" y="305" width="16" height="10" rx="1"/>
     <rect x="118" y="300" width="16" height="15" rx="1"/>
@@ -69,13 +69,13 @@
   </g>
 
   <!-- Gaussian overlay hint -->
-  <path d="M78 311 Q130 295 180 270 Q230 225 280 140 Q310 82 340 60 Q370 80 400 135 Q440 210 480 265 Q510 290 540 305 Q550 310 555 312" fill="none" stroke="#1e40af" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.5"/>
+  <path d="M78 311 Q130 295 180 270 Q230 225 280 140 Q310 82 340 60 Q370 80 400 135 Q440 210 480 265 Q510 290 540 305 Q550 310 555 312" fill="none" stroke="#1e3a8a" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.5"/>
 
   <!-- Stats box -->
-  <rect x="420" y="60" width="120" height="50" rx="6" fill="#eff6ff" stroke="#3b82f6" stroke-width="1" opacity="0.9"/>
-  <text x="480" y="78" text-anchor="middle" font-size="9" font-weight="600" fill="#1e40af">μ = +0.02 dB</text>
-  <text x="480" y="93" text-anchor="middle" font-size="9" font-weight="600" fill="#1e40af">σ = 0.52 dB</text>
-  <text x="480" y="106" text-anchor="middle" font-size="8" fill="#3b82f6">Near-zero bias</text>
+  <rect x="420" y="60" width="120" height="50" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1" opacity="0.9"/>
+  <text x="480" y="78" text-anchor="middle" font-size="9" font-weight="600" fill="#1e3a8a">μ = +0.02 dB</text>
+  <text x="480" y="93" text-anchor="middle" font-size="9" font-weight="600" fill="#1e3a8a">σ = 0.52 dB</text>
+  <text x="480" y="106" text-anchor="middle" font-size="8" fill="#2563eb">Near-zero bias</text>
 
   <text x="310" y="374" text-anchor="middle" font-size="9" fill="#64748b">Approximately Gaussian distribution centered near zero — unbiased estimator</text>
 </svg>
