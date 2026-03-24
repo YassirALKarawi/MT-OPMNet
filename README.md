@@ -13,7 +13,7 @@
 MT-OPMNet is a multi-task deep learning framework for **Optical Performance Monitoring (OPM)** in elastic optical networks. It jointly performs:
 
 - **OSNR Estimation** — accurate regression of Optical Signal-to-Noise Ratio from amplitude histograms.
-- **Modulation Format Identification (MFI)** — classification of modulation formats (OOK, DPSK, DQPSK, 8QAM, 16QAM).
+- **Modulation Format Identification (MFI)** — classification of modulation formats (QPSK, 8QAM, 16QAM, 32QAM, 64QAM).
 
 The architecture leverages a **shared 1-D CNN backbone** with task-specific heads, enhanced by a **Channel-Aware Attention Module (CAAM)** and trained with **homoscedastic uncertainty weighting** for automatic task balancing.
 
@@ -72,11 +72,11 @@ The architecture leverages a **shared 1-D CNN backbone** with task-specific head
 
 | Index | Format | Symbols | Description |
 |:---:|---|:---:|---|
-| 0 | **OOK** | 2 | On-Off Keying |
-| 1 | **DPSK** | 2 | Differential Phase-Shift Keying |
-| 2 | **DQPSK** | 4 | Differential Quadrature Phase-Shift Keying |
-| 3 | **8QAM** | 8 | Star 8-Quadrature Amplitude Modulation |
-| 4 | **16QAM** | 16 | Square 16-Quadrature Amplitude Modulation |
+| 0 | **QPSK** | 4 | Quadrature Phase-Shift Keying |
+| 1 | **8QAM** | 8 | 8-Quadrature Amplitude Modulation |
+| 2 | **16QAM** | 16 | 16-Quadrature Amplitude Modulation |
+| 3 | **32QAM** | 32 | 32-Quadrature Amplitude Modulation |
+| 4 | **64QAM** | 64 | 64-Quadrature Amplitude Modulation |
 
 ### Amplitude Histogram (AAH) Generation
 
