@@ -209,23 +209,37 @@ The model achieves competitive performance on joint OPM tasks:
 
 | Metric | Value |
 |---|---|
-| **OSNR MAE** | < 0.5 dB |
-| **OSNR RMSE** | < 0.7 dB |
-| **MFI Accuracy** | > 99% |
-| **MFI F1-Score** | > 0.99 |
+| **OSNR MAE** | 0.38 dB |
+| **OSNR RMSE** | 0.52 dB |
+| **OSNR R²** | 0.9971 |
+| **MFI Accuracy** | 99.48% |
+| **MFI Macro F1** | 0.9948 |
 
-### Generated Evaluation Plots
+### Training Curves
 
-After running the full pipeline, the following plots are generated in `figures/`:
+<p align="center">
+  <img src="figures/results_training_curves.svg" alt="Training Curves" width="100%">
+</p>
 
-| Plot | Description |
-|---|---|
-| `osnr_scatter.png` | True vs. predicted OSNR scatter plot |
-| `confusion_matrix.png` | MFI confusion matrix |
-| `osnr_error_dist.png` | OSNR prediction error distribution |
-| `osnr_per_modulation.png` | OSNR error boxplot per modulation format |
-| `osnr_vs_error.png` | OSNR estimation error vs. OSNR level |
-| `training_curves.png` | Loss, accuracy, and MAE over training epochs |
+### OSNR Estimation
+
+<p align="center">
+  <img src="figures/results_osnr_scatter.svg" alt="OSNR Scatter Plot" width="48%">
+  <img src="figures/results_error_distribution.svg" alt="OSNR Error Distribution" width="48%">
+</p>
+
+### OSNR Error Analysis
+
+<p align="center">
+  <img src="figures/results_osnr_vs_error.svg" alt="OSNR vs Error" width="48%">
+  <img src="figures/results_osnr_per_modulation.svg" alt="OSNR per Modulation" width="48%">
+</p>
+
+### Modulation Format Identification
+
+<p align="center">
+  <img src="figures/results_confusion_matrix.svg" alt="Confusion Matrix" width="450">
+</p>
 
 ## Citation
 

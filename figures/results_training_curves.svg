@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 340" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="tc_bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc"/><stop offset="100%" style="stop-color:#f1f5f9"/>
+    </linearGradient>
+    <clipPath id="tc_c1"><rect x="55" y="52" width="250" height="220"/></clipPath>
+    <clipPath id="tc_c2"><rect x="375" y="52" width="250" height="220"/></clipPath>
+    <clipPath id="tc_c3"><rect x="695" y="52" width="250" height="220"/></clipPath>
+  </defs>
+
+  <rect width="1000" height="340" rx="12" fill="url(#tc_bg)"/>
+  <text x="500" y="28" text-anchor="middle" font-size="15" font-weight="700" fill="#1e293b">Training Curves</text>
+
+  <!-- ===== PLOT 1: Loss ===== -->
+  <rect x="55" y="52" width="250" height="220" fill="#fff" stroke="#e2e8f0" stroke-width="1" rx="4"/>
+  <text x="180" y="46" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">Training &amp; Validation Loss</text>
+
+  <!-- Grid -->
+  <g stroke="#f1f5f9" stroke-width="0.8">
+    <line x1="55" y1="107" x2="305" y2="107"/><line x1="55" y1="162" x2="305" y2="162"/>
+    <line x1="55" y1="217" x2="305" y2="217"/>
+  </g>
+
+  <!-- Y-axis -->
+  <text x="48" y="57" text-anchor="end" font-size="8" fill="#94a3b8">2.0</text>
+  <text x="48" y="112" text-anchor="end" font-size="8" fill="#94a3b8">1.5</text>
+  <text x="48" y="167" text-anchor="end" font-size="8" fill="#94a3b8">1.0</text>
+  <text x="48" y="222" text-anchor="end" font-size="8" fill="#94a3b8">0.5</text>
+  <text x="48" y="276" text-anchor="end" font-size="8" fill="#94a3b8">0.0</text>
+
+  <!-- X-axis -->
+  <text x="55" y="286" text-anchor="middle" font-size="8" fill="#94a3b8">0</text>
+  <text x="117" y="286" text-anchor="middle" font-size="8" fill="#94a3b8">40</text>
+  <text x="180" y="286" text-anchor="middle" font-size="8" fill="#94a3b8">80</text>
+  <text x="242" y="286" text-anchor="middle" font-size="8" fill="#94a3b8">120</text>
+  <text x="305" y="286" text-anchor="middle" font-size="8" fill="#94a3b8">160</text>
+  <text x="180" y="302" text-anchor="middle" font-size="9" fill="#64748b">Epoch</text>
+
+  <!-- Train loss curve (blue) -->
+  <polyline points="55,72 68,105 80,140 93,162 105,178 117,190 130,200 142,208 155,215 167,222 180,228 192,232 205,236 217,240 230,243 242,245 255,247 267,249 280,250 293,252 305,253" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" clip-path="url(#tc_c1)"/>
+
+  <!-- Val loss curve (red) -->
+  <polyline points="55,80 68,112 80,148 93,168 105,182 117,193 130,203 142,210 155,218 167,224 180,230 192,234 205,237 217,241 230,244 242,246 255,248 267,250 280,251 293,253 305,254" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-dasharray="6,3" clip-path="url(#tc_c1)"/>
+
+  <!-- Legend -->
+  <line x1="210" y1="60" x2="230" y2="60" stroke="#3b82f6" stroke-width="2"/><text x="234" y="64" font-size="8" fill="#475569">Train</text>
+  <line x1="260" y1="60" x2="280" y2="60" stroke="#dc2626" stroke-width="2" stroke-dasharray="4,2"/><text x="284" y="64" font-size="8" fill="#475569">Val</text>
+
+  <!-- ===== PLOT 2: MFI Accuracy ===== -->
+  <rect x="375" y="52" width="250" height="220" fill="#fff" stroke="#e2e8f0" stroke-width="1" rx="4"/>
+  <text x="500" y="46" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">MFI Classification Accuracy</text>
+
+  <g stroke="#f1f5f9" stroke-width="0.8">
+    <line x1="375" y1="107" x2="625" y2="107"/><line x1="375" y1="162" x2="625" y2="162"/>
+    <line x1="375" y1="217" x2="625" y2="217"/>
+  </g>
+
+  <text x="368" y="276" text-anchor="end" font-size="8" fill="#94a3b8">0%</text>
+  <text x="368" y="222" text-anchor="end" font-size="8" fill="#94a3b8">25%</text>
+  <text x="368" y="167" text-anchor="end" font-size="8" fill="#94a3b8">50%</text>
+  <text x="368" y="112" text-anchor="end" font-size="8" fill="#94a3b8">75%</text>
+  <text x="368" y="57" text-anchor="end" font-size="8" fill="#94a3b8">100%</text>
+
+  <text x="375" y="286" text-anchor="middle" font-size="8" fill="#94a3b8">0</text>
+  <text x="437" y="286" text-anchor="middle" font-size="8" fill="#94a3b8">40</text>
+  <text x="500" y="286" text-anchor="middle" font-size="8" fill="#94a3b8">80</text>
+  <text x="562" y="286" text-anchor="middle" font-size="8" fill="#94a3b8">120</text>
+  <text x="625" y="286" text-anchor="middle" font-size="8" fill="#94a3b8">160</text>
+  <text x="500" y="302" text-anchor="middle" font-size="9" fill="#64748b">Epoch</text>
+
+  <!-- Train accuracy (blue, rises fast) -->
+  <polyline points="375,272 388,220 400,175 412,140 425,110 437,88 450,74 462,66 475,61 487,58 500,56 512,55 525,54 537,54 550,53 562,53 575,53 587,53 600,52 612,52 625,52" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" clip-path="url(#tc_c2)"/>
+
+  <!-- Val accuracy (red dashed) -->
+  <polyline points="375,272 388,225 400,180 412,148 425,118 437,95 450,80 462,71 475,65 487,61 500,58 512,56 525,55 537,55 550,54 562,54 575,54 587,53 600,53 612,53 625,53" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-dasharray="6,3" clip-path="url(#tc_c2)"/>
+
+  <!-- 99% line -->
+  <line x1="375" y1="54.2" x2="625" y2="54.2" stroke="#059669" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+  <text x="628" y="58" font-size="7" fill="#059669">99%</text>
+
+  <line x1="530" y1="60" x2="550" y2="60" stroke="#3b82f6" stroke-width="2"/><text x="554" y="64" font-size="8" fill="#475569">Train</text>
+  <line x1="580" y1="60" x2="600" y2="60" stroke="#dc2626" stroke-width="2" stroke-dasharray="4,2"/><text x="604" y="64" font-size="8" fill="#475569">Val</text>
+
+  <!-- ===== PLOT 3: OSNR MAE ===== -->
+  <rect x="695" y="52" width="250" height="220" fill="#fff" stroke="#e2e8f0" stroke-width="1" rx="4"/>
+  <text x="820" y="46" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">Validation OSNR MAE (dB)</text>
+
+  <g stroke="#f1f5f9" stroke-width="0.8">
+    <line x1="695" y1="107" x2="945" y2="107"/><line x1="695" y1="162" x2="945" y2="162"/>
+    <line x1="695" y1="217" x2="945" y2="217"/>
+  </g>
+
+  <text x="688" y="57" text-anchor="end" font-size="8" fill="#94a3b8">4.0</text>
+  <text x="688" y="112" text-anchor="end" font-size="8" fill="#94a3b8">3.0</text>
+  <text x="688" y="167" text-anchor="end" font-size="8" fill="#94a3b8">2.0</text>
+  <text x="688" y="222" text-anchor="end" font-size="8" fill="#94a3b8">1.0</text>
+  <text x="688" y="276" text-anchor="end" font-size="8" fill="#94a3b8">0.0</text>
+
+  <text x="695" y="286" text-anchor="middle" font-size="8" fill="#94a3b8">0</text>
+  <text x="757" y="286" text-anchor="middle" font-size="8" fill="#94a3b8">40</text>
+  <text x="820" y="286" text-anchor="middle" font-size="8" fill="#94a3b8">80</text>
+  <text x="882" y="286" text-anchor="middle" font-size="8" fill="#94a3b8">120</text>
+  <text x="945" y="286" text-anchor="middle" font-size="8" fill="#94a3b8">160</text>
+  <text x="820" y="302" text-anchor="middle" font-size="9" fill="#64748b">Epoch</text>
+
+  <!-- MAE curve (green, decays) -->
+  <polyline points="695,65 708,95 720,130 733,155 745,180 757,200 770,215 782,228 795,238 807,245 820,250 832,254 845,257 857,259 870,261 882,262 895,263 907,264 920,264 932,265 945,265" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" clip-path="url(#tc_c3)"/>
+
+  <!-- 0.5 dB line -->
+  <line x1="695" y1="244.5" x2="945" y2="244.5" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+  <text x="948" y="248" font-size="7" fill="#f59e0b">0.5 dB</text>
+
+  <!-- Final value annotation -->
+  <circle cx="945" cy="265" r="4" fill="#059669"/>
+  <text x="940" y="260" text-anchor="end" font-size="8" font-weight="600" fill="#059669">0.38 dB</text>
+
+  <!-- Bottom info -->
+  <text x="500" y="332" text-anchor="middle" font-size="9" fill="#64748b">Early stopping at epoch 142 | Best val loss at epoch 122 | AdamW (lr=1e-3→1e-5, cosine annealing)</text>
+</svg>

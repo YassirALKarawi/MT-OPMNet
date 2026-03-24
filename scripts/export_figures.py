@@ -39,6 +39,7 @@ except ImportError:
 
 # SVG files to export
 SVG_FILES = [
+    # Architecture diagrams
     "system_overview.svg",
     "architecture.svg",
     "caam_module.svg",
@@ -46,6 +47,13 @@ SVG_FILES = [
     "training_pipeline.svg",
     "constellations.svg",
     "signal_processing.svg",
+    # Result figures
+    "results_training_curves.svg",
+    "results_osnr_scatter.svg",
+    "results_confusion_matrix.svg",
+    "results_error_distribution.svg",
+    "results_osnr_per_modulation.svg",
+    "results_osnr_vs_error.svg",
 ]
 
 
