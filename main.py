@@ -37,16 +37,26 @@ def parse_args():
         "--fast", action="store_true",
         help="Use fast training settings for quick experiments",
     )
+    parser.add_argument(
+        "--no-caam", action="store_true",
+        help="Disable CAAM module (for ablation study)",
+    )
     return parser.parse_args()
 
 
 def train(cfg, device):
-    """Train the MT-OPMNet model."""
+    """Train the MT-OPMNet model.
+
+    Returns:
+        Tuple of (test_loader, osnr_stats, training_history).
+    """
     print("Building dataset...")
-    train_loader, val_loader, test_loader = create_dataloaders(cfg)
+    train_loader, val_loader, test_loader, osnr_stats = create_dataloaders(cfg)
     print(f"  Train: {len(train_loader.dataset)} | "
           f"Val: {len(val_loader.dataset)} | "
           f"Test: {len(test_loader.dataset)}")
+    print(f"  OSNR normalisation: mean={osnr_stats['mean']:.2f}, "
+          f"std={osnr_stats['std']:.2f}")
 
     model = MTOPMNet(
         n_bins=cfg["dataset"]["n_bins"],
@@ -55,19 +65,24 @@ def train(cfg, device):
     )
     model_summary(model)
 
-    trainer = Trainer(model, cfg, device)
-    trainer.train(train_loader, val_loader)
+    trainer = Trainer(model, cfg, device, osnr_stats)
+    history = trainer.train(train_loader, val_loader)
 
-    return test_loader
+    return test_loader, osnr_stats, history
 
 
-def evaluate(cfg, device, checkpoint_path, test_loader=None):
+def evaluate(cfg, device, checkpoint_path, test_loader=None,
+             osnr_stats=None, history=None):
     """Evaluate a trained MT-OPMNet model."""
     if test_loader is None:
-        _, _, test_loader = create_dataloaders(cfg)
+        _, _, test_loader, osnr_stats = create_dataloaders(cfg)
 
     print(f"\nLoading checkpoint: {checkpoint_path}")
     ckpt = torch.load(checkpoint_path, map_location=device, weights_only=False)
+
+    # Recover OSNR stats from checkpoint if not provided
+    if osnr_stats is None:
+        osnr_stats = ckpt.get("osnr_stats", {"mean": 0.0, "std": 1.0})
 
     model = MTOPMNet(
         n_bins=cfg["dataset"]["n_bins"],
@@ -77,11 +92,11 @@ def evaluate(cfg, device, checkpoint_path, test_loader=None):
     model.load_state_dict(ckpt["model_state"])
     model.to(device)
 
-    results = evaluate_model(model, test_loader, device)
+    results = evaluate_model(model, test_loader, device, osnr_stats)
     metrics = compute_metrics(results)
     print_metrics(metrics)
     save_results(metrics, results)
-    plot_results(results, metrics)
+    plot_results(results, metrics, history=history)
 
 
 def main():
@@ -92,6 +107,10 @@ def main():
         cfg = apply_fast_overrides(cfg)
         print("Fast mode enabled.")
 
+    if args.no_caam:
+        cfg["model"]["use_caam"] = False
+        print("CAAM disabled (ablation mode).")
+
     set_seed(cfg["dataset"]["seed"])
     device = get_device()
     print(f"Device: {device}")
@@ -101,8 +120,9 @@ def main():
     elif args.mode == "eval":
         evaluate(cfg, device, args.checkpoint)
     else:  # full
-        test_loader = train(cfg, device)
-        evaluate(cfg, device, "results/best_model.pt", test_loader)
+        test_loader, osnr_stats, history = train(cfg, device)
+        evaluate(cfg, device, "results/best_model.pt",
+                 test_loader, osnr_stats, history)
 
 
 if __name__ == "__main__":

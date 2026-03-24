@@ -107,6 +107,9 @@ python main.py --mode train --config configs/default.json
 
 # Fast training mode (fewer epochs, for testing)
 python main.py --mode train --fast
+
+# Ablation: train without CAAM module
+python main.py --mode full --no-caam
 ```
 
 ### Evaluation
@@ -131,7 +134,7 @@ All hyperparameters are defined in `configs/default.json`:
     "dataset": {
         "n_symbols": 16384,
         "n_bins": 100,
-        "n_realisations": 5,
+        "n_realisations": 20,
         "seed": 42,
         "train_ratio": 0.70,
         "val_ratio": 0.15
@@ -141,7 +144,7 @@ All hyperparameters are defined in `configs/default.json`:
         "use_caam": true
     },
     "training": {
-        "batch_size": 128,
+        "batch_size": 64,
         "max_epochs": 200,
         "patience": 20,
         "lr": 1e-3,
@@ -157,6 +160,7 @@ All hyperparameters are defined in `configs/default.json`:
 | Parameter | Description | Default |
 |---|---|---|
 | `n_bins` | Number of amplitude histogram bins | 100 |
+| `n_realisations` | Noise realisations per (format, OSNR) pair | 20 |
 | `n_classes` | Number of modulation formats | 5 |
 | `use_caam` | Enable Channel-Aware Attention Module | `true` |
 | `focal_gamma` | Focal loss focusing parameter | 2.0 |

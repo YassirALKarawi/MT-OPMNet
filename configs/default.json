@@ -2,7 +2,7 @@
     "dataset": {
         "n_symbols": 16384,
         "n_bins": 100,
-        "n_realisations": 5,
+        "n_realisations": 20,
         "seed": 42,
         "train_ratio": 0.70,
         "val_ratio": 0.15
@@ -12,7 +12,7 @@
         "use_caam": true
     },
     "training": {
-        "batch_size": 128,
+        "batch_size": 64,
         "max_epochs": 200,
         "patience": 20,
         "lr": 1e-3,
@@ -23,6 +23,6 @@
     "fast": {
         "max_epochs": 30,
         "patience": 8,
-        "n_realisations": 2
+        "n_realisations": 5
     }
 }

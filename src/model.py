@@ -94,6 +94,24 @@ class MTOPMNet(nn.Module):
             nn.Linear(64, n_classes),
         )
 
+        # Initialise weights
+        self._init_weights()
+
+    def _init_weights(self):
+        """Apply Kaiming initialisation for Conv/Linear, constant for BN."""
+        for m in self.modules():
+            if isinstance(m, nn.Conv1d):
+                nn.init.kaiming_normal_(m.weight, mode="fan_out",
+                                        nonlinearity="relu")
+                if m.bias is not None:
+                    nn.init.zeros_(m.bias)
+            elif isinstance(m, nn.BatchNorm1d):
+                nn.init.ones_(m.weight)
+                nn.init.zeros_(m.bias)
+            elif isinstance(m, nn.Linear):
+                nn.init.kaiming_normal_(m.weight, nonlinearity="relu")
+                nn.init.zeros_(m.bias)
+
     def forward(self, x: torch.Tensor):
         """Forward pass.
 
