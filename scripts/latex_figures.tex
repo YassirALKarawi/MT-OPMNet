@@ -1,0 +1,82 @@
+% ============================================================
+%  MT-OPMNet — LaTeX Figure Snippets
+%  Copy the figures you need into your paper.
+%
+%  Prerequisites:
+%    1. Run: python scripts/export_figures.py --format pdf
+%    2. Copy figures/pdf/*.pdf into your LaTeX project
+%    3. Add \usepackage{graphicx} to your preamble
+% ============================================================
+
+% --- Fig 1: System Overview (full-width) ---
+\begin{figure*}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/pdf/system_overview.pdf}
+    \caption{End-to-end pipeline of the proposed MT-OPMNet framework.
+             Optical signals are converted to amplitude histograms (AAH),
+             processed by the multi-task network, and evaluated on joint
+             OSNR estimation and modulation format identification.}
+    \label{fig:system_overview}
+\end{figure*}
+
+% --- Fig 2: Architecture (single-column) ---
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/pdf/architecture.pdf}
+    \caption{MT-OPMNet architecture. A shared three-layer 1-D CNN backbone
+             extracts features from the input AAH, enhanced by the CAAM
+             module, then splits into two task-specific heads for OSNR
+             regression and modulation format classification.}
+    \label{fig:architecture}
+\end{figure}
+
+% --- Fig 3: CAAM Module ---
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/pdf/caam_module.pdf}
+    \caption{Channel-Aware Attention Module (CAAM). Squeeze-and-excitation
+             mechanism that learns channel-wise importance weights for
+             adaptive feature recalibration.}
+    \label{fig:caam}
+\end{figure}
+
+% --- Fig 4: Multi-Task Loss ---
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/pdf/multi_task_loss.pdf}
+    \caption{Multi-task loss with homoscedastic uncertainty weighting.
+             MSE loss for OSNR regression and focal loss ($\gamma=2$)
+             for MFI classification are combined using learnable
+             log-variance parameters for automatic task balancing.}
+    \label{fig:loss}
+\end{figure}
+
+% --- Fig 5: Training Pipeline (full-width) ---
+\begin{figure*}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/pdf/training_pipeline.pdf}
+    \caption{Training pipeline. The forward pass computes dual predictions,
+             losses are combined via uncertainty weighting, and parameters
+             are updated using AdamW with cosine annealing and early stopping.}
+    \label{fig:training}
+\end{figure*}
+
+% --- Fig 6: Constellations (full-width) ---
+\begin{figure*}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/pdf/constellations.pdf}
+    \caption{Constellation diagrams of the five supported modulation formats:
+             OOK, DPSK, DQPSK, Star-8QAM, and Square-16QAM.}
+    \label{fig:constellations}
+\end{figure*}
+
+% --- Fig 7: Signal Processing (full-width) ---
+\begin{figure*}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/pdf/signal_processing.pdf}
+    \caption{AAH generation pipeline. Complex baseband symbols from the
+             modulation constellation are corrupted by AWGN noise at
+             the specified OSNR level, and the received signal amplitude
+             $|r_k|$ is binned into a normalised 100-bin histogram.}
+    \label{fig:signal_processing}
+\end{figure*}
