@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 380" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="pf_bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc"/><stop offset="100%" style="stop-color:#f1f5f9"/>
+    </linearGradient>
+    <filter id="pf_sh" x="-2%" y="-3%" width="104%" height="108%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+  <rect width="700" height="380" rx="14" fill="url(#pf_bg)"/>
+  <text x="350" y="28" text-anchor="middle" font-size="15" font-weight="700" fill="#1e293b">Per-Format OSNR RMSE at 28 GBd and 64 GBd</text>
+  <text x="350" y="44" text-anchor="middle" font-size="10" fill="#64748b">Higher-order formats show increased error due to denser amplitude structure (paper Fig. 12)</text>
+
+  <rect x="80" y="58" width="570" height="260" fill="#fff" stroke="#e2e8f0" stroke-width="1" rx="4"/>
+  <g stroke="#f1f5f9" stroke-width="0.8">
+    <line x1="80" y1="110" x2="650" y2="110"/><line x1="80" y1="162" x2="650" y2="162"/>
+    <line x1="80" y1="214" x2="650" y2="214"/><line x1="80" y1="266" x2="650" y2="266"/>
+  </g>
+  <text x="72" y="62" text-anchor="end" font-size="9" fill="#94a3b8">1.4</text>
+  <text x="72" y="110" text-anchor="end" font-size="9" fill="#94a3b8">1.1</text>
+  <text x="72" y="162" text-anchor="end" font-size="9" fill="#94a3b8">0.8</text>
+  <text x="72" y="214" text-anchor="end" font-size="9" fill="#94a3b8">0.5</text>
+  <text x="72" y="266" text-anchor="end" font-size="9" fill="#94a3b8">0.2</text>
+  <text x="22" y="170" text-anchor="middle" font-size="11" fill="#475569" transform="rotate(-90,22,170)">RMSE (dB)</text>
+
+  <!-- Grouped bars: 5 groups × 2 bars each -->
+  <!-- QPSK: 28GBd=0.72, 64GBd=0.78 -->
+  <g filter="url(#pf_sh)">
+    <rect x="112" y="192" width="38" height="126" rx="4" fill="#3b82f6"/>
+    <rect x="154" y="180" width="38" height="138" rx="4" fill="#93c5fd"/>
+  </g>
+  <text x="131" y="186" text-anchor="middle" font-size="9" font-weight="700" fill="#2563eb">0.72</text>
+  <text x="173" y="174" text-anchor="middle" font-size="9" font-weight="600" fill="#3b82f6">0.78</text>
+
+  <!-- 8QAM: 28GBd=0.80, 64GBd=0.88 -->
+  <g filter="url(#pf_sh)">
+    <rect x="218" y="176" width="38" height="142" rx="4" fill="#3b82f6"/>
+    <rect x="260" y="160" width="38" height="158" rx="4" fill="#93c5fd"/>
+  </g>
+  <text x="237" y="170" text-anchor="middle" font-size="9" font-weight="700" fill="#2563eb">0.80</text>
+  <text x="279" y="154" text-anchor="middle" font-size="9" font-weight="600" fill="#3b82f6">0.88</text>
+
+  <!-- 16QAM: 28GBd=0.88, 64GBd=0.95 -->
+  <g filter="url(#pf_sh)">
+    <rect x="324" y="160" width="38" height="158" rx="4" fill="#3b82f6"/>
+    <rect x="366" y="146" width="38" height="172" rx="4" fill="#93c5fd"/>
+  </g>
+  <text x="343" y="154" text-anchor="middle" font-size="9" font-weight="700" fill="#2563eb">0.88</text>
+  <text x="385" y="140" text-anchor="middle" font-size="9" font-weight="600" fill="#3b82f6">0.95</text>
+
+  <!-- 32QAM: 28GBd=0.95, 64GBd=1.08 -->
+  <g filter="url(#pf_sh)">
+    <rect x="430" y="146" width="38" height="172" rx="4" fill="#3b82f6"/>
+    <rect x="472" y="120" width="38" height="198" rx="4" fill="#93c5fd"/>
+  </g>
+  <text x="449" y="140" text-anchor="middle" font-size="9" font-weight="700" fill="#2563eb">0.95</text>
+  <text x="491" y="114" text-anchor="middle" font-size="9" font-weight="600" fill="#3b82f6">1.08</text>
+
+  <!-- 64QAM: 28GBd=1.10, 64GBd=1.22 -->
+  <g filter="url(#pf_sh)">
+    <rect x="536" y="116" width="38" height="202" rx="4" fill="#3b82f6"/>
+    <rect x="578" y="92" width="38" height="226" rx="4" fill="#93c5fd"/>
+  </g>
+  <text x="555" y="110" text-anchor="middle" font-size="9" font-weight="700" fill="#2563eb">1.10</text>
+  <text x="597" y="86" text-anchor="middle" font-size="9" font-weight="600" fill="#3b82f6">1.22</text>
+
+  <!-- X-axis labels -->
+  <text x="152" y="335" text-anchor="middle" font-size="10" font-weight="600" fill="#475569">QPSK</text>
+  <text x="258" y="335" text-anchor="middle" font-size="10" font-weight="600" fill="#475569">8-QAM</text>
+  <text x="364" y="335" text-anchor="middle" font-size="10" font-weight="600" fill="#475569">16-QAM</text>
+  <text x="470" y="335" text-anchor="middle" font-size="10" font-weight="600" fill="#475569">32-QAM</text>
+  <text x="576" y="335" text-anchor="middle" font-size="10" font-weight="600" fill="#475569">64-QAM</text>
+
+  <!-- Legend -->
+  <rect x="510" y="62" width="130" height="38" rx="6" fill="#fff" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="520" y="71" width="14" height="10" rx="2" fill="#3b82f6"/><text x="540" y="80" font-size="9" fill="#475569">28 GBd</text>
+  <rect x="520" y="85" width="14" height="10" rx="2" fill="#93c5fd"/><text x="540" y="94" font-size="9" fill="#475569">64 GBd</text>
+
+  <text x="350" y="367" text-anchor="middle" font-size="9" fill="#64748b">QPSK achieves lowest RMSE (0.72 dB); 64-QAM highest (1.10 dB) — consistent with constellation density</text>
+</svg>

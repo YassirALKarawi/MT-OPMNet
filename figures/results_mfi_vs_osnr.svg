@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="mo_bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc"/><stop offset="100%" style="stop-color:#f1f5f9"/>
+    </linearGradient>
+    <clipPath id="mo_cp"><rect x="85" y="50" width="540" height="290"/></clipPath>
+  </defs>
+  <rect width="680" height="420" rx="14" fill="url(#mo_bg)"/>
+  <text x="355" y="28" text-anchor="middle" font-size="15" font-weight="700" fill="#1e293b">MFI Accuracy vs. OSNR per Modulation Format</text>
+  <text x="355" y="44" text-anchor="middle" font-size="10" fill="#64748b">28 GBd — format-dependent sensitivity to noise level (paper Fig. 13)</text>
+
+  <rect x="85" y="50" width="540" height="290" fill="#fff" stroke="#e2e8f0" stroke-width="1" rx="4"/>
+  <g stroke="#f1f5f9" stroke-width="0.8">
+    <line x1="85" y1="108" x2="625" y2="108"/><line x1="85" y1="166" x2="625" y2="166"/>
+    <line x1="85" y1="224" x2="625" y2="224"/><line x1="85" y1="282" x2="625" y2="282"/>
+  </g>
+
+  <!-- Y-axis (85%-100%) -->
+  <text x="77" y="54" text-anchor="end" font-size="9" fill="#94a3b8">100%</text>
+  <text x="77" y="108" text-anchor="end" font-size="9" fill="#94a3b8">97%</text>
+  <text x="77" y="166" text-anchor="end" font-size="9" fill="#94a3b8">95%</text>
+  <text x="77" y="224" text-anchor="end" font-size="9" fill="#94a3b8">92%</text>
+  <text x="77" y="282" text-anchor="end" font-size="9" fill="#94a3b8">90%</text>
+  <text x="77" y="340" text-anchor="end" font-size="9" fill="#94a3b8">87%</text>
+  <text x="24" y="195" text-anchor="middle" font-size="11" fill="#475569" transform="rotate(-90,24,195)">Accuracy (%)</text>
+
+  <!-- X-axis (10-30 dB) -->
+  <text x="85" y="358" text-anchor="middle" font-size="9" fill="#94a3b8">10</text>
+  <text x="193" y="358" text-anchor="middle" font-size="9" fill="#94a3b8">14</text>
+  <text x="301" y="358" text-anchor="middle" font-size="9" fill="#94a3b8">18</text>
+  <text x="409" y="358" text-anchor="middle" font-size="9" fill="#94a3b8">22</text>
+  <text x="517" y="358" text-anchor="middle" font-size="9" fill="#94a3b8">26</text>
+  <text x="625" y="358" text-anchor="middle" font-size="9" fill="#94a3b8">30</text>
+  <text x="355" y="380" text-anchor="middle" font-size="11" fill="#475569">OSNR (dB)</text>
+
+  <!-- QPSK (indigo) — highest accuracy -->
+  <polyline points="85,126 139,95 193,72 247,60 301,54 355,52 409,51 463,51 517,50 571,50 625,50" fill="none" stroke="#6366f1" stroke-width="2.5" stroke-linecap="round" clip-path="url(#mo_cp)"/>
+  <g fill="#6366f1" clip-path="url(#mo_cp)">
+    <circle cx="85" cy="126" r="3.5"/><circle cx="193" cy="72" r="3.5"/><circle cx="301" cy="54" r="3.5"/>
+    <circle cx="409" cy="51" r="3.5"/><circle cx="517" cy="50" r="3.5"/><circle cx="625" cy="50" r="3.5"/>
+  </g>
+
+  <!-- 16QAM (teal) -->
+  <polyline points="85,244 139,195 193,150 247,118 301,92 355,76 409,65 463,58 517,54 571,52 625,51" fill="none" stroke="#0891b2" stroke-width="2.5" stroke-linecap="round" clip-path="url(#mo_cp)"/>
+  <g fill="#0891b2" clip-path="url(#mo_cp)">
+    <circle cx="85" cy="244" r="3.5"/><circle cx="193" cy="150" r="3.5"/><circle cx="301" cy="92" r="3.5"/>
+    <circle cx="409" cy="65" r="3.5"/><circle cx="517" cy="54" r="3.5"/><circle cx="625" cy="51" r="3.5"/>
+  </g>
+
+  <!-- 32QAM (green) — steepest drop -->
+  <polyline points="85,310 139,260 193,198 247,155 301,118 355,90 409,72 463,62 517,56 571,53 625,52" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" clip-path="url(#mo_cp)"/>
+  <g fill="#059669" clip-path="url(#mo_cp)">
+    <circle cx="85" cy="310" r="3.5"/><circle cx="193" cy="198" r="3.5"/><circle cx="301" cy="118" r="3.5"/>
+    <circle cx="409" cy="72" r="3.5"/><circle cx="517" cy="56" r="3.5"/><circle cx="625" cy="52" r="3.5"/>
+  </g>
+
+  <!-- 64QAM (red) -->
+  <polyline points="85,328 139,282 193,218 247,168 301,128 355,98 409,78 463,66 517,58 571,54 625,52" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round" clip-path="url(#mo_cp)"/>
+  <g fill="#dc2626" clip-path="url(#mo_cp)">
+    <circle cx="85" cy="328" r="3.5"/><circle cx="193" cy="218" r="3.5"/><circle cx="301" cy="128" r="3.5"/>
+    <circle cx="409" cy="78" r="3.5"/><circle cx="517" cy="58" r="3.5"/><circle cx="625" cy="52" r="3.5"/>
+  </g>
+
+  <!-- Legend -->
+  <rect x="440" y="260" width="175" height="72" rx="8" fill="#fff" stroke="#e2e8f0" stroke-width="1" opacity="0.95"/>
+  <circle cx="455" cy="276" r="4" fill="#6366f1"/><text x="466" y="280" font-size="9" fill="#475569" font-weight="600">QPSK</text>
+  <circle cx="455" cy="294" r="4" fill="#0891b2"/><text x="466" y="298" font-size="9" fill="#475569" font-weight="600">16-QAM</text>
+  <circle cx="455" cy="312" r="4" fill="#059669"/><text x="466" y="316" font-size="9" fill="#475569" font-weight="600">32-QAM</text>
+  <circle cx="540" cy="276" r="4" fill="#dc2626"/><text x="551" y="280" font-size="9" fill="#475569" font-weight="600">64-QAM</text>
+
+  <text x="355" y="408" text-anchor="middle" font-size="9" fill="#64748b">All formats converge to near-perfect accuracy above 20 dB; 32-QAM shows steepest drop at low OSNR (91.5% at 12 dB)</text>
+</svg>

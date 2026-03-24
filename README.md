@@ -205,17 +205,17 @@ All hyperparameters are defined in `configs/default.json`:
 
 ## Results
 
-The model achieves competitive performance on joint OPM tasks:
+Performance summary at 28 GBd (paper Tables III–VI):
 
-| Metric | Value |
-|---|---|
-| **OSNR MAE** | 0.38 dB |
-| **OSNR RMSE** | 0.52 dB |
-| **OSNR R²** | 0.9971 |
-| **MFI Accuracy** | 99.48% |
-| **MFI Macro F1** | 0.9948 |
+| Metric | MT-OPMNet | No CAAM | ST-OSNR |
+|---|:---:|:---:|:---:|
+| **OSNR RMSE** | **0.85 dB** | 1.10 dB | 0.99 dB |
+| **OSNR MAE** | **0.68 dB** | 0.86 dB | 0.77 dB |
+| **MFI Accuracy** | **98.1%** | 98.1% | — |
+| **Parameters** | **0.64M** | 0.61M | 0.42M |
+| **Latency (B=128)** | **0.61 ms** | — | — |
 
-### Training Curves
+### Training Convergence
 
 <p align="center">
   <img src="figures/results_training_curves.svg" alt="Training Curves" width="100%">
@@ -228,17 +228,53 @@ The model achieves competitive performance on joint OPM tasks:
   <img src="figures/results_error_distribution.svg" alt="OSNR Error Distribution" width="48%">
 </p>
 
-### OSNR Error Analysis
+### Per-Format OSNR RMSE
 
 <p align="center">
-  <img src="figures/results_osnr_vs_error.svg" alt="OSNR vs Error" width="48%">
-  <img src="figures/results_osnr_per_modulation.svg" alt="OSNR per Modulation" width="48%">
+  <img src="figures/results_performat_rmse.svg" alt="Per-Format RMSE" width="100%">
 </p>
 
-### Modulation Format Identification
+### OSNR RMSE Heatmap (Format × OSNR Range)
+
+<p align="center">
+  <img src="figures/results_osnr_heatmap.svg" alt="OSNR Heatmap" width="100%">
+</p>
+
+### OSNR RMSE vs. Transmission Distance
+
+<p align="center">
+  <img src="figures/results_rmse_vs_distance.svg" alt="RMSE vs Distance" width="100%">
+</p>
+
+### MFI Accuracy vs. OSNR
+
+<p align="center">
+  <img src="figures/results_mfi_vs_osnr.svg" alt="MFI vs OSNR" width="100%">
+</p>
+
+### Confusion Matrix
 
 <p align="center">
   <img src="figures/results_confusion_matrix.svg" alt="Confusion Matrix" width="450">
+</p>
+
+### Ablation Study
+
+<p align="center">
+  <img src="figures/results_ablation.svg" alt="Ablation Study" width="100%">
+</p>
+
+### CDF of OSNR Errors
+
+<p align="center">
+  <img src="figures/results_cdf.svg" alt="CDF of Errors" width="48%">
+  <img src="figures/results_latency.svg" alt="Latency vs Batch Size" width="48%">
+</p>
+
+### Computational Profile
+
+<p align="center">
+  <img src="figures/results_params_breakdown.svg" alt="Parameters and MACs" width="100%">
 </p>
 
 ## Citation

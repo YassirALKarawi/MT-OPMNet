@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 380" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="pb_bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc"/><stop offset="100%" style="stop-color:#f1f5f9"/>
+    </linearGradient>
+    <filter id="pb_sh" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="1" dy="3" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="700" height="380" rx="14" fill="url(#pb_bg)"/>
+  <text x="350" y="28" text-anchor="middle" font-size="15" font-weight="700" fill="#1e293b">Computational Profile: Parameters &amp; MACs</text>
+  <text x="350" y="44" text-anchor="middle" font-size="10" fill="#64748b">MT-OPMNet: 0.64M params, 23.7% fewer than combined single-task models (paper Table VI)</text>
+
+  <!-- ===== LEFT: Pie chart — parameter breakdown ===== -->
+  <text x="175" y="72" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">(a) Parameter Distribution</text>
+
+  <!-- Pie: Backbone 60%, CAAM 5%, OSNR Head 17%, MFI Head 18% -->
+  <!-- Using pre-computed arc paths for a 120-radius pie centered at (175, 215) -->
+  <!-- Backbone: 60% = 216° (from 0°) -->
+  <path d="M175,215 L175,95 A120,120 0 1,1 71.4,283.9 Z" fill="#3b82f6" filter="url(#pb_sh)"/>
+  <!-- CAAM: 5% = 18° -->
+  <path d="M175,215 L71.4,283.9 A120,120 0 0,1 60.5,258 Z" fill="#8b5cf6" filter="url(#pb_sh)"/>
+  <!-- OSNR Head: 17% = 61.2° -->
+  <path d="M175,215 L60.5,258 A120,120 0 0,1 105.8,108.5 Z" fill="#10b981" filter="url(#pb_sh)"/>
+  <!-- MFI Head: 18% = 64.8° -->
+  <path d="M175,215 L105.8,108.5 A120,120 0 0,1 175,95 Z" fill="#f59e0b" filter="url(#pb_sh)"/>
+
+  <!-- Center white circle (donut) -->
+  <circle cx="175" cy="215" r="55" fill="#fff"/>
+  <text x="175" y="210" text-anchor="middle" font-size="16" font-weight="700" fill="#1e293b">0.64M</text>
+  <text x="175" y="228" text-anchor="middle" font-size="9" fill="#64748b">Total Params</text>
+
+  <!-- Labels -->
+  <text x="250" y="142" font-size="10" font-weight="600" fill="#3b82f6">Backbone</text>
+  <text x="250" y="156" font-size="9" fill="#64748b">60% (0.38M)</text>
+  <text x="42" y="298" font-size="10" font-weight="600" fill="#8b5cf6">CAAM</text>
+  <text x="42" y="312" font-size="9" fill="#64748b">5% (0.03M)</text>
+  <text x="42" y="175" font-size="10" font-weight="600" fill="#10b981">OSNR Head</text>
+  <text x="42" y="189" font-size="9" fill="#64748b">17% (0.11M)</text>
+  <text x="100" y="100" font-size="10" font-weight="600" fill="#f59e0b">MFI Head</text>
+  <text x="100" y="114" font-size="9" fill="#64748b">18% (0.12M)</text>
+
+  <!-- ===== RIGHT: Horizontal bar chart — MACs comparison ===== -->
+  <text x="520" y="72" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">(b) MACs Comparison (Millions)</text>
+
+  <rect x="380" y="85" width="290" height="255" fill="#fff" stroke="#e2e8f0" stroke-width="1" rx="4"/>
+
+  <!-- Grid -->
+  <g stroke="#f1f5f9" stroke-width="0.8">
+    <line x1="450" y1="85" x2="450" y2="340"/><line x1="520" y1="85" x2="520" y2="340"/>
+    <line x1="590" y1="85" x2="590" y2="340"/>
+  </g>
+  <text x="380" y="352" font-size="8" fill="#94a3b8">0</text>
+  <text x="450" y="352" font-size="8" fill="#94a3b8">1.0</text>
+  <text x="520" y="352" font-size="8" fill="#94a3b8">2.0</text>
+  <text x="590" y="352" font-size="8" fill="#94a3b8">3.0</text>
+  <text x="660" y="352" font-size="8" fill="#94a3b8">4.0</text>
+
+  <!-- Bar: ST-OSNR (1.7M) -->
+  <rect x="380" y="100" width="119" height="40" rx="5" fill="#fecaca" filter="url(#pb_sh)"/>
+  <text x="507" y="125" font-size="10" font-weight="600" fill="#dc2626">1.7M</text>
+  <text x="375" y="125" text-anchor="end" font-size="9" fill="#475569">ST-OSNR</text>
+
+  <!-- Bar: ST-MFI (1.7M) -->
+  <rect x="380" y="155" width="119" height="40" rx="5" fill="#fed7aa" filter="url(#pb_sh)"/>
+  <text x="507" y="180" font-size="10" font-weight="600" fill="#ea580c">1.7M</text>
+  <text x="375" y="180" text-anchor="end" font-size="9" fill="#475569">ST-MFI</text>
+
+  <!-- Bar: Combined (3.4M) -->
+  <rect x="380" y="210" width="238" height="40" rx="5" fill="#f87171" filter="url(#pb_sh)"/>
+  <text x="626" y="235" font-size="10" font-weight="700" fill="#dc2626">3.4M</text>
+  <text x="375" y="235" text-anchor="end" font-size="9" fill="#475569">Combined</text>
+
+  <!-- Bar: MT-OPMNet (2.6M) — highlighted -->
+  <rect x="380" y="270" width="182" height="48" rx="5" fill="#3b82f6" filter="url(#pb_sh)"/>
+  <text x="570" y="300" font-size="12" font-weight="700" fill="#2563eb">2.6M</text>
+  <text x="375" y="300" text-anchor="end" font-size="10" font-weight="600" fill="#1e293b">MT-OPMNet</text>
+
+  <!-- Savings annotation -->
+  <rect x="470" y="272" width="68" height="18" rx="4" fill="#dcfce7" stroke="#22c55e" stroke-width="1"/>
+  <text x="504" y="285" text-anchor="middle" font-size="8" font-weight="700" fill="#15803d">−23.5%</text>
+
+  <text x="350" y="376" text-anchor="middle" font-size="9" fill="#64748b">Shared backbone accounts for 60% of parameters; CAAM adds only 5% overhead — efficient attention</text>
+</svg>
