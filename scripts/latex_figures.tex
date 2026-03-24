@@ -1,5 +1,5 @@
 % ============================================================
-%  MT-OPMNet — LaTeX Figure Snippets
+%  MT-OPMNet — Complete LaTeX Figure Snippets (32 figures)
 %  Copy the figures you need into your paper.
 %
 %  Prerequisites:
@@ -8,75 +8,278 @@
 %    3. Add \usepackage{graphicx} to your preamble
 % ============================================================
 
-% --- Fig 1: System Overview (full-width) ---
-\begin{figure*}[htbp]
+
+% ************************************************************
+%  SECTION III — SYSTEM MODEL
+% ************************************************************
+
+% --- Fig 1: System Overview ---
+\begin{figure*}[!t]
     \centering
     \includegraphics[width=\textwidth]{figures/pdf/system_overview.pdf}
-    \caption{End-to-end pipeline of the proposed MT-OPMNet framework.
-             Optical signals are converted to amplitude histograms (AAH),
-             processed by the multi-task network, and evaluated on joint
-             OSNR estimation and modulation format identification.}
-    \label{fig:system_overview}
+    \caption{End-to-end architecture of the proposed MT-OPMNet optical performance monitoring system, from the WDM transmitter through the amplified fibre link to the coherent receiver and the multi-task inference engine.}
+    \label{fig:system_model}
 \end{figure*}
 
-% --- Fig 2: Architecture (single-column) ---
-\begin{figure}[htbp]
+% --- Fig 2: Signal Processing Pipeline ---
+\begin{figure}[!t]
     \centering
-    \includegraphics[width=\columnwidth]{figures/pdf/architecture.pdf}
-    \caption{MT-OPMNet architecture. A shared three-layer 1-D CNN backbone
-             extracts features from the input AAH, enhanced by the CAAM
-             module, then splits into two task-specific heads for OSNR
-             regression and modulation format classification.}
-    \label{fig:architecture}
+    \includegraphics[width=\columnwidth]{figures/pdf/signal_processing.pdf}
+    \caption{Signal processing pipeline from optical transmission to MT-OPMNet monitoring outputs.}
+    \label{fig:system_level}
 \end{figure}
 
-% --- Fig 3: CAAM Module ---
-\begin{figure}[htbp]
+% --- Fig 3: AAH Examples for 5 Formats ---
+\begin{figure*}[!t]
     \centering
-    \includegraphics[width=\columnwidth]{figures/pdf/caam_module.pdf}
-    \caption{Channel-Aware Attention Module (CAAM). Squeeze-and-excitation
-             mechanism that learns channel-wise importance weights for
-             adaptive feature recalibration.}
-    \label{fig:caam}
-\end{figure}
-
-% --- Fig 4: Multi-Task Loss ---
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=\columnwidth]{figures/pdf/multi_task_loss.pdf}
-    \caption{Multi-task loss with homoscedastic uncertainty weighting.
-             MSE loss for OSNR regression and focal loss ($\gamma=2$)
-             for MFI classification are combined using learnable
-             log-variance parameters for automatic task balancing.}
-    \label{fig:loss}
-\end{figure}
-
-% --- Fig 5: Training Pipeline (full-width) ---
-\begin{figure*}[htbp]
-    \centering
-    \includegraphics[width=\textwidth]{figures/pdf/training_pipeline.pdf}
-    \caption{Training pipeline. The forward pass computes dual predictions,
-             losses are combined via uncertainty weighting, and parameters
-             are updated using AdamW with cosine annealing and early stopping.}
-    \label{fig:training}
+    \includegraphics[width=\textwidth]{figures/pdf/results_aah_examples.pdf}
+    \caption{Representative normalised AAHs for five modulation formats at OSNR\,=\,20\,dB and 28\,GBd.}
+    \label{fig:aah_examples}
 \end{figure*}
 
-% --- Fig 6: Constellations (full-width) ---
-\begin{figure*}[htbp]
+% --- Fig 4: AAH vs OSNR (16-QAM) ---
+\begin{figure*}[!t]
+    \centering
+    \includegraphics[width=\textwidth]{figures/pdf/results_aah_osnr.pdf}
+    \caption{Evolution of the 16-QAM AAH profile under varying OSNR conditions at 28\,GBd.}
+    \label{fig:aah_osnr}
+\end{figure*}
+
+% --- Fig: Constellation Diagrams ---
+\begin{figure*}[!t]
     \centering
     \includegraphics[width=\textwidth]{figures/pdf/constellations.pdf}
-    \caption{Constellation diagrams of the five supported modulation formats:
-             OOK, DPSK, DQPSK, Star-8QAM, and Square-16QAM.}
+    \caption{Constellation diagrams of the five supported modulation formats: QPSK, 8-QAM, 16-QAM, 32-QAM, and 64-QAM.}
     \label{fig:constellations}
 \end{figure*}
 
-% --- Fig 7: Signal Processing (full-width) ---
-\begin{figure*}[htbp]
+
+% ************************************************************
+%  SECTION IV — PROPOSED FRAMEWORK
+% ************************************************************
+
+% --- Fig 5: MT-OPMNet Architecture ---
+\begin{figure*}[!t]
     \centering
-    \includegraphics[width=\textwidth]{figures/pdf/signal_processing.pdf}
-    \caption{AAH generation pipeline. Complex baseband symbols from the
-             modulation constellation are corrupted by AWGN noise at
-             the specified OSNR level, and the received signal amplitude
-             $|r_k|$ is binned into a normalised 100-bin histogram.}
-    \label{fig:signal_processing}
+    \includegraphics[width=\textwidth]{figures/pdf/architecture.pdf}
+    \caption{Detailed architecture of the proposed MT-OPMNet, comprising a shared four-block convolutional backbone, the channel-aware attention module (CAAM), and two task-specific output heads for OSNR regression and MFI classification.}
+    \label{fig:architecture}
+\end{figure*}
+
+% --- Fig: CAAM Module ---
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/pdf/caam_module.pdf}
+    \caption{Channel-Aware Attention Module (CAAM). Squeeze-and-excitation mechanism that learns channel-wise importance weights for adaptive feature recalibration.}
+    \label{fig:caam}
+\end{figure}
+
+% --- Fig: Multi-Task Loss ---
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/pdf/multi_task_loss.pdf}
+    \caption{Multi-task loss with homoscedastic uncertainty weighting. Smooth-L1 loss for OSNR regression and focal loss ($\gamma_f=2$) for MFI classification are combined using learnable log-variance parameters for automatic task balancing.}
+    \label{fig:loss}
+\end{figure}
+
+% --- Fig: Training Pipeline ---
+\begin{figure*}[!t]
+    \centering
+    \includegraphics[width=\textwidth]{figures/pdf/training_pipeline.pdf}
+    \caption{Training and evaluation workflow of the MT-OPMNet framework, from dataset generation through model training to final testing.}
+    \label{fig:training_workflow}
+\end{figure*}
+
+
+% ************************************************************
+%  SECTION V — SIMULATION SETUP
+% ************************************************************
+
+% --- Fig 6: Dataset Distribution ---
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/pdf/results_dataset_distribution.pdf}
+    \caption{Dataset sample distribution across the modulation format and OSNR range dimensions. Each cell contains 660 samples, confirming uniform coverage and the absence of class or range bias.}
+    \label{fig:dataset_coverage}
+\end{figure}
+
+
+% ************************************************************
+%  SECTION VI — RESULTS AND DISCUSSION
+% ************************************************************
+
+% --- Fig 7: OSNR Scatter Plot ---
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/pdf/results_osnr_scatter.pdf}
+    \caption{Scatter plot of estimated versus true OSNR for the proposed MT-OPMNet. The tight clustering around the diagonal indicates accurate and unbiased predictions across the full OSNR range.}
+    \label{fig:osnr_scatter}
+\end{figure}
+
+% --- Fig 8: OSNR Residual vs Distance ---
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/pdf/results_residual_distance.pdf}
+    \caption{OSNR estimation residual ($\hat{y}_{\mathrm{OSNR}} - y_{\mathrm{OSNR}}$) as a function of transmission distance at 28\,GBd. The shaded band shows $\pm 1\sigma$.}
+    \label{fig:residual_distance}
+\end{figure}
+
+% --- Fig 9: Confusion Matrix ---
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/pdf/results_confusion_matrix.pdf}
+    \caption{Normalised confusion matrix for modulation format identification at 28\,GBd. Misclassifications are concentrated in a small number of off-diagonal cases.}
+    \label{fig:confusion}
+\end{figure}
+
+% --- Fig: Top Misclassifications ---
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/pdf/results_top_confusions.pdf}
+    \caption{Misclassification rates for the most frequently confused modulation format pairs at 28\,GBd.}
+    \label{fig:top_confusions}
+\end{figure}
+
+% --- Fig 12: Per-Format OSNR RMSE ---
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/pdf/results_performat_rmse.pdf}
+    \caption{Per-format OSNR estimation RMSE (dB) at 28\,GBd and 64\,GBd for the proposed MT-OPMNet. QPSK achieves the lowest error, while 64-QAM shows the highest RMSE.}
+    \label{fig:performat}
+\end{figure}
+
+% --- Fig 13: MFI Accuracy vs OSNR ---
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/pdf/results_mfi_vs_osnr.pdf}
+    \caption{MFI accuracy as a function of OSNR for four modulation formats at 28\,GBd. Higher-order formats are more sensitive to low OSNR conditions.}
+    \label{fig:mfi_osnr}
+\end{figure}
+
+% --- Fig 14: RMSE vs Distance ---
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/pdf/results_rmse_vs_distance.pdf}
+    \caption{OSNR estimation RMSE as a function of transmission distance at 28\,GBd for the evaluated models.}
+    \label{fig:rmse_distance}
+\end{figure}
+
+% --- Fig 15: Ablation Study ---
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/pdf/results_ablation.pdf}
+    \caption{Ablation study results: (a)~OSNR RMSE and (b)~MFI accuracy for four model configurations at 28\,GBd.}
+    \label{fig:ablation}
+\end{figure}
+
+% --- Fig: Ablation Waterfall ---
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/pdf/results_ablation_waterfall.pdf}
+    \caption{Ablation waterfall: cumulative OSNR RMSE improvement at 28\,GBd as architectural components are progressively added.}
+    \label{fig:ablation_waterfall}
+\end{figure}
+
+% --- Fig 17: Radar Model Comparison ---
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/pdf/results_radar_comparison.pdf}
+    \caption{Normalised multi-metric comparison of evaluated models. For each metric, higher scores indicate better performance. MT-OPMNet achieves the most balanced trade-off.}
+    \label{fig:model_comparison}
+\end{figure}
+
+% --- Fig 18: OSNR Heatmap (Format x OSNR) ---
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/pdf/results_osnr_heatmap.pdf}
+    \caption{Heatmap of OSNR estimation RMSE (dB) for each modulation format across five OSNR ranges at 28\,GBd. The mid-range OSNR region yields the lowest estimation errors.}
+    \label{fig:osnr_heatmap}
+\end{figure}
+
+% --- Fig 19: Distance x Power Heatmap ---
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/pdf/results_dist_power_heatmap.pdf}
+    \caption{OSNR RMSE heatmap across the transmission distance and per-channel launch power parameter space at 28\,GBd (16-QAM).}
+    \label{fig:dist_power_heatmap}
+\end{figure}
+
+% --- Fig 20: Attention Weights + Bin Saliency ---
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/pdf/results_attention_saliency.pdf}
+    \caption{Internal model analysis: (a)~learned CAAM attention weights across 256 feature channels for three modulation formats, and (b)~gradient-based saliency map showing bin importance for the OSNR regression task.}
+    \label{fig:attention}
+\end{figure}
+
+% --- Fig: Task Weight Evolution ---
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/pdf/results_task_weights.pdf}
+    \caption{Evolution of normalised task weights during training, showing adaptive shift from equal weighting towards OSNR-focused emphasis as MFI accuracy saturates.}
+    \label{fig:task_weights}
+\end{figure}
+
+% --- Fig 22: Latency vs Batch Size ---
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/pdf/results_latency.pdf}
+    \caption{Inference latency per sample versus batch size on the CPU platform. MT-OPMNet achieves consistently lower latency than the combined single-task baseline.}
+    \label{fig:latency}
+\end{figure}
+
+% --- Fig 23: CDF of OSNR Errors ---
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/pdf/results_cdf.pdf}
+    \caption{Cumulative distribution function (CDF) of the absolute OSNR estimation error at 28\,GBd. MT-OPMNet achieves the tightest error distribution among the compared models.}
+    \label{fig:cdf}
+\end{figure}
+
+% --- Fig 24: Cross-Symbol-Rate Study ---
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/pdf/results_cross_rate.pdf}
+    \caption{Cross-symbol-rate generalisation study: (a)~OSNR RMSE and (b)~MFI accuracy for four train/test symbol-rate configurations.}
+    \label{fig:cross_rate}
+\end{figure}
+
+% --- Fig: Parameters + MACs ---
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/pdf/results_params_breakdown.pdf}
+    \caption{Computational profile: (a)~MT-OPMNet parameter distribution across architectural components, and (b)~multiply-accumulate operations (MACs) comparison across all evaluated models.}
+    \label{fig:params_macs}
+\end{figure}
+
+% --- Fig: OSNR Error Distribution ---
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/pdf/results_error_distribution.pdf}
+    \caption{OSNR prediction error distribution. The near-zero mean confirms unbiased estimation.}
+    \label{fig:error_dist}
+\end{figure}
+
+% --- Fig: OSNR Error per Modulation (Boxplot) ---
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/pdf/results_osnr_per_modulation.pdf}
+    \caption{OSNR absolute error per modulation format. Higher-order modulations show slightly larger errors due to denser constellation spacing.}
+    \label{fig:osnr_per_mod}
+\end{figure}
+
+% --- Fig: OSNR MAE vs True OSNR ---
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/pdf/results_osnr_vs_error.pdf}
+    \caption{OSNR estimation error vs.\ OSNR level. Performance improves at higher OSNR values where signal-to-noise separation is clearer.}
+    \label{fig:osnr_vs_error}
+\end{figure}
+
+% --- Fig: Training Convergence (full-width) ---
+\begin{figure*}[!t]
+    \centering
+    \includegraphics[width=\textwidth]{figures/pdf/results_training_curves.pdf}
+    \caption{Training convergence curves: (a)~total loss, (b)~MFI classification accuracy, and (c)~validation OSNR MAE over training epochs.}
+    \label{fig:convergence}
 \end{figure*}
