@@ -186,24 +186,36 @@ All hyperparameters are defined in `configs/default.json`:
 ```json
 {
     "dataset": {
-        "n_symbols": 16384,
+        "n_symbols": 4096,
         "n_bins": 100,
-        "n_realisations": 20,
-        "seed": 42,
-        "train_ratio": 0.70,
-        "val_ratio": 0.15
+        "n_realisations": 5,
+        "osnr_range": [10.0, 30.0],
+        "modulation_formats": ["QPSK", "8QAM", "16QAM", "32QAM", "64QAM"],
+        "symbol_rates_gbd": [28, 64],
+        "distances_km": [500, 1000, 1500, 2000, 2500, 3000],
+        "launch_powers_dbm": [-2, 0, 2, 3, 4]
+    },
+    "wdm": {
+        "n_channels": 9,
+        "span_length_km": 80,
+        "fibre_attenuation_db_per_km": 0.2,
+        "fibre_dispersion_ps_per_nm_per_km": 17.0,
+        "nonlinear_coefficient_per_w_per_km": 1.3,
+        "edfa_noise_figure_db": 5.5
     },
     "model": {
         "n_classes": 5,
-        "use_caam": true
+        "use_caam": true,
+        "caam_reduction": 8
     },
     "training": {
-        "batch_size": 64,
+        "batch_size": 128,
         "max_epochs": 200,
         "patience": 20,
         "lr": 1e-3,
         "lr_min": 1e-5,
         "focal_gamma": 2.0,
+        "dropout": 0.3,
         "use_uncertainty_weighting": true
     }
 }
@@ -213,12 +225,16 @@ All hyperparameters are defined in `configs/default.json`:
 
 | Parameter | Description | Default |
 |---|---|---|
+| `n_symbols` | Symbols per AAH realisation | 4,096 |
 | `n_bins` | Number of amplitude histogram bins | 100 |
-| `n_realisations` | Noise realisations per (format, OSNR) pair | 20 |
-| `n_classes` | Number of modulation formats | 5 |
-| `use_caam` | Enable Channel-Aware Attention Module | `true` |
+| `n_realisations` | Monte Carlo realisations per configuration | 5 |
+| `osnr_range` | OSNR sweep range (dB) | [10, 30] |
+| `n_channels` | WDM channel count | 9 |
+| `caam_reduction` | CAAM bottleneck reduction ratio | 8 |
+| `batch_size` | Training batch size | 128 |
 | `focal_gamma` | Focal loss focusing parameter | 2.0 |
-| `use_uncertainty_weighting` | Automatic multi-task loss balancing | `true` |
+| `dropout` | Dropout rate in task heads | 0.3 |
+| `use_uncertainty_weighting` | Adaptive multi-task loss balancing | `true` |
 | `patience` | Early stopping patience (epochs) | 20 |
 
 ## Results
