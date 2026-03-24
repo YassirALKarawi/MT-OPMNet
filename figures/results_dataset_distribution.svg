@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 340" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="dd_bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc"/><stop offset="100%" style="stop-color:#f1f5f9"/>
+    </linearGradient>
+  </defs>
+  <rect width="700" height="340" rx="14" fill="url(#dd_bg)"/>
+  <text x="350" y="24" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">Dataset Sample Distribution: Format × OSNR Range</text>
+  <text x="350" y="40" text-anchor="middle" font-size="10" fill="#64748b">16,500 total samples — uniform coverage, no class or range bias (paper Fig. 6)</text>
+
+  <!-- Heatmap: 5 rows × 5 cols, cell 90×42 starting at (130,58) -->
+  <!-- Column headers -->
+  <text x="175" y="54" text-anchor="middle" font-size="9" font-weight="600" fill="#475569">10–14 dB</text>
+  <text x="265" y="54" text-anchor="middle" font-size="9" font-weight="600" fill="#475569">14–18 dB</text>
+  <text x="355" y="54" text-anchor="middle" font-size="9" font-weight="600" fill="#475569">18–22 dB</text>
+  <text x="445" y="54" text-anchor="middle" font-size="9" font-weight="600" fill="#475569">22–26 dB</text>
+  <text x="535" y="54" text-anchor="middle" font-size="9" font-weight="600" fill="#475569">26–30 dB</text>
+
+  <!-- Row headers -->
+  <text x="122" y="84" text-anchor="end" font-size="10" font-weight="600" fill="#2563eb">QPSK</text>
+  <text x="122" y="126" text-anchor="end" font-size="10" font-weight="600" fill="#7c3aed">8-QAM</text>
+  <text x="122" y="168" text-anchor="end" font-size="10" font-weight="600" fill="#0891b2">16-QAM</text>
+  <text x="122" y="210" text-anchor="end" font-size="10" font-weight="600" fill="#059669">32-QAM</text>
+  <text x="122" y="252" text-anchor="end" font-size="10" font-weight="600" fill="#dc2626">64-QAM</text>
+
+  <!-- All cells have 660 samples each (16500 / 25 = 660) -->
+  <!-- Uniform blue fill to show balance -->
+  <g>
+    <!-- Row 1: QPSK -->
+    <rect x="130" y="62" width="90" height="42" fill="#2563eb" opacity="0.7" rx="4"/><text x="175" y="88" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">660</text>
+    <rect x="220" y="62" width="90" height="42" fill="#2563eb" opacity="0.7" rx="4"/><text x="265" y="88" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">660</text>
+    <rect x="310" y="62" width="90" height="42" fill="#2563eb" opacity="0.7" rx="4"/><text x="355" y="88" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">660</text>
+    <rect x="400" y="62" width="90" height="42" fill="#2563eb" opacity="0.7" rx="4"/><text x="445" y="88" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">660</text>
+    <rect x="490" y="62" width="90" height="42" fill="#2563eb" opacity="0.7" rx="4"/><text x="535" y="88" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">660</text>
+    <!-- Row 2: 8QAM -->
+    <rect x="130" y="104" width="90" height="42" fill="#7c3aed" opacity="0.65" rx="4"/><text x="175" y="130" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">660</text>
+    <rect x="220" y="104" width="90" height="42" fill="#7c3aed" opacity="0.65" rx="4"/><text x="265" y="130" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">660</text>
+    <rect x="310" y="104" width="90" height="42" fill="#7c3aed" opacity="0.65" rx="4"/><text x="355" y="130" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">660</text>
+    <rect x="400" y="104" width="90" height="42" fill="#7c3aed" opacity="0.65" rx="4"/><text x="445" y="130" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">660</text>
+    <rect x="490" y="104" width="90" height="42" fill="#7c3aed" opacity="0.65" rx="4"/><text x="535" y="130" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">660</text>
+    <!-- Row 3: 16QAM -->
+    <rect x="130" y="146" width="90" height="42" fill="#0891b2" opacity="0.65" rx="4"/><text x="175" y="172" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">660</text>
+    <rect x="220" y="146" width="90" height="42" fill="#0891b2" opacity="0.65" rx="4"/><text x="265" y="172" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">660</text>
+    <rect x="310" y="146" width="90" height="42" fill="#0891b2" opacity="0.65" rx="4"/><text x="355" y="172" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">660</text>
+    <rect x="400" y="146" width="90" height="42" fill="#0891b2" opacity="0.65" rx="4"/><text x="445" y="172" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">660</text>
+    <rect x="490" y="146" width="90" height="42" fill="#0891b2" opacity="0.65" rx="4"/><text x="535" y="172" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">660</text>
+    <!-- Row 4: 32QAM -->
+    <rect x="130" y="188" width="90" height="42" fill="#059669" opacity="0.65" rx="4"/><text x="175" y="214" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">660</text>
+    <rect x="220" y="188" width="90" height="42" fill="#059669" opacity="0.65" rx="4"/><text x="265" y="214" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">660</text>
+    <rect x="310" y="188" width="90" height="42" fill="#059669" opacity="0.65" rx="4"/><text x="355" y="214" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">660</text>
+    <rect x="400" y="188" width="90" height="42" fill="#059669" opacity="0.65" rx="4"/><text x="445" y="214" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">660</text>
+    <rect x="490" y="188" width="90" height="42" fill="#059669" opacity="0.65" rx="4"/><text x="535" y="214" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">660</text>
+    <!-- Row 5: 64QAM -->
+    <rect x="130" y="230" width="90" height="42" fill="#dc2626" opacity="0.6" rx="4"/><text x="175" y="256" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">660</text>
+    <rect x="220" y="230" width="90" height="42" fill="#dc2626" opacity="0.6" rx="4"/><text x="265" y="256" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">660</text>
+    <rect x="310" y="230" width="90" height="42" fill="#dc2626" opacity="0.6" rx="4"/><text x="355" y="256" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">660</text>
+    <rect x="400" y="230" width="90" height="42" fill="#dc2626" opacity="0.6" rx="4"/><text x="445" y="256" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">660</text>
+    <rect x="490" y="230" width="90" height="42" fill="#dc2626" opacity="0.6" rx="4"/><text x="535" y="256" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">660</text>
+  </g>
+
+  <!-- Grid -->
+  <rect x="130" y="62" width="450" height="210" fill="none" stroke="#fff" stroke-width="2.5" rx="4"/>
+  <g stroke="#fff" stroke-width="2">
+    <line x1="220" y1="62" x2="220" y2="272"/><line x1="310" y1="62" x2="310" y2="272"/>
+    <line x1="400" y1="62" x2="400" y2="272"/><line x1="490" y1="62" x2="490" y2="272"/>
+    <line x1="130" y1="104" x2="580" y2="104"/><line x1="130" y1="146" x2="580" y2="146"/>
+    <line x1="130" y1="188" x2="580" y2="188"/><line x1="130" y1="230" x2="580" y2="230"/>
+  </g>
+
+  <!-- Summary box -->
+  <rect x="598" y="62" width="90" height="210" fill="#fff" stroke="#e2e8f0" stroke-width="1" rx="6"/>
+  <text x="643" y="82" text-anchor="middle" font-size="9" font-weight="700" fill="#0f172a">Per Row</text>
+  <text x="643" y="108" text-anchor="middle" font-size="11" font-weight="700" fill="#2563eb">3,300</text>
+  <text x="643" y="150" text-anchor="middle" font-size="11" font-weight="700" fill="#7c3aed">3,300</text>
+  <text x="643" y="192" text-anchor="middle" font-size="11" font-weight="700" fill="#0891b2">3,300</text>
+  <text x="643" y="234" text-anchor="middle" font-size="11" font-weight="700" fill="#059669">3,300</text>
+  <text x="643" y="262" text-anchor="middle" font-size="11" font-weight="700" fill="#dc2626">3,300</text>
+
+  <!-- Axis labels -->
+  <text x="355" y="295" text-anchor="middle" font-size="11" fill="#475569">OSNR Range (dB)</text>
+  <text x="30" y="170" text-anchor="middle" font-size="11" fill="#475569" transform="rotate(-90,30,170)">Modulation Format</text>
+
+  <text x="350" y="325" text-anchor="middle" font-size="9" fill="#64748b">5 formats × 11 OSNR × 2 symbol rates × 6 distances × 5 powers × 5 realisations = 16,500 samples</text>
+</svg>

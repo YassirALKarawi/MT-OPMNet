@@ -84,6 +84,24 @@ The architecture leverages a **shared 1-D CNN backbone** with task-specific head
   <img src="figures/signal_processing.svg" alt="Signal Processing Pipeline" width="100%">
 </p>
 
+### AAH Examples at OSNR = 20 dB
+
+<p align="center">
+  <img src="figures/results_aah_examples.svg" alt="AAH Examples" width="100%">
+</p>
+
+### AAH Sensitivity to OSNR (16-QAM)
+
+<p align="center">
+  <img src="figures/results_aah_osnr.svg" alt="AAH OSNR Evolution" width="100%">
+</p>
+
+### Dataset Sample Distribution
+
+<p align="center">
+  <img src="figures/results_dataset_distribution.svg" alt="Dataset Distribution" width="100%">
+</p>
+
 ---
 
 ## Project Structure
@@ -252,16 +270,21 @@ Performance summary at 28 GBd (paper Tables III–VI):
   <img src="figures/results_mfi_vs_osnr.svg" alt="MFI vs OSNR" width="100%">
 </p>
 
-### Confusion Matrix
+### Confusion Matrix &amp; Top Misclassifications
 
 <p align="center">
-  <img src="figures/results_confusion_matrix.svg" alt="Confusion Matrix" width="450">
+  <img src="figures/results_confusion_matrix.svg" alt="Confusion Matrix" width="46%">
+  <img src="figures/results_top_confusions.svg" alt="Top Misclassifications" width="50%">
 </p>
 
-### Ablation Study
+### Ablation Study &amp; Waterfall
 
 <p align="center">
   <img src="figures/results_ablation.svg" alt="Ablation Study" width="100%">
+</p>
+
+<p align="center">
+  <img src="figures/results_ablation_waterfall.svg" alt="Ablation Waterfall" width="100%">
 </p>
 
 ### CDF of OSNR Errors
@@ -287,6 +310,12 @@ Performance summary at 28 GBd (paper Tables III–VI):
 
 <p align="center">
   <img src="figures/results_cross_rate.svg" alt="Cross-Rate Study" width="100%">
+</p>
+
+### CAAM Attention Weights &amp; Bin Saliency
+
+<p align="center">
+  <img src="figures/results_attention_saliency.svg" alt="Attention and Saliency" width="100%">
 </p>
 
 ### Learned Task Weights

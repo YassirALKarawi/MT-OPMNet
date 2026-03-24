@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 320" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="tc_bg2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc"/><stop offset="100%" style="stop-color:#f1f5f9"/>
+    </linearGradient>
+    <filter id="tc_sh2" x="-2%" y="-3%" width="104%" height="108%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+  <rect width="650" height="320" rx="14" fill="url(#tc_bg2)"/>
+  <text x="325" y="24" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">Top Misclassification Rates at 28 GBd</text>
+  <text x="325" y="40" text-anchor="middle" font-size="10" fill="#64748b">Dominant confusion is 16-QAM → 64-QAM at 6.9% (paper Fig. top confusions)</text>
+
+  <rect x="60" y="55" width="530" height="225" fill="#fff" stroke="#e2e8f0" stroke-width="1" rx="4"/>
+
+  <!-- Y-axis labels (confusion pairs) -->
+  <text x="52" y="100" text-anchor="end" font-size="10" font-weight="600" fill="#475569">16Q → 64Q</text>
+  <text x="52" y="148" text-anchor="end" font-size="10" font-weight="600" fill="#475569">32Q → 64Q</text>
+  <text x="52" y="196" text-anchor="end" font-size="10" font-weight="600" fill="#475569">64Q → 16Q</text>
+  <text x="52" y="244" text-anchor="end" font-size="10" font-weight="600" fill="#475569">32Q → 16Q</text>
+
+  <!-- Grid -->
+  <g stroke="#f1f5f9" stroke-width="0.8">
+    <line x1="60" y1="123" x2="590" y2="123"/><line x1="60" y1="171" x2="590" y2="171"/>
+    <line x1="60" y1="219" x2="590" y2="219"/>
+  </g>
+
+  <!-- X-axis grid -->
+  <line x1="192" y1="55" x2="192" y2="280" stroke="#f1f5f9" stroke-width="0.8"/>
+  <line x1="324" y1="55" x2="324" y2="280" stroke="#f1f5f9" stroke-width="0.8"/>
+  <line x1="456" y1="55" x2="456" y2="280" stroke="#f1f5f9" stroke-width="0.8"/>
+  <text x="60" y="295" font-size="8" fill="#94a3b8">0%</text>
+  <text x="192" y="295" text-anchor="middle" font-size="8" fill="#94a3b8">2%</text>
+  <text x="324" y="295" text-anchor="middle" font-size="8" fill="#94a3b8">4%</text>
+  <text x="456" y="295" text-anchor="middle" font-size="8" fill="#94a3b8">6%</text>
+  <text x="590" y="295" text-anchor="middle" font-size="8" fill="#94a3b8">8%</text>
+  <text x="325" y="313" text-anchor="middle" font-size="10" fill="#475569">Misclassification Rate (%)</text>
+
+  <!-- Bar 1: 16Q→64Q = 6.9% -->
+  <g filter="url(#tc_sh2)">
+    <rect x="60" y="78" width="456" height="36" rx="5" fill="#dc2626" opacity="0.85"/>
+  </g>
+  <text x="524" y="101" font-size="12" font-weight="700" fill="#fff">6.9%</text>
+
+  <!-- Bar 2: 32Q→64Q = 1.4% -->
+  <g filter="url(#tc_sh2)">
+    <rect x="60" y="126" width="93" height="36" rx="5" fill="#ea580c" opacity="0.75"/>
+  </g>
+  <text x="161" y="149" font-size="12" font-weight="700" fill="#fff">1.4%</text>
+
+  <!-- Bar 3: 64Q→16Q = 1.4% -->
+  <g filter="url(#tc_sh2)">
+    <rect x="60" y="174" width="93" height="36" rx="5" fill="#ea580c" opacity="0.65"/>
+  </g>
+  <text x="161" y="197" font-size="12" font-weight="700" fill="#fff">1.4%</text>
+
+  <!-- Bar 4: 32Q→16Q = 0.7% -->
+  <g filter="url(#tc_sh2)">
+    <rect x="60" y="222" width="46" height="36" rx="5" fill="#f59e0b" opacity="0.6"/>
+  </g>
+  <text x="114" y="245" font-size="11" font-weight="700" fill="#78350f">0.7%</text>
+</svg>

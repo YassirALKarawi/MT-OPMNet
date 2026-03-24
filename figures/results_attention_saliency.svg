@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 420" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="as_bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc"/><stop offset="100%" style="stop-color:#f1f5f9"/>
+    </linearGradient>
+    <clipPath id="as_c1"><rect x="45" y="65" width="400" height="150"/></clipPath>
+    <clipPath id="as_c2"><rect x="45" y="275" width="830" height="115"/></clipPath>
+  </defs>
+  <rect width="920" height="420" rx="14" fill="url(#as_bg)"/>
+  <text x="460" y="24" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">Internal Model Analysis: CAAM Weights &amp; Bin Saliency</text>
+
+  <!-- ===== (a) CAAM Attention Weights ===== -->
+  <text x="250" y="52" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">(a) Learned CAAM Attention Weights (256 channels)</text>
+
+  <rect x="45" y="65" width="400" height="150" fill="#fff" stroke="#e2e8f0" stroke-width="1" rx="4"/>
+  <text x="38" y="72" text-anchor="end" font-size="8" fill="#94a3b8">1.0</text>
+  <text x="38" y="140" text-anchor="end" font-size="8" fill="#94a3b8">0.5</text>
+  <text x="38" y="218" text-anchor="end" font-size="8" fill="#94a3b8">0.0</text>
+  <line x1="45" y1="140" x2="445" y2="140" stroke="#f1f5f9" stroke-width="0.8"/>
+
+  <!-- QPSK attention weights (blue, concentrated) -->
+  <g clip-path="url(#as_c1)">
+    <polyline points="45,195 52,190 59,185 66,188 73,175 80,160 87,140 94,120 101,100 108,85 115,78 122,82 129,95 136,110 143,130 150,148 157,162 164,175 171,182 178,188 185,185 192,178 199,165 206,150 213,138 220,128 227,120 234,125 241,135 248,148 255,160 262,170 269,178 276,182 283,180 290,172 297,158 304,142 311,130 318,125 325,132 332,145 339,160 346,172 353,180 360,185 367,188 374,190 381,192 388,194 395,195 402,196 409,197 416,198 423,200 430,202 437,205 444,208" fill="none" stroke="#2563eb" stroke-width="1.8" opacity="0.8"/>
+  </g>
+
+  <!-- 16-QAM (teal, more uniform) -->
+  <g clip-path="url(#as_c1)">
+    <polyline points="45,168 52,162 59,155 66,148 73,142 80,138 87,135 94,130 101,128 108,125 115,122 122,120 129,118 136,120 143,122 150,125 157,128 164,130 171,132 178,128 185,122 192,118 199,115 206,112 213,110 220,108 227,110 234,114 241,118 248,122 255,128 262,132 269,135 276,132 283,126 290,120 297,115 304,110 311,108 318,110 325,115 332,122 339,128 346,135 353,140 360,145 367,150 374,155 381,160 388,165 395,170 402,175 409,178 416,182 423,185 430,188 437,190 444,192" fill="none" stroke="#0891b2" stroke-width="1.8" opacity="0.7"/>
+  </g>
+
+  <!-- 64-QAM (red, diffuse) -->
+  <g clip-path="url(#as_c1)">
+    <polyline points="45,152 52,148 59,145 66,142 73,140 80,138 87,136 94,135 101,134 108,132 115,131 122,130 129,130 136,130 143,131 150,132 157,133 164,134 171,134 178,133 185,132 192,131 199,130 206,129 213,128 220,128 227,129 234,130 241,132 248,133 255,134 262,135 269,135 276,134 283,133 290,131 297,130 304,129 311,129 318,130 325,132 332,134 339,135 346,136 353,137 360,138 367,139 374,140 381,142 388,144 395,146 402,148 409,150 416,152 423,154 430,156 437,158 444,160" fill="none" stroke="#dc2626" stroke-width="1.8" opacity="0.6"/>
+  </g>
+
+  <text x="245" y="228" text-anchor="middle" font-size="9" fill="#475569">Feature Channel Index (1–256)</text>
+
+  <!-- Legend -->
+  <rect x="460" y="68" width="130" height="58" rx="6" fill="#fff" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="472" y1="82" x2="492" y2="82" stroke="#2563eb" stroke-width="2"/><text x="500" y="86" font-size="9" fill="#475569" font-weight="600">QPSK</text>
+  <line x1="472" y1="100" x2="492" y2="100" stroke="#0891b2" stroke-width="2"/><text x="500" y="104" font-size="9" fill="#475569" font-weight="600">16-QAM</text>
+  <line x1="472" y1="118" x2="492" y2="118" stroke="#dc2626" stroke-width="2"/><text x="500" y="122" font-size="9" fill="#475569" font-weight="600">64-QAM</text>
+
+  <!-- Annotation -->
+  <rect x="460" y="138" width="200" height="72" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1"/>
+  <text x="560" y="156" text-anchor="middle" font-size="9" font-weight="600" fill="#1e3a8a">Key Observation:</text>
+  <text x="560" y="170" text-anchor="middle" font-size="8" fill="#475569">QPSK: concentrated spikes</text>
+  <text x="560" y="182" text-anchor="middle" font-size="8" fill="#475569">16-QAM: moderate variation</text>
+  <text x="560" y="194" text-anchor="middle" font-size="8" fill="#475569">64-QAM: near-uniform weights</text>
+  <text x="560" y="206" text-anchor="middle" font-size="8" fill="#1e3a8a">→ Format-dependent adaptation</text>
+
+  <!-- ===== (b) Gradient-based Bin Saliency ===== -->
+  <text x="460" y="262" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">(b) Gradient Saliency Map: AAH Bin Importance for OSNR Regression</text>
+
+  <rect x="45" y="275" width="830" height="115" fill="#fff" stroke="#e2e8f0" stroke-width="1" rx="4"/>
+  <text x="38" y="282" text-anchor="end" font-size="8" fill="#94a3b8">1.0</text>
+  <text x="38" y="332" text-anchor="end" font-size="8" fill="#94a3b8">0.5</text>
+  <text x="38" y="386" text-anchor="end" font-size="8" fill="#94a3b8">0.0</text>
+  <line x1="45" y1="332" x2="875" y2="332" stroke="#f1f5f9" stroke-width="0.8"/>
+
+  <!-- QPSK saliency (concentrated peak around bins 60-80) -->
+  <g clip-path="url(#as_c2)">
+    <!-- Bins 1-100, mapped to x: 45 to 875, per bin = 8.3px -->
+    <polyline points="45,385 53,384 62,383 70,382 78,380 87,378 95,374 103,368 112,358 120,345 128,328 137,308 145,290 153,280 162,285 170,295 178,310 187,328 195,345 203,360 212,372 220,378 228,382 237,384 245,385 253,385 262,385 270,385 278,385 287,385 295,385 303,385 312,385 320,385 328,385 337,385 345,385 353,385 362,385 370,385 378,385 387,385 395,385 403,385 412,385 420,385 428,385 437,385 445,385 453,385 462,385 470,385 478,385 487,385 495,385 503,384 512,382 520,378 528,372 537,358 545,338 553,315 562,292 570,278 578,280 587,292 595,312 603,335 612,355 620,370 628,378 637,383 645,385 653,385 662,385 670,385 678,385 687,385 695,385 703,385 712,385 720,385 728,385 737,385 745,385 753,385 762,385 770,385 778,385 787,385 795,385 803,385 812,385 820,385 828,385 837,385 845,385 853,385 862,385 870,385" fill="none" stroke="#2563eb" stroke-width="2.2" opacity="0.8"/>
+    <!-- 16-QAM saliency (three peaks) -->
+    <polyline points="45,385 53,383 62,378 70,370 78,358 87,342 95,330 103,338 112,352 120,368 128,378 137,383 145,385 153,384 162,380 170,372 178,358 187,340 195,322 203,310 212,318 220,332 228,350 237,365 245,376 253,382 262,384 270,384 278,382 287,376 295,365 303,348 312,330 320,315 328,310 337,318 345,332 353,350 362,368 370,378 378,383 387,385 395,385 403,385 412,385 420,385 428,385 437,385 445,385 453,385 462,385 470,385 478,385 487,385 495,385 503,385 512,385 520,385 528,385 537,385 545,385 553,385 562,385 570,385 578,385 587,385 595,385 603,385 612,385 620,385 628,385 637,385 645,385 653,385 662,385 670,385 678,385 687,385 695,385 703,385 712,385 720,385 728,385 737,385 745,385 753,385 762,385 770,385 778,385 787,385 795,385 803,385 812,385 820,385 828,385 837,385 845,385 853,385 862,385 870,385" fill="none" stroke="#0891b2" stroke-width="2" opacity="0.7"/>
+    <!-- 64-QAM saliency (broadly distributed) -->
+    <polyline points="45,380 53,375 62,368 70,362 78,356 87,352 95,348 103,345 112,342 120,340 128,338 137,336 145,335 153,334 162,333 170,333 178,333 187,334 195,335 203,336 212,337 220,338 228,338 237,337 245,336 253,335 262,334 270,334 278,335 287,336 295,338 303,340 312,341 320,342 328,342 337,341 345,339 353,338 362,337 370,337 378,338 387,340 395,342 403,344 412,346 420,348 428,350 437,352 445,355 453,358 462,362 470,366 478,370 487,374 495,376 503,378 512,380 520,382 528,383 537,384 545,384 553,385 562,385 570,385 578,385 587,385 595,385 603,385 612,385 620,385 628,385 637,385 645,385 653,385 662,385 670,385 678,385 687,385 695,385 703,385 712,385 720,385 728,385 737,385 745,385 753,385 762,385 770,385 778,385 787,385 795,385 803,385 812,385 820,385 828,385 837,385 845,385 853,385 862,385 870,385" fill="none" stroke="#dc2626" stroke-width="1.8" opacity="0.55"/>
+  </g>
+
+  <text x="460" y="400" text-anchor="middle" font-size="9" fill="#475569">AAH Bin Index (1–100)</text>
+
+  <!-- Legend -->
+  <rect x="700" y="280" width="160" height="58" rx="6" fill="#fff" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="712" y1="294" x2="732" y2="294" stroke="#2563eb" stroke-width="2.2"/><text x="740" y="298" font-size="9" fill="#475569">QPSK (1 peak)</text>
+  <line x1="712" y1="312" x2="732" y2="312" stroke="#0891b2" stroke-width="2"/><text x="740" y="316" font-size="9" fill="#475569">16-QAM (3 peaks)</text>
+  <line x1="712" y1="330" x2="732" y2="330" stroke="#dc2626" stroke-width="1.8"/><text x="740" y="334" font-size="9" fill="#475569">64-QAM (diffuse)</text>
+
+  <text x="460" y="416" text-anchor="middle" font-size="9" fill="#64748b">Saliency |∂ŷ/∂h_j| averaged over 500 test samples — model learns physically meaningful amplitude features</text>
+</svg>

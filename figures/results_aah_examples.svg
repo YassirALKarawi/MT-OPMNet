@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 300" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="ae_bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc"/><stop offset="100%" style="stop-color:#f1f5f9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1100" height="300" rx="14" fill="url(#ae_bg)"/>
+  <text x="550" y="24" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">Representative Normalised AAHs for Five Modulation Formats at OSNR = 20 dB, 28 GBd</text>
+
+  <!-- ===== QPSK ===== -->
+  <rect x="15" y="42" width="200" height="245" fill="#fff" stroke="#e2e8f0" stroke-width="1" rx="4"/>
+  <text x="115" y="58" text-anchor="middle" font-size="11" font-weight="700" fill="#2563eb">QPSK</text>
+  <g fill="#2563eb" opacity="0.75">
+    <rect x="28" y="248" width="6" height="4" rx="1"/><rect x="36" y="245" width="6" height="7" rx="1"/>
+    <rect x="44" y="240" width="6" height="12" rx="1"/><rect x="52" y="232" width="6" height="20" rx="1"/>
+    <rect x="60" y="218" width="6" height="34" rx="1"/><rect x="68" y="195" width="6" height="57" rx="1"/>
+    <rect x="76" y="160" width="6" height="92" rx="1"/><rect x="84" y="120" width="6" height="132" rx="1"/>
+    <rect x="92" y="82" width="6" height="170" rx="1"/><rect x="100" y="68" width="6" height="184" rx="1"/>
+    <rect x="108" y="78" width="6" height="174" rx="1"/><rect x="116" y="110" width="6" height="142" rx="1"/>
+    <rect x="124" y="148" width="6" height="104" rx="1"/><rect x="132" y="185" width="6" height="67" rx="1"/>
+    <rect x="140" y="210" width="6" height="42" rx="1"/><rect x="148" y="228" width="6" height="24" rx="1"/>
+    <rect x="156" y="238" width="6" height="14" rx="1"/><rect x="164" y="244" width="6" height="8" rx="1"/>
+    <rect x="172" y="248" width="6" height="4" rx="1"/><rect x="180" y="250" width="6" height="2" rx="1"/>
+  </g>
+  <text x="115" y="275" text-anchor="middle" font-size="8" fill="#64748b">Single amplitude ring</text>
+  <line x1="25" y1="252" x2="200" y2="252" stroke="#cbd5e1" stroke-width="0.5"/>
+
+  <!-- ===== 8-QAM ===== -->
+  <rect x="230" y="42" width="200" height="245" fill="#fff" stroke="#e2e8f0" stroke-width="1" rx="4"/>
+  <text x="330" y="58" text-anchor="middle" font-size="11" font-weight="700" fill="#7c3aed">8-QAM</text>
+  <g fill="#7c3aed" opacity="0.75">
+    <rect x="243" y="248" width="6" height="4" rx="1"/><rect x="251" y="242" width="6" height="10" rx="1"/>
+    <rect x="259" y="228" width="6" height="24" rx="1"/><rect x="267" y="200" width="6" height="52" rx="1"/>
+    <rect x="275" y="162" width="6" height="90" rx="1"/><rect x="283" y="128" width="6" height="124" rx="1"/>
+    <rect x="291" y="108" width="6" height="144" rx="1"/><rect x="299" y="118" width="6" height="134" rx="1"/>
+    <rect x="307" y="142" width="6" height="110" rx="1"/><rect x="315" y="158" width="6" height="94" rx="1"/>
+    <rect x="323" y="138" width="6" height="114" rx="1"/><rect x="331" y="112" width="6" height="140" rx="1"/>
+    <rect x="339" y="98" width="6" height="154" rx="1"/><rect x="347" y="108" width="6" height="144" rx="1"/>
+    <rect x="355" y="135" width="6" height="117" rx="1"/><rect x="363" y="170" width="6" height="82" rx="1"/>
+    <rect x="371" y="205" width="6" height="47" rx="1"/><rect x="379" y="228" width="6" height="24" rx="1"/>
+    <rect x="387" y="242" width="6" height="10" rx="1"/><rect x="395" y="248" width="6" height="4" rx="1"/>
+  </g>
+  <text x="330" y="275" text-anchor="middle" font-size="8" fill="#64748b">Two amplitude rings</text>
+  <line x1="240" y1="252" x2="415" y2="252" stroke="#cbd5e1" stroke-width="0.5"/>
+
+  <!-- ===== 16-QAM ===== -->
+  <rect x="445" y="42" width="200" height="245" fill="#fff" stroke="#e2e8f0" stroke-width="1" rx="4"/>
+  <text x="545" y="58" text-anchor="middle" font-size="11" font-weight="700" fill="#0891b2">16-QAM</text>
+  <g fill="#0891b2" opacity="0.75">
+    <rect x="458" y="248" width="6" height="4" rx="1"/><rect x="466" y="240" width="6" height="12" rx="1"/>
+    <rect x="474" y="222" width="6" height="30" rx="1"/><rect x="482" y="190" width="6" height="62" rx="1"/>
+    <rect x="490" y="155" width="6" height="97" rx="1"/><rect x="498" y="128" width="6" height="124" rx="1"/>
+    <rect x="506" y="140" width="6" height="112" rx="1"/><rect x="514" y="162" width="6" height="90" rx="1"/>
+    <rect x="522" y="148" width="6" height="104" rx="1"/><rect x="530" y="118" width="6" height="134" rx="1"/>
+    <rect x="538" y="100" width="6" height="152" rx="1"/><rect x="546" y="112" width="6" height="140" rx="1"/>
+    <rect x="554" y="135" width="6" height="117" rx="1"/><rect x="562" y="125" width="6" height="127" rx="1"/>
+    <rect x="570" y="108" width="6" height="144" rx="1"/><rect x="578" y="122" width="6" height="130" rx="1"/>
+    <rect x="586" y="155" width="6" height="97" rx="1"/><rect x="594" y="195" width="6" height="57" rx="1"/>
+    <rect x="602" y="225" width="6" height="27" rx="1"/><rect x="610" y="242" width="6" height="10" rx="1"/>
+  </g>
+  <text x="545" y="275" text-anchor="middle" font-size="8" fill="#64748b">Three amplitude levels</text>
+  <line x1="455" y1="252" x2="630" y2="252" stroke="#cbd5e1" stroke-width="0.5"/>
+
+  <!-- ===== 32-QAM ===== -->
+  <rect x="660" y="42" width="200" height="245" fill="#fff" stroke="#e2e8f0" stroke-width="1" rx="4"/>
+  <text x="760" y="58" text-anchor="middle" font-size="11" font-weight="700" fill="#059669">32-QAM</text>
+  <g fill="#059669" opacity="0.75">
+    <rect x="673" y="246" width="6" height="6" rx="1"/><rect x="681" y="238" width="6" height="14" rx="1"/>
+    <rect x="689" y="218" width="6" height="34" rx="1"/><rect x="697" y="190" width="6" height="62" rx="1"/>
+    <rect x="705" y="162" width="6" height="90" rx="1"/><rect x="713" y="140" width="6" height="112" rx="1"/>
+    <rect x="721" y="128" width="6" height="124" rx="1"/><rect x="729" y="135" width="6" height="117" rx="1"/>
+    <rect x="737" y="125" width="6" height="127" rx="1"/><rect x="745" y="118" width="6" height="134" rx="1"/>
+    <rect x="753" y="112" width="6" height="140" rx="1"/><rect x="761" y="108" width="6" height="144" rx="1"/>
+    <rect x="769" y="112" width="6" height="140" rx="1"/><rect x="777" y="120" width="6" height="132" rx="1"/>
+    <rect x="785" y="130" width="6" height="122" rx="1"/><rect x="793" y="145" width="6" height="107" rx="1"/>
+    <rect x="801" y="168" width="6" height="84" rx="1"/><rect x="809" y="198" width="6" height="54" rx="1"/>
+    <rect x="817" y="225" width="6" height="27" rx="1"/><rect x="825" y="242" width="6" height="10" rx="1"/>
+  </g>
+  <text x="760" y="275" text-anchor="middle" font-size="8" fill="#64748b">Dense multi-level</text>
+  <line x1="670" y1="252" x2="845" y2="252" stroke="#cbd5e1" stroke-width="0.5"/>
+
+  <!-- ===== 64-QAM ===== -->
+  <rect x="875" y="42" width="200" height="245" fill="#fff" stroke="#e2e8f0" stroke-width="1" rx="4"/>
+  <text x="975" y="58" text-anchor="middle" font-size="11" font-weight="700" fill="#dc2626">64-QAM</text>
+  <g fill="#dc2626" opacity="0.75">
+    <rect x="888" y="244" width="6" height="8" rx="1"/><rect x="896" y="235" width="6" height="17" rx="1"/>
+    <rect x="904" y="218" width="6" height="34" rx="1"/><rect x="912" y="195" width="6" height="57" rx="1"/>
+    <rect x="920" y="172" width="6" height="80" rx="1"/><rect x="928" y="152" width="6" height="100" rx="1"/>
+    <rect x="936" y="138" width="6" height="114" rx="1"/><rect x="944" y="128" width="6" height="124" rx="1"/>
+    <rect x="952" y="120" width="6" height="132" rx="1"/><rect x="960" y="115" width="6" height="137" rx="1"/>
+    <rect x="968" y="112" width="6" height="140" rx="1"/><rect x="976" y="110" width="6" height="142" rx="1"/>
+    <rect x="984" y="112" width="6" height="140" rx="1"/><rect x="992" y="118" width="6" height="134" rx="1"/>
+    <rect x="1000" y="125" width="6" height="127" rx="1"/><rect x="1008" y="138" width="6" height="114" rx="1"/>
+    <rect x="1016" y="158" width="6" height="94" rx="1"/><rect x="1024" y="185" width="6" height="67" rx="1"/>
+    <rect x="1032" y="215" width="6" height="37" rx="1"/><rect x="1040" y="238" width="6" height="14" rx="1"/>
+  </g>
+  <text x="975" y="275" text-anchor="middle" font-size="8" fill="#64748b">Smooth bell-shaped</text>
+  <line x1="885" y1="252" x2="1060" y2="252" stroke="#cbd5e1" stroke-width="0.5"/>
+</svg>
