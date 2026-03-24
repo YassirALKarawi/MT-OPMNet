@@ -44,12 +44,18 @@ def parse_args():
     return parser.parse_args()
 
 
-def train(cfg, device):
-    """Train the MT-OPMNet model.
+def _build_model(cfg):
+    """Construct MTOPMNet from configuration."""
+    return MTOPMNet(
+        n_bins=cfg["dataset"]["n_bins"],
+        n_classes=cfg["model"]["n_classes"],
+        use_caam=cfg["model"]["use_caam"],
+        caam_reduction=cfg["model"].get("caam_reduction", 8),
+        dropout=cfg["training"].get("dropout", 0.3),
+    )
 
-    Returns:
-        Tuple of (test_loader, osnr_stats, training_history).
-    """
+
+def train(cfg, device):
     print("Building dataset...")
     train_loader, val_loader, test_loader, osnr_stats = create_dataloaders(cfg)
     print(f"  Train: {len(train_loader.dataset)} | "
@@ -58,11 +64,7 @@ def train(cfg, device):
     print(f"  OSNR normalisation: mean={osnr_stats['mean']:.2f}, "
           f"std={osnr_stats['std']:.2f}")
 
-    model = MTOPMNet(
-        n_bins=cfg["dataset"]["n_bins"],
-        n_classes=cfg["model"]["n_classes"],
-        use_caam=cfg["model"]["use_caam"],
-    )
+    model = _build_model(cfg)
     model_summary(model)
 
     trainer = Trainer(model, cfg, device, osnr_stats)
@@ -73,22 +75,16 @@ def train(cfg, device):
 
 def evaluate(cfg, device, checkpoint_path, test_loader=None,
              osnr_stats=None, history=None):
-    """Evaluate a trained MT-OPMNet model."""
     if test_loader is None:
         _, _, test_loader, osnr_stats = create_dataloaders(cfg)
 
     print(f"\nLoading checkpoint: {checkpoint_path}")
     ckpt = torch.load(checkpoint_path, map_location=device, weights_only=False)
 
-    # Recover OSNR stats from checkpoint if not provided
     if osnr_stats is None:
         osnr_stats = ckpt.get("osnr_stats", {"mean": 0.0, "std": 1.0})
 
-    model = MTOPMNet(
-        n_bins=cfg["dataset"]["n_bins"],
-        n_classes=cfg["model"]["n_classes"],
-        use_caam=cfg["model"]["use_caam"],
-    )
+    model = _build_model(cfg)
     model.load_state_dict(ckpt["model_state"])
     model.to(device)
 
@@ -119,7 +115,7 @@ def main():
         train(cfg, device)
     elif args.mode == "eval":
         evaluate(cfg, device, args.checkpoint)
-    else:  # full
+    else:
         test_loader, osnr_stats, history = train(cfg, device)
         evaluate(cfg, device, "results/best_model.pt",
                  test_loader, osnr_stats, history)

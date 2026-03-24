@@ -1,17 +1,21 @@
-"""MT-OPMNet model architecture with Channel-Aware Attention Module (CAAM)."""
+"""MT-OPMNet model architecture (paper Section IV).
+
+Four-block 1-D CNN backbone with MaxPool, Channel-Aware Attention Module
+(CAAM, reduction=8), and two task-specific heads for OSNR regression and
+modulation format classification.
+"""
 
 import torch
 import torch.nn as nn
 
 
 class CAAM(nn.Module):
-    """Channel-Aware Attention Module.
+    """Channel-Aware Attention Module (paper Section IV-B).
 
-    Performs adaptive feature recalibration by learning channel-wise
-    importance weights via a squeeze-and-excitation style mechanism.
+    SE-style squeeze-and-excitation with reduction ratio r=8.
     """
 
-    def __init__(self, channels: int, reduction: int = 4):
+    def __init__(self, channels: int, reduction: int = 8):
         super().__init__()
         mid = max(channels // reduction, 8)
         self.squeeze = nn.AdaptiveAvgPool1d(1)
@@ -30,16 +34,18 @@ class CAAM(nn.Module):
 
 
 class ConvBlock(nn.Module):
-    """1-D convolution block: Conv1D -> BatchNorm -> ReLU -> Dropout."""
+    """1-D Conv block: Conv1D → BatchNorm → ReLU → MaxPool(2).
 
-    def __init__(self, in_ch: int, out_ch: int, kernel: int = 5,
-                 dropout: float = 0.2):
+    No dropout in backbone (dropout is heads-only per paper).
+    """
+
+    def __init__(self, in_ch: int, out_ch: int, kernel: int = 5):
         super().__init__()
         self.block = nn.Sequential(
             nn.Conv1d(in_ch, out_ch, kernel, padding=kernel // 2),
             nn.BatchNorm1d(out_ch),
             nn.ReLU(inplace=True),
-            nn.Dropout(dropout),
+            nn.MaxPool1d(kernel_size=2, stride=2),
         )
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
@@ -47,58 +53,70 @@ class ConvBlock(nn.Module):
 
 
 class MTOPMNet(nn.Module):
-    """Multi-Task Optical Performance Monitoring Network.
+    """Multi-Task Optical Performance Monitoring Network (paper Section IV-A).
 
-    Shared 1-D CNN backbone with optional CAAM attention, feeding into
-    two task-specific heads for OSNR regression and modulation format
-    classification.
+    Architecture:
+        4 × ConvBlock (32→64→128→256, kernel=5, MaxPool)
+        → CAAM (reduction=8)
+        → Flatten
+        → OSNR head (FC 128→64→1, dropout 0.3)
+        → MFI head  (FC 128→64→K, dropout 0.3)
 
     Args:
-        n_bins: Number of input amplitude histogram bins.
-        n_classes: Number of modulation format classes.
-        use_caam: Whether to apply Channel-Aware Attention Module.
+        n_bins: Number of input histogram bins (100).
+        n_classes: Number of modulation format classes (5).
+        use_caam: Whether to apply CAAM.
+        caam_reduction: CAAM bottleneck reduction ratio (8).
+        dropout: Dropout rate for task heads (0.3).
     """
 
     def __init__(self, n_bins: int = 100, n_classes: int = 5,
-                 use_caam: bool = True):
+                 use_caam: bool = True, caam_reduction: int = 8,
+                 dropout: float = 0.3):
         super().__init__()
         self.use_caam = use_caam
 
-        # Shared backbone: three Conv1D blocks with increasing channels
+        # Shared backbone: four Conv1D blocks (paper Table II)
         self.backbone = nn.Sequential(
-            ConvBlock(1, 32, kernel=7),
+            ConvBlock(1, 32, kernel=5),
             ConvBlock(32, 64, kernel=5),
-            ConvBlock(64, 128, kernel=3),
+            ConvBlock(64, 128, kernel=5),
+            ConvBlock(128, 256, kernel=5),
         )
 
-        # Optional channel-aware attention
+        # CAAM after final conv block
         if use_caam:
-            self.caam = CAAM(128)
+            self.caam = CAAM(256, reduction=caam_reduction)
 
-        # Global average pooling
-        self.pool = nn.AdaptiveAvgPool1d(1)
+        # Compute flattened dimension: n_bins after 4× MaxPool(2)
+        flat_dim = 256 * (n_bins // 16)
 
-        # OSNR regression head
+        # OSNR regression head (paper Section IV-C)
         self.osnr_head = nn.Sequential(
+            nn.Linear(flat_dim, 128),
+            nn.ReLU(inplace=True),
+            nn.Dropout(dropout),
             nn.Linear(128, 64),
             nn.ReLU(inplace=True),
-            nn.Dropout(0.3),
+            nn.Dropout(dropout),
             nn.Linear(64, 1),
         )
 
-        # Modulation format classification head
+        # MFI classification head (paper Section IV-C)
         self.mfi_head = nn.Sequential(
+            nn.Linear(flat_dim, 128),
+            nn.ReLU(inplace=True),
+            nn.Dropout(dropout),
             nn.Linear(128, 64),
             nn.ReLU(inplace=True),
-            nn.Dropout(0.3),
+            nn.Dropout(dropout),
             nn.Linear(64, n_classes),
         )
 
-        # Initialise weights
         self._init_weights()
 
     def _init_weights(self):
-        """Apply Kaiming initialisation for Conv/Linear, constant for BN."""
+        """Kaiming initialisation (paper Algorithm 1, line 1)."""
         for m in self.modules():
             if isinstance(m, nn.Conv1d):
                 nn.init.kaiming_normal_(m.weight, mode="fan_out",
@@ -116,20 +134,19 @@ class MTOPMNet(nn.Module):
         """Forward pass.
 
         Args:
-            x: Input tensor of shape (batch, 1, n_bins).
+            x: (batch, 1, n_bins).
 
         Returns:
-            osnr: Predicted OSNR values, shape (batch, 1).
-            mfi_logits: Modulation format logits, shape (batch, n_classes).
+            osnr: (batch, 1), mfi_logits: (batch, n_classes).
         """
         features = self.backbone(x)
 
         if self.use_caam:
             features = self.caam(features)
 
-        pooled = self.pool(features).squeeze(-1)
+        flat = features.view(features.size(0), -1)
 
-        osnr = self.osnr_head(pooled)
-        mfi_logits = self.mfi_head(pooled)
+        osnr = self.osnr_head(flat)
+        mfi_logits = self.mfi_head(flat)
 
         return osnr, mfi_logits

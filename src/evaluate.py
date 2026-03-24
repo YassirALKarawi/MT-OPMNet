@@ -273,7 +273,7 @@ def _plot_osnr_vs_error(results, fig_dir):
     errors = np.abs(results["osnr_pred"] - osnr_true)
 
     # Bin by OSNR value
-    osnr_bins = np.arange(5.0, 31.0, 1.0)
+    osnr_bins = np.arange(10.0, 31.0, 1.0)
     bin_centers = []
     bin_maes = []
     for i in range(len(osnr_bins) - 1):

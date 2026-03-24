@@ -1,4 +1,8 @@
-"""Training loop with early stopping, cosine annealing, and history tracking."""
+"""Training loop matching paper Algorithm 1 and Section IV-E.
+
+Uses Smooth-L1 (Huber) loss for OSNR, focal loss for MFI, Adam optimiser,
+cosine annealing schedule, and early stopping with patience=20.
+"""
 
 import json
 import time
@@ -14,7 +18,7 @@ from .losses import FocalLoss, UncertaintyWeightedLoss
 
 
 class Trainer:
-    """Handles model training, validation, and checkpointing.
+    """Training with Smooth-L1 + Focal + Uncertainty Weighting.
 
     Args:
         model: MTOPMNet instance.
@@ -28,14 +32,14 @@ class Trainer:
         self.model = model.to(device)
         self.cfg = cfg
         self.device = device
-        self.osnr_stats = osnr_stats or {"mean": 17.5, "std": 7.36}
+        self.osnr_stats = osnr_stats or {"mean": 20.0, "std": 5.77}
         tcfg = cfg["training"]
 
-        # Loss functions
-        self.mse = nn.MSELoss()
+        # Loss functions (paper Eq. 8: Smooth-L1, Eq. 10: Focal)
+        self.huber = nn.SmoothL1Loss()
         self.focal = FocalLoss(gamma=tcfg["focal_gamma"])
 
-        # Uncertainty weighting
+        # Uncertainty weighting (paper Eq. 7)
         self.use_uw = tcfg["use_uncertainty_weighting"]
         if self.use_uw:
             self.uw = UncertaintyWeightedLoss().to(device)
@@ -44,10 +48,8 @@ class Trainer:
             self.uw = None
             params = model.parameters()
 
-        # Optimiser with weight decay and scheduler
-        self.optimizer = torch.optim.AdamW(
-            params, lr=tcfg["lr"], weight_decay=1e-4
-        )
+        # Adam optimiser (paper Section IV-E)
+        self.optimizer = torch.optim.Adam(params, lr=tcfg["lr"])
         self.scheduler = CosineAnnealingLR(
             self.optimizer,
             T_max=tcfg["max_epochs"],
@@ -58,14 +60,12 @@ class Trainer:
         self.patience = tcfg["patience"]
 
     def _compute_osnr_mae_db(self, pred_norm, true_norm):
-        """Compute OSNR MAE in original dB scale."""
         s = self.osnr_stats
         pred_db = pred_norm * s["std"] + s["mean"]
         true_db = true_norm * s["std"] + s["mean"]
         return torch.mean(torch.abs(pred_db - true_db)).item()
 
     def _run_epoch(self, loader, train: bool = True):
-        """Run one epoch of training or validation."""
         self.model.train() if train else self.model.eval()
         total_loss = 0.0
         total_osnr_loss = 0.0
@@ -82,7 +82,10 @@ class Trainer:
                 mfi = mfi.to(self.device)
 
                 osnr_pred, mfi_logits = self.model(hist)
-                loss_osnr = self.mse(osnr_pred, osnr)
+
+                # Smooth-L1 for OSNR (Eq. 8)
+                loss_osnr = self.huber(osnr_pred, osnr)
+                # Focal for MFI (Eq. 10)
                 loss_mfi = self.focal(mfi_logits, mfi)
 
                 if self.use_uw:
@@ -93,22 +96,19 @@ class Trainer:
                 if train:
                     self.optimizer.zero_grad()
                     loss.backward()
-                    # Clip all optimised parameters (model + UW)
                     all_params = list(self.model.parameters())
                     if self.use_uw:
                         all_params += list(self.uw.parameters())
                     torch.nn.utils.clip_grad_norm_(all_params, max_norm=5.0)
                     self.optimizer.step()
 
-                batch_size = hist.size(0)
-                total_loss += loss.item() * batch_size
-                total_osnr_loss += loss_osnr.item() * batch_size
-                total_mfi_loss += loss_mfi.item() * batch_size
-                total_osnr_mae += (
-                    self._compute_osnr_mae_db(osnr_pred, osnr) * batch_size
-                )
+                bs = hist.size(0)
+                total_loss += loss.item() * bs
+                total_osnr_loss += loss_osnr.item() * bs
+                total_mfi_loss += loss_mfi.item() * bs
+                total_osnr_mae += self._compute_osnr_mae_db(osnr_pred, osnr) * bs
                 correct += (mfi_logits.argmax(1) == mfi).sum().item()
-                n_samples += batch_size
+                n_samples += bs
 
         return {
             "loss": total_loss / n_samples,
@@ -119,16 +119,6 @@ class Trainer:
         }
 
     def train(self, train_loader, val_loader, save_dir: str = "results"):
-        """Full training loop with early stopping.
-
-        Args:
-            train_loader: Training DataLoader.
-            val_loader: Validation DataLoader.
-            save_dir: Directory for saving checkpoints.
-
-        Returns:
-            Dictionary of training history.
-        """
         save_path = Path(save_dir)
         save_path.mkdir(parents=True, exist_ok=True)
 
@@ -142,24 +132,23 @@ class Trainer:
 
         start = time.time()
         for epoch in range(1, self.max_epochs + 1):
-            train_metrics = self._run_epoch(train_loader, train=True)
-            val_metrics = self._run_epoch(val_loader, train=False)
+            train_m = self._run_epoch(train_loader, train=True)
+            val_m = self._run_epoch(val_loader, train=False)
             self.scheduler.step()
 
-            history["train"].append(train_metrics)
-            history["val"].append(val_metrics)
+            history["train"].append(train_m)
+            history["val"].append(val_m)
 
             lr = self.optimizer.param_groups[0]["lr"]
-            print(f"{epoch:>6} | {train_metrics['loss']:>11.5f} | "
-                  f"{val_metrics['loss']:>11.5f} | "
-                  f"{val_metrics['osnr_mae_db']:>8.4f} | "
-                  f"{val_metrics['mfi_acc']:>7.2%} | {lr:>10.2e}")
+            print(f"{epoch:>6} | {train_m['loss']:>11.5f} | "
+                  f"{val_m['loss']:>11.5f} | "
+                  f"{val_m['osnr_mae_db']:>8.4f} | "
+                  f"{val_m['mfi_acc']:>7.2%} | {lr:>10.2e}")
 
-            # Early stopping on validation loss
-            if val_metrics["loss"] < best_val_loss:
-                best_val_loss = val_metrics["loss"]
+            if val_m["loss"] < best_val_loss:
+                best_val_loss = val_m["loss"]
                 patience_counter = 0
-                checkpoint = {
+                ckpt = {
                     "epoch": epoch,
                     "model_state": self.model.state_dict(),
                     "optimizer_state": self.optimizer.state_dict(),
@@ -168,8 +157,8 @@ class Trainer:
                     "config": self.cfg,
                 }
                 if self.use_uw:
-                    checkpoint["uw_state"] = self.uw.state_dict()
-                torch.save(checkpoint, save_path / "best_model.pt")
+                    ckpt["uw_state"] = self.uw.state_dict()
+                torch.save(ckpt, save_path / "best_model.pt")
             else:
                 patience_counter += 1
                 if patience_counter >= self.patience:
@@ -181,28 +170,19 @@ class Trainer:
         print(f"\nTraining complete in {elapsed:.1f}s | "
               f"Best val loss: {best_val_loss:.5f}")
 
-        # Save training history
         self._save_history(history, save_path)
 
-        # Log uncertainty weights if used
         if self.use_uw:
-            w_osnr = torch.exp(-self.uw.log_var_osnr).item()
-            w_mfi = torch.exp(-self.uw.log_var_mfi).item()
-            print(f"Uncertainty weights — OSNR: {w_osnr:.4f}, MFI: {w_mfi:.4f}")
+            w1 = torch.exp(-self.uw.log_var_osnr).item()
+            w2 = torch.exp(-self.uw.log_var_mfi).item()
+            print(f"Uncertainty weights — OSNR: {w1:.4f}, MFI: {w2:.4f}")
 
         return history
 
-    def _save_history(self, history: dict, save_path: Path):
-        """Save training history to JSON."""
+    def _save_history(self, history, save_path):
         serialisable = {
-            "train": [
-                {k: float(v) for k, v in epoch.items()}
-                for epoch in history["train"]
-            ],
-            "val": [
-                {k: float(v) for k, v in epoch.items()}
-                for epoch in history["val"]
-            ],
+            split: [{k: float(v) for k, v in ep.items()} for ep in epochs]
+            for split, epochs in history.items()
         }
         with open(save_path / "training_history.json", "w") as f:
             json.dump(serialisable, f, indent=2)
