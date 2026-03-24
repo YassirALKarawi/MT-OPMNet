@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 820" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc"/>
+      <stop offset="100%" style="stop-color:#e2e8f0"/>
+    </linearGradient>
+    <linearGradient id="inputGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#818cf8"/>
+    </linearGradient>
+    <linearGradient id="backboneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb"/>
+      <stop offset="100%" style="stop-color:#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="caamGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed"/>
+      <stop offset="100%" style="stop-color:#a78bfa"/>
+    </linearGradient>
+    <linearGradient id="poolGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0891b2"/>
+      <stop offset="100%" style="stop-color:#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="osnrGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#059669"/>
+      <stop offset="100%" style="stop-color:#34d399"/>
+    </linearGradient>
+    <linearGradient id="mfiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="100%" style="stop-color:#f87171"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+    <filter id="softShadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="820" rx="16" fill="url(#bgGrad)"/>
+
+  <!-- Title -->
+  <text x="450" y="42" text-anchor="middle" font-size="22" font-weight="700" fill="#1e293b">MT-OPMNet Architecture</text>
+  <text x="450" y="65" text-anchor="middle" font-size="12" fill="#64748b">Multi-Task Optical Performance Monitoring Network</text>
+
+  <!-- ========== INPUT BLOCK ========== -->
+  <rect x="300" y="90" width="300" height="56" rx="12" fill="url(#inputGrad)" filter="url(#shadow)"/>
+  <text x="450" y="115" text-anchor="middle" font-size="15" font-weight="600" fill="#fff">Input: AAH</text>
+  <text x="450" y="134" text-anchor="middle" font-size="11" fill="#e0e7ff">(Batch × 1 × n_bins)</text>
+
+  <!-- Arrow: Input → Conv1 -->
+  <line x1="450" y1="146" x2="450" y2="172" stroke="#475569" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- ========== SHARED BACKBONE ========== -->
+  <!-- Backbone container -->
+  <rect x="195" y="172" width="510" height="280" rx="14" fill="none" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.5"/>
+  <text x="210" y="192" font-size="11" font-weight="600" fill="#2563eb" opacity="0.7">SHARED BACKBONE</text>
+
+  <!-- Conv Block 1 -->
+  <rect x="275" y="200" width="350" height="54" rx="10" fill="url(#backboneGrad)" filter="url(#softShadow)"/>
+  <text x="450" y="222" text-anchor="middle" font-size="13" font-weight="600" fill="#fff">Conv1D Block 1</text>
+  <text x="450" y="242" text-anchor="middle" font-size="10" fill="#bfdbfe">Conv1D(1→32, k=7) → BN → ReLU → Dropout(0.2)</text>
+
+  <!-- Arrow -->
+  <line x1="450" y1="254" x2="450" y2="272" stroke="#475569" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Conv Block 2 -->
+  <rect x="275" y="272" width="350" height="54" rx="10" fill="url(#backboneGrad)" filter="url(#softShadow)"/>
+  <text x="450" y="294" text-anchor="middle" font-size="13" font-weight="600" fill="#fff">Conv1D Block 2</text>
+  <text x="450" y="314" text-anchor="middle" font-size="10" fill="#bfdbfe">Conv1D(32→64, k=5) → BN → ReLU → Dropout(0.2)</text>
+
+  <!-- Arrow -->
+  <line x1="450" y1="326" x2="450" y2="344" stroke="#475569" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Conv Block 3 -->
+  <rect x="275" y="344" width="350" height="54" rx="10" fill="url(#backboneGrad)" filter="url(#softShadow)"/>
+  <text x="450" y="366" text-anchor="middle" font-size="13" font-weight="600" fill="#fff">Conv1D Block 3</text>
+  <text x="450" y="386" text-anchor="middle" font-size="10" fill="#bfdbfe">Conv1D(64→128, k=3) → BN → ReLU → Dropout(0.2)</text>
+
+  <!-- Arrow: Conv3 → CAAM -->
+  <line x1="450" y1="398" x2="450" y2="418" stroke="#475569" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- ========== CAAM MODULE ========== -->
+  <rect x="275" y="418" width="350" height="54" rx="10" fill="url(#caamGrad)" filter="url(#shadow)"/>
+  <text x="450" y="440" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">CAAM</text>
+  <text x="450" y="460" text-anchor="middle" font-size="10" fill="#ede9fe">Channel-Aware Attention Module</text>
+
+  <!-- Arrow: CAAM → GAP -->
+  <line x1="450" y1="472" x2="450" y2="500" stroke="#475569" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- ========== GLOBAL AVG POOL ========== -->
+  <rect x="310" y="500" width="280" height="46" rx="10" fill="url(#poolGrad)" filter="url(#softShadow)"/>
+  <text x="450" y="524" text-anchor="middle" font-size="13" font-weight="600" fill="#fff">Global Average Pooling</text>
+  <text x="450" y="540" text-anchor="middle" font-size="10" fill="#cffafe">→ (Batch × 128)</text>
+
+  <!-- Split arrows -->
+  <line x1="450" y1="546" x2="450" y2="570" stroke="#475569" stroke-width="2"/>
+  <!-- Left branch -->
+  <line x1="450" y1="570" x2="280" y2="570" stroke="#475569" stroke-width="2"/>
+  <line x1="280" y1="570" x2="280" y2="600" stroke="#475569" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <!-- Right branch -->
+  <line x1="450" y1="570" x2="620" y2="570" stroke="#475569" stroke-width="2"/>
+  <line x1="620" y1="570" x2="620" y2="600" stroke="#475569" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- ========== OSNR HEAD ========== -->
+  <rect x="155" y="600" width="250" height="130" rx="12" fill="url(#osnrGrad)" filter="url(#shadow)"/>
+  <text x="280" y="626" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">OSNR Head</text>
+  <text x="280" y="645" text-anchor="middle" font-size="10" fill="#d1fae5">(Regression)</text>
+  <line x1="185" y1="655" x2="375" y2="655" stroke="#fff" stroke-width="0.5" opacity="0.4"/>
+  <text x="280" y="674" text-anchor="middle" font-size="10" fill="#ecfdf5">Linear(128→64) → ReLU</text>
+  <text x="280" y="692" text-anchor="middle" font-size="10" fill="#ecfdf5">Dropout(0.3)</text>
+  <text x="280" y="710" text-anchor="middle" font-size="10" fill="#ecfdf5">Linear(64→1)</text>
+
+  <!-- ========== MFI HEAD ========== -->
+  <rect x="495" y="600" width="250" height="130" rx="12" fill="url(#mfiGrad)" filter="url(#shadow)"/>
+  <text x="620" y="626" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">MFI Head</text>
+  <text x="620" y="645" text-anchor="middle" font-size="10" fill="#fecaca">(Classification)</text>
+  <line x1="525" y1="655" x2="715" y2="655" stroke="#fff" stroke-width="0.5" opacity="0.4"/>
+  <text x="620" y="674" text-anchor="middle" font-size="10" fill="#fef2f2">Linear(128→64) → ReLU</text>
+  <text x="620" y="692" text-anchor="middle" font-size="10" fill="#fef2f2">Dropout(0.3)</text>
+  <text x="620" y="710" text-anchor="middle" font-size="10" fill="#fef2f2">Linear(64→5)</text>
+
+  <!-- Output arrows -->
+  <line x1="280" y1="730" x2="280" y2="760" stroke="#475569" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="620" y1="730" x2="620" y2="760" stroke="#475569" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Output labels -->
+  <rect x="205" y="762" width="150" height="36" rx="8" fill="#f0fdf4" stroke="#059669" stroke-width="1.5"/>
+  <text x="280" y="785" text-anchor="middle" font-size="12" font-weight="600" fill="#059669">OSNR (dB)</text>
+
+  <rect x="545" y="762" width="150" height="36" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="620" y="785" text-anchor="middle" font-size="12" font-weight="600" fill="#dc2626">MFI Class</text>
+
+  <!-- Arrowhead marker -->
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#475569"/>
+    </marker>
+  </defs>
+</svg>

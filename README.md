@@ -18,7 +18,7 @@ MT-OPMNet is a multi-task deep learning framework for **Optical Performance Moni
 The architecture leverages a **shared 1-D CNN backbone** with task-specific heads, enhanced by a **Channel-Aware Attention Module (CAAM)** and trained with **homoscedastic uncertainty weighting** for automatic task balancing.
 
 <p align="center">
-  <img src="figures/architecture.png" alt="MT-OPMNet Architecture" width="700">
+  <img src="figures/architecture.svg" alt="MT-OPMNet Architecture" width="700">
 </p>
 
 ## Key Features
@@ -34,32 +34,21 @@ The architecture leverages a **shared 1-D CNN backbone** with task-specific head
 
 ## Architecture
 
-```
-Input (AAH: 1 x n_bins)
-        │
-   ┌────▼────┐
-   │  Shared  │   Conv1D blocks (3 layers)
-   │ Backbone │   BatchNorm + ReLU + Dropout
-   └────┬────┘
-        │
-   ┌────▼────┐
-   │  CAAM   │   Channel-Aware Attention Module
-   │ Module  │   GlobalAvgPool → FC → ReLU → FC → Sigmoid
-   └────┬────┘
-        │
-   ┌────▼────┐
-   │ Global  │
-   │ AvgPool │
-   └────┬────┘
-        │
-   ┌────┴────┐
-   │         │
-┌──▼──┐  ┌──▼──┐
-│OSNR │  │ MFI │
-│Head │  │Head │
-│(Reg)│  │(Cls)│
-└─────┘  └─────┘
-```
+<p align="center">
+  <img src="figures/architecture.svg" alt="MT-OPMNet Full Architecture" width="650">
+</p>
+
+### Channel-Aware Attention Module (CAAM)
+
+<p align="center">
+  <img src="figures/caam_module.svg" alt="CAAM Module" width="650">
+</p>
+
+### Multi-Task Loss
+
+<p align="center">
+  <img src="figures/multi_task_loss.svg" alt="Multi-Task Loss with Uncertainty Weighting" width="650">
+</p>
 
 ## Project Structure
 
