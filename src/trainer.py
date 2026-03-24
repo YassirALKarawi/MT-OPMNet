@@ -93,9 +93,11 @@ class Trainer:
                 if train:
                     self.optimizer.zero_grad()
                     loss.backward()
-                    torch.nn.utils.clip_grad_norm_(
-                        self.model.parameters(), max_norm=5.0
-                    )
+                    # Clip all optimised parameters (model + UW)
+                    all_params = list(self.model.parameters())
+                    if self.use_uw:
+                        all_params += list(self.uw.parameters())
+                    torch.nn.utils.clip_grad_norm_(all_params, max_norm=5.0)
                     self.optimizer.step()
 
                 batch_size = hist.size(0)
