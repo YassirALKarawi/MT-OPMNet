@@ -17,8 +17,10 @@ MT-OPMNet is a multi-task deep learning framework for **Optical Performance Moni
 
 The architecture leverages a **shared 1-D CNN backbone** with task-specific heads, enhanced by a **Channel-Aware Attention Module (CAAM)** and trained with **homoscedastic uncertainty weighting** for automatic task balancing.
 
+### End-to-End Pipeline
+
 <p align="center">
-  <img src="figures/architecture.svg" alt="MT-OPMNet Architecture" width="700">
+  <img src="figures/system_overview.svg" alt="MT-OPMNet System Overview" width="100%">
 </p>
 
 ## Key Features
@@ -29,26 +31,60 @@ The architecture leverages a **shared 1-D CNN backbone** with task-specific head
 | **CAAM** | Channel-Aware Attention Module for adaptive feature recalibration |
 | **Uncertainty Weighting** | Learnable homoscedastic uncertainty parameters for automatic loss balancing |
 | **Focal Loss** | Addresses class imbalance in modulation format classification |
-| **AAH Input** | Amplitude Histogram representation of optical signals as network input |
-| **Cosine Annealing** | Learning rate scheduling with warm restarts for stable convergence |
+| **Complex I/Q Signal Model** | Realistic baseband simulation with proper constellation geometries |
+| **Cosine Annealing** | Learning rate scheduling for stable convergence |
+
+---
 
 ## Architecture
 
 <p align="center">
-  <img src="figures/architecture.svg" alt="MT-OPMNet Full Architecture" width="650">
+  <img src="figures/architecture.svg" alt="MT-OPMNet Architecture" width="580">
 </p>
 
 ### Channel-Aware Attention Module (CAAM)
 
 <p align="center">
-  <img src="figures/caam_module.svg" alt="CAAM Module" width="650">
+  <img src="figures/caam_module.svg" alt="CAAM Module" width="700">
 </p>
 
-### Multi-Task Loss
+### Multi-Task Loss with Uncertainty Weighting
 
 <p align="center">
-  <img src="figures/multi_task_loss.svg" alt="Multi-Task Loss with Uncertainty Weighting" width="650">
+  <img src="figures/multi_task_loss.svg" alt="Multi-Task Loss" width="700">
 </p>
+
+### Training Pipeline
+
+<p align="center">
+  <img src="figures/training_pipeline.svg" alt="Training Pipeline" width="100%">
+</p>
+
+---
+
+## Signal Processing
+
+### Supported Modulation Formats
+
+<p align="center">
+  <img src="figures/constellations.svg" alt="Modulation Format Constellations" width="100%">
+</p>
+
+| Index | Format | Symbols | Description |
+|:---:|---|:---:|---|
+| 0 | **OOK** | 2 | On-Off Keying |
+| 1 | **DPSK** | 2 | Differential Phase-Shift Keying |
+| 2 | **DQPSK** | 4 | Differential Quadrature Phase-Shift Keying |
+| 3 | **8QAM** | 8 | Star 8-Quadrature Amplitude Modulation |
+| 4 | **16QAM** | 16 | Square 16-Quadrature Amplitude Modulation |
+
+### Amplitude Histogram (AAH) Generation
+
+<p align="center">
+  <img src="figures/signal_processing.svg" alt="Signal Processing Pipeline" width="100%">
+</p>
+
+---
 
 ## Project Structure
 
@@ -64,7 +100,7 @@ MT-OPMNet/
 │   ├── trainer.py            # Training loop with early stopping
 │   ├── evaluate.py           # Evaluation metrics and reporting
 │   └── utils.py              # Configuration loading and helpers
-├── figures/                  # Generated plots and architecture diagrams
+├── figures/                  # Architecture diagrams and result plots
 ├── results/                  # Training results and metrics
 ├── main.py                   # Main entry point
 ├── requirements.txt          # Python dependencies
@@ -167,16 +203,6 @@ All hyperparameters are defined in `configs/default.json`:
 | `use_uncertainty_weighting` | Automatic multi-task loss balancing | `true` |
 | `patience` | Early stopping patience (epochs) | 20 |
 
-## Modulation Formats
-
-| Index | Format | Description |
-|---|---|---|
-| 0 | OOK | On-Off Keying |
-| 1 | DPSK | Differential Phase-Shift Keying |
-| 2 | DQPSK | Differential Quadrature Phase-Shift Keying |
-| 3 | 8QAM | 8-Quadrature Amplitude Modulation |
-| 4 | 16QAM | 16-Quadrature Amplitude Modulation |
-
 ## Results
 
 The model achieves competitive performance on joint OPM tasks:
@@ -187,6 +213,19 @@ The model achieves competitive performance on joint OPM tasks:
 | **OSNR RMSE** | < 0.7 dB |
 | **MFI Accuracy** | > 99% |
 | **MFI F1-Score** | > 0.99 |
+
+### Generated Evaluation Plots
+
+After running the full pipeline, the following plots are generated in `figures/`:
+
+| Plot | Description |
+|---|---|
+| `osnr_scatter.png` | True vs. predicted OSNR scatter plot |
+| `confusion_matrix.png` | MFI confusion matrix |
+| `osnr_error_dist.png` | OSNR prediction error distribution |
+| `osnr_per_modulation.png` | OSNR error boxplot per modulation format |
+| `osnr_vs_error.png` | OSNR estimation error vs. OSNR level |
+| `training_curves.png` | Loss, accuracy, and MAE over training epochs |
 
 ## Citation
 
