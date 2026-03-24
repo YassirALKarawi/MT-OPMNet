@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 340" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="so_bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="so_card1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#4f46e5"/>
+    </linearGradient>
+    <linearGradient id="so_card2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0ea5e9"/>
+      <stop offset="100%" style="stop-color:#0284c7"/>
+    </linearGradient>
+    <linearGradient id="so_card3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="so_card4" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#d97706"/>
+    </linearGradient>
+    <linearGradient id="so_card5" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#059669"/>
+    </linearGradient>
+    <filter id="so_sh" x="-3%" y="-3%" width="106%" height="112%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+    <marker id="so_arr" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8"/>
+    </marker>
+    <marker id="so_arr_w" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e2e8f0"/>
+    </marker>
+  </defs>
+
+  <!-- Dark Background -->
+  <rect width="1100" height="340" rx="16" fill="url(#so_bg)"/>
+
+  <!-- Title -->
+  <text x="550" y="36" text-anchor="middle" font-size="18" font-weight="700" fill="#f1f5f9" letter-spacing="1">MT-OPMNet  —  End-to-End Pipeline</text>
+  <line x1="380" y1="46" x2="720" y2="46" stroke="#6366f1" stroke-width="2" opacity="0.6"/>
+
+  <!-- ====== STAGE 1: Optical Signal ====== -->
+  <g filter="url(#so_sh)">
+    <rect x="30" y="75" width="170" height="200" rx="14" fill="url(#so_card1)"/>
+  </g>
+  <text x="115" y="102" text-anchor="middle" font-size="11" font-weight="700" fill="#c7d2fe" letter-spacing="1.5">STAGE 1</text>
+  <text x="115" y="128" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Optical Signal</text>
+  <line x1="55" y1="138" x2="175" y2="138" stroke="#fff" stroke-width="0.5" opacity="0.3"/>
+  <!-- Signal icon -->
+  <path d="M55 175 Q70 155 85 175 Q100 195 115 175 Q130 155 145 175 Q160 195 175 175" fill="none" stroke="#a5b4fc" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="115" y="210" text-anchor="middle" font-size="10" fill="#c7d2fe">5 Modulation Formats</text>
+  <text x="115" y="225" text-anchor="middle" font-size="9" fill="#a5b4fc">OOK · DPSK · DQPSK</text>
+  <text x="115" y="240" text-anchor="middle" font-size="9" fill="#a5b4fc">8QAM · 16QAM</text>
+  <text x="115" y="258" text-anchor="middle" font-size="9" fill="#c7d2fe">OSNR: 5–30 dB</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="205" y1="175" x2="238" y2="175" stroke="#94a3b8" stroke-width="2" marker-end="url(#so_arr)"/>
+  <text x="222" y="167" text-anchor="middle" font-size="8" fill="#64748b">+AWGN</text>
+
+  <!-- ====== STAGE 2: AAH Generation ====== -->
+  <g filter="url(#so_sh)">
+    <rect x="244" y="75" width="170" height="200" rx="14" fill="url(#so_card2)"/>
+  </g>
+  <text x="329" y="102" text-anchor="middle" font-size="11" font-weight="700" fill="#bae6fd" letter-spacing="1.5">STAGE 2</text>
+  <text x="329" y="128" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">AAH Generation</text>
+  <line x1="269" y1="138" x2="389" y2="138" stroke="#fff" stroke-width="0.5" opacity="0.3"/>
+  <!-- Histogram bars icon -->
+  <rect x="274" y="200" width="12" height="30" rx="2" fill="#7dd3fc" opacity="0.5"/>
+  <rect x="290" y="185" width="12" height="45" rx="2" fill="#7dd3fc" opacity="0.6"/>
+  <rect x="306" y="165" width="12" height="65" rx="2" fill="#7dd3fc" opacity="0.8"/>
+  <rect x="322" y="175" width="12" height="55" rx="2" fill="#7dd3fc" opacity="0.9"/>
+  <rect x="338" y="190" width="12" height="40" rx="2" fill="#7dd3fc" opacity="0.7"/>
+  <rect x="354" y="200" width="12" height="30" rx="2" fill="#7dd3fc" opacity="0.5"/>
+  <rect x="370" y="215" width="12" height="15" rx="2" fill="#7dd3fc" opacity="0.3"/>
+  <text x="329" y="156" text-anchor="middle" font-size="10" fill="#bae6fd">Complex I/Q → |r|</text>
+  <text x="329" y="252" text-anchor="middle" font-size="10" fill="#bae6fd">100-bin Histogram</text>
+  <text x="329" y="265" text-anchor="middle" font-size="9" fill="#7dd3fc">5,100 Samples</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="419" y1="175" x2="452" y2="175" stroke="#94a3b8" stroke-width="2" marker-end="url(#so_arr)"/>
+  <text x="436" y="167" text-anchor="middle" font-size="8" fill="#64748b">split</text>
+
+  <!-- ====== STAGE 3: MT-OPMNet Model ====== -->
+  <g filter="url(#so_sh)">
+    <rect x="458" y="75" width="195" height="200" rx="14" fill="url(#so_card3)"/>
+  </g>
+  <text x="555" y="102" text-anchor="middle" font-size="11" font-weight="700" fill="#ddd6fe" letter-spacing="1.5">STAGE 3</text>
+  <text x="555" y="128" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">MT-OPMNet</text>
+  <line x1="483" y1="138" x2="628" y2="138" stroke="#fff" stroke-width="0.5" opacity="0.3"/>
+  <!-- Mini architecture -->
+  <rect x="495" y="150" width="120" height="20" rx="4" fill="#a78bfa" opacity="0.5"/>
+  <text x="555" y="164" text-anchor="middle" font-size="8" fill="#fff">Shared CNN Backbone</text>
+  <rect x="508" y="176" width="95" height="18" rx="4" fill="#c4b5fd" opacity="0.4"/>
+  <text x="555" y="189" text-anchor="middle" font-size="8" fill="#fff">CAAM Attention</text>
+  <!-- Two branches -->
+  <rect x="483" y="202" width="55" height="20" rx="4" fill="#34d399" opacity="0.5"/>
+  <text x="510" y="216" text-anchor="middle" font-size="7" fill="#fff">OSNR Head</text>
+  <rect x="573" y="202" width="55" height="20" rx="4" fill="#f87171" opacity="0.5"/>
+  <text x="600" y="216" text-anchor="middle" font-size="7" fill="#fff">MFI Head</text>
+  <!-- Lines -->
+  <line x1="530" y1="194" x2="510" y2="202" stroke="#ddd6fe" stroke-width="0.8"/>
+  <line x1="580" y1="194" x2="600" y2="202" stroke="#ddd6fe" stroke-width="0.8"/>
+  <text x="555" y="250" text-anchor="middle" font-size="9" fill="#c4b5fd">AdamW + Cosine LR</text>
+  <text x="555" y="263" text-anchor="middle" font-size="9" fill="#c4b5fd">Focal + Uncertainty Loss</text>
+
+  <!-- Arrow 3→4 -->
+  <line x1="658" y1="175" x2="691" y2="175" stroke="#94a3b8" stroke-width="2" marker-end="url(#so_arr)"/>
+  <text x="675" y="167" text-anchor="middle" font-size="8" fill="#64748b">predict</text>
+
+  <!-- ====== STAGE 4: Evaluation ====== -->
+  <g filter="url(#so_sh)">
+    <rect x="697" y="75" width="170" height="200" rx="14" fill="url(#so_card4)"/>
+  </g>
+  <text x="782" y="102" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7" letter-spacing="1.5">STAGE 4</text>
+  <text x="782" y="128" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Evaluation</text>
+  <line x1="722" y1="138" x2="842" y2="138" stroke="#fff" stroke-width="0.5" opacity="0.3"/>
+  <text x="782" y="160" text-anchor="middle" font-size="10" fill="#fef3c7">OSNR Metrics</text>
+  <text x="782" y="176" text-anchor="middle" font-size="9" fill="#fde68a">MAE · RMSE · R²</text>
+  <line x1="730" y1="186" x2="834" y2="186" stroke="#fef3c7" stroke-width="0.5" opacity="0.3"/>
+  <text x="782" y="202" text-anchor="middle" font-size="10" fill="#fef3c7">MFI Metrics</text>
+  <text x="782" y="218" text-anchor="middle" font-size="9" fill="#fde68a">Accuracy · F1 · CM</text>
+  <line x1="730" y1="228" x2="834" y2="228" stroke="#fef3c7" stroke-width="0.5" opacity="0.3"/>
+  <text x="782" y="244" text-anchor="middle" font-size="10" fill="#fef3c7">Per-Format Analysis</text>
+  <text x="782" y="260" text-anchor="middle" font-size="9" fill="#fde68a">OSNR MAE per MFI class</text>
+
+  <!-- Arrow 4→5 -->
+  <line x1="872" y1="175" x2="905" y2="175" stroke="#94a3b8" stroke-width="2" marker-end="url(#so_arr)"/>
+  <text x="889" y="167" text-anchor="middle" font-size="8" fill="#64748b">export</text>
+
+  <!-- ====== STAGE 5: Results ====== -->
+  <g filter="url(#so_sh)">
+    <rect x="911" y="75" width="160" height="200" rx="14" fill="url(#so_card5)"/>
+  </g>
+  <text x="991" y="102" text-anchor="middle" font-size="11" font-weight="700" fill="#a7f3d0" letter-spacing="1.5">STAGE 5</text>
+  <text x="991" y="128" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Results</text>
+  <line x1="936" y1="138" x2="1046" y2="138" stroke="#fff" stroke-width="0.5" opacity="0.3"/>
+  <!-- Chart icon -->
+  <rect x="941" y="155" width="100" height="60" rx="4" fill="#065f46" opacity="0.5"/>
+  <polyline points="951,205 965,190 980,200 995,170 1010,180 1025,160" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="951" cy="205" r="2" fill="#6ee7b7"/>
+  <circle cx="995" cy="170" r="2" fill="#6ee7b7"/>
+  <circle cx="1025" cy="160" r="2" fill="#6ee7b7"/>
+  <text x="991" y="232" text-anchor="middle" font-size="9" fill="#a7f3d0">6 Publication Plots</text>
+  <text x="991" y="247" text-anchor="middle" font-size="9" fill="#6ee7b7">metrics.json</text>
+  <text x="991" y="262" text-anchor="middle" font-size="9" fill="#6ee7b7">best_model.pt</text>
+
+  <!-- Bottom info bar -->
+  <rect x="30" y="296" width="1041" height="30" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="115" y="316" text-anchor="middle" font-size="9" fill="#94a3b8">Complex I/Q Model</text>
+  <text x="329" y="316" text-anchor="middle" font-size="9" fill="#94a3b8">70/15/15 Split</text>
+  <text x="555" y="316" text-anchor="middle" font-size="9" fill="#94a3b8">~60K Parameters</text>
+  <text x="782" y="316" text-anchor="middle" font-size="9" fill="#94a3b8">MAE &lt; 0.5 dB</text>
+  <text x="991" y="316" text-anchor="middle" font-size="9" fill="#94a3b8">MFI Acc &gt; 99%</text>
+</svg>

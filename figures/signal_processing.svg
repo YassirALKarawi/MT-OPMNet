@@ -1,0 +1,201 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="sp_bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc"/>
+      <stop offset="100%" style="stop-color:#e2e8f0"/>
+    </linearGradient>
+    <linearGradient id="sp_blue" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#2563eb"/>
+    </linearGradient>
+    <linearGradient id="sp_purple" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="sp_cyan" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#06b6d4"/>
+      <stop offset="100%" style="stop-color:#0891b2"/>
+    </linearGradient>
+    <linearGradient id="sp_green" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#059669"/>
+    </linearGradient>
+    <linearGradient id="sp_orange" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316"/>
+      <stop offset="100%" style="stop-color:#ea580c"/>
+    </linearGradient>
+    <filter id="sp_sh" x="-3%" y="-5%" width="106%" height="115%">
+      <feDropShadow dx="1" dy="3" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+    <marker id="sp_arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="420" rx="14" fill="url(#sp_bg)"/>
+
+  <!-- Title -->
+  <text x="480" y="34" text-anchor="middle" font-size="18" font-weight="700" fill="#1e293b">Signal Processing &amp; AAH Generation Pipeline</text>
+  <text x="480" y="52" text-anchor="middle" font-size="11" fill="#64748b">From optical constellation to normalised amplitude histogram input</text>
+
+  <!-- ====== ROW 1: Constellation → Symbols → +Noise → Received ====== -->
+
+  <!-- Step 1: Constellation -->
+  <g filter="url(#sp_sh)">
+    <rect x="30" y="75" width="180" height="150" rx="12" fill="#fff" stroke="#3b82f6" stroke-width="2"/>
+  </g>
+  <rect x="30" y="75" width="180" height="30" rx="12" fill="url(#sp_blue)"/>
+  <rect x="30" y="93" width="180" height="12" fill="url(#sp_blue)"/>
+  <text x="120" y="95" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">1. Constellation</text>
+  <!-- Mini constellation plot (16QAM) -->
+  <rect x="50" y="115" width="140" height="95" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <!-- Grid lines -->
+  <line x1="90" y1="115" x2="90" y2="210" stroke="#e2e8f0" stroke-width="0.5"/>
+  <line x1="120" y1="115" x2="120" y2="210" stroke="#e2e8f0" stroke-width="0.5"/>
+  <line x1="150" y1="115" x2="150" y2="210" stroke="#e2e8f0" stroke-width="0.5"/>
+  <line x1="50" y1="140" x2="190" y2="140" stroke="#e2e8f0" stroke-width="0.5"/>
+  <line x1="50" y1="162" x2="190" y2="162" stroke="#e2e8f0" stroke-width="0.5"/>
+  <line x1="50" y1="185" x2="190" y2="185" stroke="#e2e8f0" stroke-width="0.5"/>
+  <!-- 16QAM points -->
+  <circle cx="75" cy="127" r="3.5" fill="#3b82f6"/><circle cx="105" cy="127" r="3.5" fill="#3b82f6"/>
+  <circle cx="135" cy="127" r="3.5" fill="#3b82f6"/><circle cx="165" cy="127" r="3.5" fill="#3b82f6"/>
+  <circle cx="75" cy="150" r="3.5" fill="#3b82f6"/><circle cx="105" cy="150" r="3.5" fill="#3b82f6"/>
+  <circle cx="135" cy="150" r="3.5" fill="#3b82f6"/><circle cx="165" cy="150" r="3.5" fill="#3b82f6"/>
+  <circle cx="75" cy="173" r="3.5" fill="#3b82f6"/><circle cx="105" cy="173" r="3.5" fill="#3b82f6"/>
+  <circle cx="135" cy="173" r="3.5" fill="#3b82f6"/><circle cx="165" cy="173" r="3.5" fill="#3b82f6"/>
+  <circle cx="75" cy="196" r="3.5" fill="#3b82f6"/><circle cx="105" cy="196" r="3.5" fill="#3b82f6"/>
+  <circle cx="135" cy="196" r="3.5" fill="#3b82f6"/><circle cx="165" cy="196" r="3.5" fill="#3b82f6"/>
+
+  <!-- Arrow -->
+  <line x1="215" y1="150" x2="253" y2="150" stroke="#64748b" stroke-width="2" marker-end="url(#sp_arr)"/>
+  <text x="234" y="143" text-anchor="middle" font-size="8" fill="#64748b">sample</text>
+
+  <!-- Step 2: Symbol Stream -->
+  <g filter="url(#sp_sh)">
+    <rect x="260" y="75" width="180" height="150" rx="12" fill="#fff" stroke="#8b5cf6" stroke-width="2"/>
+  </g>
+  <rect x="260" y="75" width="180" height="30" rx="12" fill="url(#sp_purple)"/>
+  <rect x="260" y="93" width="180" height="12" fill="url(#sp_purple)"/>
+  <text x="350" y="95" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">2. Symbol Stream</text>
+  <!-- Complex plane with scattered symbols -->
+  <rect x="280" y="115" width="140" height="95" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="350" y1="115" x2="350" y2="210" stroke="#94a3b8" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <line x1="280" y1="162" x2="420" y2="162" stroke="#94a3b8" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <text x="413" y="157" font-size="7" fill="#94a3b8">Re</text>
+  <text x="354" y="122" font-size="7" fill="#94a3b8">Im</text>
+  <!-- Scattered noisy points -->
+  <circle cx="320" cy="135" r="2" fill="#8b5cf6" opacity="0.6"/>
+  <circle cx="375" cy="140" r="2" fill="#8b5cf6" opacity="0.6"/>
+  <circle cx="310" cy="178" r="2" fill="#8b5cf6" opacity="0.6"/>
+  <circle cx="390" cy="185" r="2" fill="#8b5cf6" opacity="0.6"/>
+  <circle cx="335" cy="148" r="2" fill="#8b5cf6" opacity="0.6"/>
+  <circle cx="365" cy="175" r="2" fill="#8b5cf6" opacity="0.6"/>
+  <circle cx="305" cy="150" r="2" fill="#8b5cf6" opacity="0.6"/>
+  <circle cx="388" cy="155" r="2" fill="#8b5cf6" opacity="0.6"/>
+  <circle cx="325" cy="190" r="2" fill="#8b5cf6" opacity="0.6"/>
+  <circle cx="370" cy="130" r="2" fill="#8b5cf6" opacity="0.6"/>
+  <circle cx="340" cy="195" r="2" fill="#8b5cf6" opacity="0.6"/>
+  <circle cx="380" cy="168" r="2" fill="#8b5cf6" opacity="0.6"/>
+  <text x="350" y="225" text-anchor="middle" font-size="9" fill="#7c3aed">s = I + jQ</text>
+
+  <!-- Arrow -->
+  <line x1="445" y1="150" x2="483" y2="150" stroke="#64748b" stroke-width="2" marker-end="url(#sp_arr)"/>
+  <text x="464" y="143" text-anchor="middle" font-size="8" fill="#64748b">+n</text>
+
+  <!-- Step 3: AWGN Channel -->
+  <g filter="url(#sp_sh)">
+    <rect x="490" y="75" width="180" height="150" rx="12" fill="#fff" stroke="#06b6d4" stroke-width="2"/>
+  </g>
+  <rect x="490" y="75" width="180" height="30" rx="12" fill="url(#sp_cyan)"/>
+  <rect x="490" y="93" width="180" height="12" fill="url(#sp_cyan)"/>
+  <text x="580" y="95" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">3. AWGN Channel</text>
+  <rect x="510" y="115" width="140" height="95" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <!-- Noisy constellation -->
+  <line x1="580" y1="115" x2="580" y2="210" stroke="#94a3b8" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <line x1="510" y1="162" x2="650" y2="162" stroke="#94a3b8" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <!-- Spread-out noisy points -->
+  <circle cx="548" cy="132" r="2" fill="#06b6d4" opacity="0.4"/><circle cx="553" cy="138" r="2" fill="#06b6d4" opacity="0.4"/>
+  <circle cx="541" cy="128" r="2" fill="#06b6d4" opacity="0.4"/><circle cx="558" cy="145" r="2" fill="#06b6d4" opacity="0.4"/>
+  <circle cx="607" cy="133" r="2" fill="#06b6d4" opacity="0.4"/><circle cx="613" cy="140" r="2" fill="#06b6d4" opacity="0.4"/>
+  <circle cx="600" cy="127" r="2" fill="#06b6d4" opacity="0.4"/><circle cx="618" cy="136" r="2" fill="#06b6d4" opacity="0.4"/>
+  <circle cx="546" cy="182" r="2" fill="#06b6d4" opacity="0.4"/><circle cx="555" cy="190" r="2" fill="#06b6d4" opacity="0.4"/>
+  <circle cx="540" cy="176" r="2" fill="#06b6d4" opacity="0.4"/><circle cx="560" cy="186" r="2" fill="#06b6d4" opacity="0.4"/>
+  <circle cx="605" cy="185" r="2" fill="#06b6d4" opacity="0.4"/><circle cx="615" cy="178" r="2" fill="#06b6d4" opacity="0.4"/>
+  <circle cx="610" cy="192" r="2" fill="#06b6d4" opacity="0.4"/><circle cx="620" cy="183" r="2" fill="#06b6d4" opacity="0.4"/>
+  <text x="580" y="225" text-anchor="middle" font-size="9" fill="#0891b2">r = s + n,  n ~ CN(0, σ²)</text>
+
+  <!-- Arrow -->
+  <line x1="675" y1="150" x2="713" y2="150" stroke="#64748b" stroke-width="2" marker-end="url(#sp_arr)"/>
+  <text x="694" y="143" text-anchor="middle" font-size="8" fill="#64748b">|r|</text>
+
+  <!-- Step 4: Amplitude -->
+  <g filter="url(#sp_sh)">
+    <rect x="720" y="75" width="210" height="150" rx="12" fill="#fff" stroke="#f97316" stroke-width="2"/>
+  </g>
+  <rect x="720" y="75" width="210" height="30" rx="12" fill="url(#sp_orange)"/>
+  <rect x="720" y="93" width="210" height="12" fill="url(#sp_orange)"/>
+  <text x="825" y="95" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">4. Amplitude |r|</text>
+  <!-- Amplitude time series -->
+  <rect x="740" y="115" width="170" height="95" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <polyline points="750,185 758,160 766,175 774,140 782,165 790,145 798,170 806,135 814,155 822,180 830,150 838,168 846,142 854,175 862,148 870,160 878,185 886,155 894,165 900,170" fill="none" stroke="#f97316" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="740" y1="200" x2="910" y2="200" stroke="#94a3b8" stroke-width="0.5"/>
+  <text x="825" y="225" text-anchor="middle" font-size="9" fill="#ea580c">16,384 amplitude samples</text>
+
+  <!-- ====== ROW 2: Histogram → Normalise → Input Tensor ====== -->
+
+  <!-- Arrow down from amplitude -->
+  <path d="M825 225 L825 250 L580 250 L580 270" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#sp_arr)"/>
+  <text x="700" y="246" text-anchor="middle" font-size="8" fill="#64748b">histogram</text>
+
+  <!-- Step 5: Histogram -->
+  <g filter="url(#sp_sh)">
+    <rect x="430" y="275" width="300" height="125" rx="12" fill="#fff" stroke="#10b981" stroke-width="2"/>
+  </g>
+  <rect x="430" y="275" width="300" height="30" rx="12" fill="url(#sp_green)"/>
+  <rect x="430" y="293" width="300" height="12" fill="url(#sp_green)"/>
+  <text x="580" y="295" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">5. Normalised Amplitude Histogram (AAH)</text>
+  <!-- Histogram bars -->
+  <rect x="455" y="362" width="8" height="16" rx="1" fill="#10b981" opacity="0.3"/>
+  <rect x="466" y="355" width="8" height="23" rx="1" fill="#10b981" opacity="0.4"/>
+  <rect x="477" y="345" width="8" height="33" rx="1" fill="#10b981" opacity="0.5"/>
+  <rect x="488" y="338" width="8" height="40" rx="1" fill="#10b981" opacity="0.6"/>
+  <rect x="499" y="325" width="8" height="53" rx="1" fill="#10b981" opacity="0.7"/>
+  <rect x="510" y="318" width="8" height="60" rx="1" fill="#10b981" opacity="0.8"/>
+  <rect x="521" y="315" width="8" height="63" rx="1" fill="#10b981" opacity="0.9"/>
+  <rect x="532" y="320" width="8" height="58" rx="1" fill="#10b981" opacity="0.85"/>
+  <rect x="543" y="330" width="8" height="48" rx="1" fill="#10b981" opacity="0.75"/>
+  <rect x="554" y="340" width="8" height="38" rx="1" fill="#10b981" opacity="0.65"/>
+  <rect x="565" y="348" width="8" height="30" rx="1" fill="#10b981" opacity="0.55"/>
+  <rect x="576" y="350" width="8" height="28" rx="1" fill="#10b981" opacity="0.5"/>
+  <rect x="587" y="345" width="8" height="33" rx="1" fill="#10b981" opacity="0.55"/>
+  <rect x="598" y="335" width="8" height="43" rx="1" fill="#10b981" opacity="0.65"/>
+  <rect x="609" y="328" width="8" height="50" rx="1" fill="#10b981" opacity="0.75"/>
+  <rect x="620" y="332" width="8" height="46" rx="1" fill="#10b981" opacity="0.7"/>
+  <rect x="631" y="340" width="8" height="38" rx="1" fill="#10b981" opacity="0.6"/>
+  <rect x="642" y="348" width="8" height="30" rx="1" fill="#10b981" opacity="0.5"/>
+  <rect x="653" y="355" width="8" height="23" rx="1" fill="#10b981" opacity="0.4"/>
+  <rect x="664" y="360" width="8" height="18" rx="1" fill="#10b981" opacity="0.3"/>
+  <rect x="675" y="365" width="8" height="13" rx="1" fill="#10b981" opacity="0.2"/>
+  <rect x="686" y="370" width="8" height="8" rx="1" fill="#10b981" opacity="0.15"/>
+  <rect x="697" y="373" width="8" height="5" rx="1" fill="#10b981" opacity="0.1"/>
+  <line x1="450" y1="378" x2="710" y2="378" stroke="#94a3b8" stroke-width="0.8"/>
+  <text x="580" y="395" text-anchor="middle" font-size="9" fill="#059669">100 bins · range [0, max_amp] · Σ = 1.0</text>
+
+  <!-- Arrow to output tensor -->
+  <line x1="735" y1="337" x2="773" y2="337" stroke="#64748b" stroke-width="2" marker-end="url(#sp_arr)"/>
+
+  <!-- Output tensor -->
+  <g filter="url(#sp_sh)">
+    <rect x="780" y="305" width="150" height="65" rx="10" fill="url(#sp_blue)"/>
+  </g>
+  <text x="855" y="332" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Input Tensor</text>
+  <text x="855" y="352" text-anchor="middle" font-size="10" fill="#bfdbfe">(Batch × 1 × 100)</text>
+  <text x="855" y="365" text-anchor="middle" font-size="8" fill="#93c5fd">→ MT-OPMNet</text>
+
+  <!-- Formula box -->
+  <rect x="30" y="285" width="380" height="100" rx="10" fill="#fff" stroke="#e2e8f0" stroke-width="1" filter="url(#sp_sh)"/>
+  <text x="220" y="310" text-anchor="middle" font-size="11" font-weight="700" fill="#1e293b">Signal Model</text>
+  <text x="220" y="332" text-anchor="middle" font-size="11" fill="#475569">s<tspan font-size="8" dy="2">k</tspan><tspan dy="-2"> ∈ {constellation points}</tspan></text>
+  <text x="220" y="352" text-anchor="middle" font-size="11" fill="#475569">r<tspan font-size="8" dy="2">k</tspan><tspan dy="-2"> = s</tspan><tspan font-size="8" dy="2">k</tspan><tspan dy="-2"> + n</tspan><tspan font-size="8" dy="2">k</tspan><tspan dy="-2">,   n ~ CN(0, P</tspan><tspan font-size="8" dy="2">s</tspan><tspan dy="-2">/OSNR)</tspan></text>
+  <text x="220" y="372" text-anchor="middle" font-size="11" fill="#475569">AAH = normalize(hist(|r<tspan font-size="8" dy="2">k</tspan><tspan dy="-2">|, 100 bins))</tspan></text>
+</svg>

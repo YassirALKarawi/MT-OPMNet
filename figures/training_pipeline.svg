@@ -1,0 +1,222 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 500" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="tp_bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc"/>
+      <stop offset="100%" style="stop-color:#e2e8f0"/>
+    </linearGradient>
+    <linearGradient id="tp_indigo" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#4f46e5"/>
+    </linearGradient>
+    <linearGradient id="tp_blue" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#2563eb"/>
+    </linearGradient>
+    <linearGradient id="tp_purple" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="tp_green" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#059669"/>
+    </linearGradient>
+    <linearGradient id="tp_red" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="100%" style="stop-color:#dc2626"/>
+    </linearGradient>
+    <linearGradient id="tp_amber" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#d97706"/>
+    </linearGradient>
+    <linearGradient id="tp_slate" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#64748b"/>
+      <stop offset="100%" style="stop-color:#475569"/>
+    </linearGradient>
+    <filter id="tp_sh" x="-3%" y="-5%" width="106%" height="115%">
+      <feDropShadow dx="1" dy="3" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+    <marker id="tp_arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#475569"/>
+    </marker>
+    <marker id="tp_arr_r" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <rect width="980" height="500" rx="14" fill="url(#tp_bg)"/>
+
+  <!-- Title -->
+  <text x="490" y="34" text-anchor="middle" font-size="18" font-weight="700" fill="#1e293b">Training Pipeline</text>
+  <text x="490" y="52" text-anchor="middle" font-size="11" fill="#64748b">Multi-task training with uncertainty weighting, focal loss, and cosine annealing</text>
+
+  <!-- ========== ROW 1: Forward Pass ========== -->
+  <text x="30" y="82" font-size="10" font-weight="700" fill="#6366f1" letter-spacing="1.5">FORWARD PASS</text>
+
+  <!-- Input Batch -->
+  <g filter="url(#tp_sh)">
+    <rect x="30" y="92" width="120" height="65" rx="10" fill="url(#tp_indigo)"/>
+  </g>
+  <text x="90" y="118" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">Input Batch</text>
+  <text x="90" y="136" text-anchor="middle" font-size="9" fill="#c7d2fe">(B × 1 × 100)</text>
+  <text x="90" y="150" text-anchor="middle" font-size="8" fill="#a5b4fc">AAH histograms</text>
+
+  <!-- Arrow -->
+  <line x1="155" y1="124" x2="185" y2="124" stroke="#475569" stroke-width="1.5" marker-end="url(#tp_arr)"/>
+
+  <!-- Backbone -->
+  <g filter="url(#tp_sh)">
+    <rect x="190" y="92" width="140" height="65" rx="10" fill="url(#tp_blue)"/>
+  </g>
+  <text x="260" y="118" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">CNN Backbone</text>
+  <text x="260" y="136" text-anchor="middle" font-size="9" fill="#bfdbfe">3× Conv1D Blocks</text>
+  <text x="260" y="150" text-anchor="middle" font-size="8" fill="#93c5fd">BN + ReLU + Drop</text>
+
+  <!-- Arrow -->
+  <line x1="335" y1="124" x2="365" y2="124" stroke="#475569" stroke-width="1.5" marker-end="url(#tp_arr)"/>
+
+  <!-- CAAM -->
+  <g filter="url(#tp_sh)">
+    <rect x="370" y="92" width="105" height="65" rx="10" fill="url(#tp_purple)"/>
+  </g>
+  <text x="422" y="118" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">CAAM</text>
+  <text x="422" y="136" text-anchor="middle" font-size="9" fill="#ddd6fe">Attention</text>
+  <text x="422" y="150" text-anchor="middle" font-size="8" fill="#c4b5fd">SE-style</text>
+
+  <!-- Arrow -->
+  <line x1="480" y1="124" x2="510" y2="124" stroke="#475569" stroke-width="1.5" marker-end="url(#tp_arr)"/>
+
+  <!-- GAP -->
+  <g filter="url(#tp_sh)">
+    <rect x="515" y="100" width="70" height="48" rx="8" fill="url(#tp_slate)"/>
+  </g>
+  <text x="550" y="121" text-anchor="middle" font-size="10" font-weight="600" fill="#fff">GAP</text>
+  <text x="550" y="138" text-anchor="middle" font-size="8" fill="#cbd5e1">→ (B,128)</text>
+
+  <!-- Split to two heads -->
+  <line x1="590" y1="124" x2="620" y2="124" stroke="#475569" stroke-width="1.5"/>
+  <line x1="620" y1="124" x2="620" y2="100" stroke="#475569" stroke-width="1.5"/>
+  <line x1="620" y1="124" x2="620" y2="148" stroke="#475569" stroke-width="1.5"/>
+  <line x1="620" y1="100" x2="650" y2="100" stroke="#059669" stroke-width="1.5" marker-end="url(#tp_arr)"/>
+  <line x1="620" y1="148" x2="650" y2="148" stroke="#dc2626" stroke-width="1.5" marker-end="url(#tp_arr)"/>
+
+  <!-- OSNR Head -->
+  <g filter="url(#tp_sh)">
+    <rect x="655" y="78" width="130" height="44" rx="8" fill="url(#tp_green)"/>
+  </g>
+  <text x="720" y="98" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">OSNR Head</text>
+  <text x="720" y="114" text-anchor="middle" font-size="8" fill="#d1fae5">FC→ReLU→FC(1)</text>
+
+  <!-- MFI Head -->
+  <g filter="url(#tp_sh)">
+    <rect x="655" y="128" width="130" height="44" rx="8" fill="url(#tp_red)"/>
+  </g>
+  <text x="720" y="148" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">MFI Head</text>
+  <text x="720" y="164" text-anchor="middle" font-size="8" fill="#fecaca">FC→ReLU→FC(5)</text>
+
+  <!-- Outputs -->
+  <line x1="790" y1="100" x2="825" y2="100" stroke="#059669" stroke-width="1.5" marker-end="url(#tp_arr)"/>
+  <line x1="790" y1="150" x2="825" y2="150" stroke="#dc2626" stroke-width="1.5" marker-end="url(#tp_arr)"/>
+
+  <rect x="830" y="84" width="80" height="30" rx="6" fill="#f0fdf4" stroke="#059669" stroke-width="1.5"/>
+  <text x="870" y="104" text-anchor="middle" font-size="10" font-weight="600" fill="#059669">ŷ (dB)</text>
+
+  <rect x="830" y="136" width="80" height="30" rx="6" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="870" y="156" text-anchor="middle" font-size="10" font-weight="600" fill="#dc2626">logits (5)</text>
+
+  <!-- ========== ROW 2: Loss Computation ========== -->
+  <text x="30" y="202" font-size="10" font-weight="700" fill="#f59e0b" letter-spacing="1.5">LOSS COMPUTATION</text>
+
+  <!-- Dotted line separator -->
+  <line x1="30" y1="186" x2="950" y2="186" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="6,4"/>
+
+  <!-- MSE Loss -->
+  <g filter="url(#tp_sh)">
+    <rect x="130" y="215" width="180" height="70" rx="10" fill="#fff" stroke="#059669" stroke-width="2"/>
+  </g>
+  <rect x="130" y="215" width="180" height="24" rx="10" fill="url(#tp_green)"/>
+  <rect x="130" y="228" width="180" height="11" fill="url(#tp_green)"/>
+  <text x="220" y="234" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">MSE Loss</text>
+  <text x="220" y="258" text-anchor="middle" font-size="10" fill="#059669">ℒ<tspan font-size="8" dy="2">osnr</tspan><tspan dy="-2"> = ||ŷ - y||²</tspan></text>
+  <text x="220" y="275" text-anchor="middle" font-size="9" fill="#6b7280">OSNR regression loss</text>
+
+  <!-- Focal Loss -->
+  <g filter="url(#tp_sh)">
+    <rect x="400" y="215" width="210" height="70" rx="10" fill="#fff" stroke="#dc2626" stroke-width="2"/>
+  </g>
+  <rect x="400" y="215" width="210" height="24" rx="10" fill="url(#tp_red)"/>
+  <rect x="400" y="228" width="210" height="11" fill="url(#tp_red)"/>
+  <text x="505" y="234" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">Focal Loss (γ=2)</text>
+  <text x="505" y="258" text-anchor="middle" font-size="10" fill="#dc2626">ℒ<tspan font-size="8" dy="2">mfi</tspan><tspan dy="-2"> = -(1-p</tspan><tspan font-size="8" dy="2">t</tspan><tspan dy="-2">)ᵞ log(p</tspan><tspan font-size="8" dy="2">t</tspan><tspan dy="-2">)</tspan></text>
+  <text x="505" y="275" text-anchor="middle" font-size="9" fill="#6b7280">MFI classification loss</text>
+
+  <!-- Arrows to uncertainty -->
+  <line x1="310" y1="255" x2="310" y2="310" stroke="#475569" stroke-width="1.5"/>
+  <line x1="505" y1="285" x2="505" y2="310" stroke="#475569" stroke-width="1.5"/>
+  <line x1="310" y1="310" x2="370" y2="330" stroke="#475569" stroke-width="1.5" marker-end="url(#tp_arr)"/>
+  <line x1="505" y1="310" x2="445" y2="330" stroke="#475569" stroke-width="1.5" marker-end="url(#tp_arr)"/>
+
+  <!-- Uncertainty Weighting -->
+  <g filter="url(#tp_sh)">
+    <rect x="330" y="330" width="160" height="65" rx="10" fill="url(#tp_purple)"/>
+  </g>
+  <text x="410" y="355" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">Uncertainty</text>
+  <text x="410" y="372" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">Weighting</text>
+  <text x="410" y="388" text-anchor="middle" font-size="8" fill="#ddd6fe">σ²<tspan font-size="7" dy="1">osnr</tspan><tspan dy="-1">, σ²</tspan><tspan font-size="7" dy="1">mfi</tspan><tspan dy="-1"> (learnable)</tspan></text>
+
+  <!-- Sigma labels -->
+  <rect x="680" y="220" width="120" height="55" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.5" filter="url(#tp_sh)"/>
+  <text x="740" y="240" text-anchor="middle" font-size="9" font-weight="600" fill="#5b21b6">Auto-Balance</text>
+  <text x="740" y="255" text-anchor="middle" font-size="8" fill="#7c3aed">w = 1/(2σ²)</text>
+  <text x="740" y="268" text-anchor="middle" font-size="8" fill="#7c3aed">+ log(σ) reg.</text>
+
+  <line x1="680" y1="250" x2="495" y2="285" stroke="#7c3aed" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- Arrow to total -->
+  <line x1="410" y1="395" x2="410" y2="420" stroke="#475569" stroke-width="2" marker-end="url(#tp_arr)"/>
+
+  <!-- Total Loss -->
+  <g filter="url(#tp_sh)">
+    <rect x="340" y="425" width="140" height="45" rx="10" fill="url(#tp_amber)"/>
+  </g>
+  <text x="410" y="448" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">ℒ<tspan font-size="9" dy="2">total</tspan></text>
+  <text x="410" y="464" text-anchor="middle" font-size="8" fill="#fef3c7">Backpropagation</text>
+
+  <!-- ========== ROW 3: Optimizer ========== -->
+  <line x1="30" y1="420" x2="310" y2="420" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="6,4"/>
+  <line x1="510" y1="420" x2="950" y2="420" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="6,4"/>
+  <text x="30" y="438" font-size="10" font-weight="700" fill="#2563eb" letter-spacing="1.5">OPTIMISATION</text>
+
+  <!-- Backprop arrow going right -->
+  <line x1="485" y1="447" x2="530" y2="447" stroke="#475569" stroke-width="2" marker-end="url(#tp_arr)"/>
+
+  <!-- AdamW -->
+  <g filter="url(#tp_sh)">
+    <rect x="535" y="425" width="120" height="55" rx="10" fill="url(#tp_blue)"/>
+  </g>
+  <text x="595" y="449" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">AdamW</text>
+  <text x="595" y="467" text-anchor="middle" font-size="8" fill="#bfdbfe">lr=1e-3, wd=1e-4</text>
+  <text x="595" y="478" text-anchor="middle" font-size="8" fill="#93c5fd">grad clip=5.0</text>
+
+  <!-- Arrow -->
+  <line x1="660" y1="452" x2="695" y2="452" stroke="#475569" stroke-width="1.5" marker-end="url(#tp_arr)"/>
+
+  <!-- Cosine Annealing -->
+  <g filter="url(#tp_sh)">
+    <rect x="700" y="425" width="130" height="55" rx="10" fill="url(#tp_indigo)"/>
+  </g>
+  <text x="765" y="449" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">Cosine LR</text>
+  <text x="765" y="465" text-anchor="middle" font-size="8" fill="#c7d2fe">1e-3 → 1e-5</text>
+  <!-- Mini cosine curve -->
+  <path d="M718 475 Q730 470 742 475 Q754 480 765 475 Q776 470 788 475 Q800 480 812 475" fill="none" stroke="#a5b4fc" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- Arrow -->
+  <line x1="835" y1="452" x2="870" y2="452" stroke="#475569" stroke-width="1.5" marker-end="url(#tp_arr)"/>
+
+  <!-- Early Stopping -->
+  <g filter="url(#tp_sh)">
+    <rect x="875" y="425" width="85" height="55" rx="10" fill="url(#tp_amber)"/>
+  </g>
+  <text x="917" y="448" text-anchor="middle" font-size="10" font-weight="600" fill="#fff">Early</text>
+  <text x="917" y="462" text-anchor="middle" font-size="10" font-weight="600" fill="#fff">Stopping</text>
+  <text x="917" y="476" text-anchor="middle" font-size="8" fill="#fef3c7">patience=20</text>
+</svg>
